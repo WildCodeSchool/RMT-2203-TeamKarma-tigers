@@ -12,3 +12,14 @@
   border: 2px solid red;
   margin: 1rem;
 }
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel {
+  border: 2px solid blue;
+  width: 250px;
+  height: 50px;
+}

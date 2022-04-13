@@ -1,4 +1,4 @@
-import ApiMovieCard from "../components/ApiMovieCard";
+import ApiMovieCard from "../components/CardDetailOverall";
 
 export default function Home() {
   return (

@@ -6,7 +6,7 @@ export default function CardDetail() {
       <div className="movie-poster">
         <img src="" alt="" />
       </div>
-      <h2>He</h2>
+      <h2>TEST</h2>
     </div>
   );
 }
