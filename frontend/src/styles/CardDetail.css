@@ -1,0 +1,14 @@
+.main-container {
+  border: 2px solid black;
+  width: 95%;
+  height: 750px;
+  margin: 1rem;
+  display: flex;
+}
+
+.movie-poster {
+  width: 350px;
+  height: 700px;
+  border: 2px solid red;
+  margin: 1rem;
+}
