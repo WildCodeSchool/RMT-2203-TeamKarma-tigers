@@ -3,7 +3,7 @@ import axios from "axios";
 
 function Searchbar() {
   const [moviesData, setMoviesData] = useState([]);
-  const [search, setSearch] = useState("toto");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
