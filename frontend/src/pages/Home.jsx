@@ -1,9 +1,9 @@
-import CardDetail from "../components/CardDetail";
+import ApiMovieCard from "../components/ApiMovieCard";
 
 export default function Home() {
   return (
     <div>
-      <CardDetail />
+      <ApiMovieCard />
     </div>
   );
 }
