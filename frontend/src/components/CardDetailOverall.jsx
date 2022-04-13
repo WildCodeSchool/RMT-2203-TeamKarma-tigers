@@ -1,4 +1,5 @@
-import "../styles/CardDetail.css";
+import "../styles/CardDetailOverall.css";
+import CardDetailSynopsis from "./CardDetailSynopsis";
 
 export default function ApiMovieCard() {
   return (
@@ -11,6 +12,7 @@ export default function ApiMovieCard() {
           <h2>MOVIE TITLE</h2>
           <h3>MOVIE MINUTES + MOVIE RATING</h3>
           <div className="carousel"> DETAILS REVIEWS SHOWTIME</div>
+          <CardDetailSynopsis />
         </div>
       </div>
     </div>

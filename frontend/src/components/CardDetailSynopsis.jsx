@@ -1,12 +1,5 @@
-import "../styles/CardDetail.css";
+import "../styles/CardDetailSynopsis.css";
 
-export default function CardDetail() {
-  return (
-    <div className="main-container">
-      <div className="movie-poster">
-        <img src="" alt="" />
-      </div>
-      <h2>TEST</h2>
-    </div>
-  );
+export default function CardDetailSynopsis() {
+  return <div className="second-container" />;
 }
