@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { Button } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
+import "./MovieCarousel.css";
 
 function MovieCarousel() {
   const [popularMovies, setPopularMovies] = React.useState([]);
   const [popularMoviePage, setPopularMoviePage] = React.useState(1);
+
+  /*
+  const [trendingMovies, setTrendingMovies] = React.useState([]);
+  */
 
   const getPopularMovie = () => {
     axios
@@ -26,16 +32,20 @@ function MovieCarousel() {
   }, [popularMoviePage]);
 
   return (
-    <div className="App">
-      <div className="movie-container">
-        {popularMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+    <div>
+      <div className="Movie-Carousel">
+        {popularMovies
+          .filter((movie) => movie.release_date)
+          .map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
       </div>
-
-      <button type="button" onClick={handleMoreMovies}>
+      <Button colorScheme="teal" size="lg" onClick={handleMoreMovies}>
         Get more Movies
-      </button>
+      </Button>
+      {/* <button type="button" onClick={handleMoreMovies}>
+        Get more Movies
+      </button> */}
     </div>
   );
 }
