@@ -3,6 +3,7 @@ import logo from "../assets/logo.svg";
 
 import MovieCarousel from "../components/MovieCarousel";
 import CardReviewCarousel from "../components/CardReviewCarousel";
+import Searchbar from "@components/Searchbar";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <p>Hello Vite + React !</p>
 
       <Counter />
+      <Searchbar />
 
       <p>
         Edit <code>App.jsx</code> and save to test HMR updates.
