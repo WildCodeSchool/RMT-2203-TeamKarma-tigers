@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
+import "../style/searchbar.css";
 
 function Searchbar() {
   const [moviesData, setMoviesData] = useState([]);
@@ -24,7 +25,9 @@ function Searchbar() {
       </form>
       <div className="movie-list">
         {moviesData.map((movie) => (
-          <h3>{movie.title}</h3>
+          <a className="movie-link" href="/">
+            {movie.title}
+          </a>
         ))}
       </div>
     </div>
