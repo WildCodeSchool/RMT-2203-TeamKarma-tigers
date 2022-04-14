@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/ReadMoreButton.css";
 
 export default function ReadMore({ children, maxcharactercount = 100 }) {
   const text = children;
@@ -13,6 +14,7 @@ export default function ReadMore({ children, maxcharactercount = 100 }) {
     <p className="text-left">
       {resultString}
       <span
+        className="text-read-more"
         onClick={toggleIsTruncated}
         onKeyPress={toggleIsTruncated}
         role="button"
