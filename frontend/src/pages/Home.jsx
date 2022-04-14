@@ -32,7 +32,22 @@ export default function Home() {
           Vite Docs
         </a>
       </p>
-      <MovieCarousel />
+
+      <h1>Popular Movie</h1>
+      <MovieCarousel
+        type="popularMovies"
+        url="https://api.themoviedb.org/3/movie/popular?"
+      />
+      <h2>This Week Trending Movie</h2>
+      <MovieCarousel
+        type="thisWeekTrendingMovies"
+        url="https://api.themoviedb.org/3/trending/all/week?"
+      />
+      <h2>All Movie</h2>
+      <MovieCarousel
+        type="alphabeticalMovies"
+        url="https://api.themoviedb.org/3/discover/movie?sort_by=original_title.asc&include_adult=false"
+      />
     </header>
   );
 }

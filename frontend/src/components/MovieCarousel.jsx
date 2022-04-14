@@ -4,48 +4,42 @@ import { Button } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
 import "./MovieCarousel.css";
 
-function MovieCarousel() {
-  const [popularMovies, setPopularMovies] = React.useState([]);
-  const [popularMoviePage, setPopularMoviePage] = React.useState(1);
+function MovieCarousel({ type, url }) {
+  const [Movies, setMovies] = React.useState([]);
+  const [MoviePage, setMoviePage] = React.useState(1);
 
-  /*
-  const [trendingMovies, setTrendingMovies] = React.useState([]);
-  */
-
-  const getPopularMovie = () => {
+  const getMovie = () => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=20d0a760d82811eb01a3f02b31edc400&language=en-US&page=${popularMoviePage}`
+        `${url}&api_key=20d0a760d82811eb01a3f02b31edc400&language=en-US&page=${MoviePage}`
       )
       .then((response) => response.data)
       .then((data) => {
-        setPopularMovies(popularMovies.concat(data.results));
+        setMovies(Movies.concat(data.results));
       });
   };
 
   const handleMoreMovies = () => {
-    setPopularMoviePage(popularMoviePage + 1);
+    setMoviePage(MoviePage + 1);
   };
 
   useEffect(() => {
-    getPopularMovie();
-  }, [popularMoviePage]);
+    getMovie();
+  }, [MoviePage]);
 
   return (
     <div>
       <div className="Movie-Carousel">
-        {popularMovies
-          .filter((movie) => movie.release_date)
-          .map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
+        {Movies.filter((movie) => movie.release_date).map((movie) => (
+          <MovieCard
+            key={`${type}_${movie.id}_${movie.original_title}`}
+            movie={movie}
+          />
+        ))}
       </div>
       <Button colorScheme="teal" size="lg" onClick={handleMoreMovies}>
-        Get more Movies
+        Load More
       </Button>
-      {/* <button type="button" onClick={handleMoreMovies}>
-        Get more Movies
-      </button> */}
     </div>
   );
 }
