@@ -3,7 +3,7 @@ import axios from "axios";
 
 import CardCasting from "./CardCasting";
 
-function CardCastCarousel({ movie }) {
+function CardCastingCarousel({ movie }) {
   const [casting, setCasting] = React.useState([]);
 
   const getCastFromMovie = () => {
@@ -32,4 +32,4 @@ function CardCastCarousel({ movie }) {
   );
 }
 
-export default CardCastCarousel;
+export default CardCastingCarousel;
