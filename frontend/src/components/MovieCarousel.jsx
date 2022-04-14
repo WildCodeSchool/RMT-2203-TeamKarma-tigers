@@ -8,7 +8,7 @@ function MovieCarousel({ type, url }) {
   const [Movies, setMovies] = React.useState([]);
   const [MoviePage, setMoviePage] = React.useState(1);
 
-  const getMovie = () => {
+  const getMovies = () => {
     axios
       .get(
         `${url}&api_key=20d0a760d82811eb01a3f02b31edc400&language=en-US&page=${MoviePage}`
@@ -24,7 +24,7 @@ function MovieCarousel({ type, url }) {
   };
 
   useEffect(() => {
-    getMovie();
+    getMovies();
   }, [MoviePage]);
 
   return (
