@@ -1,24 +1,5 @@
-import { useState } from "react/cjs/react.production.min";
 import "../styles/CardDetailSynopsis.css";
-
-function ReadMore({ children, maxcharactercount = 100 }) {
-  const text = children;
-  const [isTruncated, setIsTruncated] = useState(true);
-  const resultString = isTruncated ? text.slice(0, maxcharactercount) : text;
-
-  const toggleIsTruncated = () => {
-    setIsTruncated(!isTruncated);
-  };
-
-  return (
-    <p className="text-left">
-      {resultString}
-      <span onClick={toggleIsTruncated} aria-hidden="true">
-        {isTruncated ? "...read more" : " show less"}
-      </span>
-    </p>
-  );
-}
+import ReadMore from "./ReadMoreButton";
 
 export default function CardDetailSynopsis() {
   return (
