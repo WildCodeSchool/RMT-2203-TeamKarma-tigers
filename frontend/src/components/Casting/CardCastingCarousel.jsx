@@ -13,7 +13,7 @@ function CardCastingCarousel({ movie }) {
       )
       .then((response) => response.data)
       .then((data) => {
-        setCasting(casting.concat(data.cast));
+        setCasting(data.cast);
       });
   };
 
@@ -24,9 +24,11 @@ function CardCastingCarousel({ movie }) {
   return (
     <div>
       <div>
-        {casting.map((cast) => (
-          <CardCasting cast={cast} />
-        ))}
+        {casting
+          .filter((cast) => cast.known_for_department.includes("Acting"))
+          .map((cast) => (
+            <CardCasting cast={cast} />
+          ))}
       </div>
     </div>
   );
