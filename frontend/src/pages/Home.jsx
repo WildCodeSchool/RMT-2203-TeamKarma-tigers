@@ -1,41 +1,14 @@
 import Searchbar from "../components/Searchbar";
-import Counter from "../components/Counter";
-import logo from "../assets/logo.svg";
-import MovieCarousel from "../components/MovieCarousel";
+import CardCastingCarousel from "../components/Casting/CardCastingCarousel";
 import CardReviewCarousel from "../components/CardReviewCarousel";
+import MovieCarousel from "../components/MovieCarousel";
 import MovieVideoCarousel from "../components/MovieVideoCarousel";
+import CardDetailSynopsis from "../components/CardDetailSynopsis";
 
 export default function Home() {
   return (
     <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
       <Searchbar />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
 
       <h1>Popular Movie</h1>
       <MovieCarousel
@@ -52,7 +25,9 @@ export default function Home() {
         type="alphabeticalMovies"
         url="https://api.themoviedb.org/3/discover/movie?sort_by=original_title.asc&include_adult=false"
       />
-      <CardReviewCarousel movie={550} />
+      <CardDetailSynopsis />
+      <CardReviewCarousel movie={11} />
+      <CardCastingCarousel movie={11} />
       <MovieVideoCarousel movie={11} />
     </header>
   );
