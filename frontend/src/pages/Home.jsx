@@ -1,9 +1,9 @@
+import Searchbar from "../components/Searchbar";
 import Counter from "../components/Counter";
 import logo from "../assets/logo.svg";
-
 import MovieCarousel from "../components/MovieCarousel";
 import CardReviewCarousel from "../components/CardReviewCarousel";
-import Searchbar from "@components/Searchbar";
+import MovieVideoCarousel from "../components/MovieVideoCarousel";
 
 export default function Home() {
   return (
@@ -53,6 +53,7 @@ export default function Home() {
         url="https://api.themoviedb.org/3/discover/movie?sort_by=original_title.asc&include_adult=false"
       />
       <CardReviewCarousel movie={550} />
+      <MovieVideoCarousel movie={11} />
     </header>
   );
 }
