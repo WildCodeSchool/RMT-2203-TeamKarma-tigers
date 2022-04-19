@@ -13,12 +13,11 @@ function App() {
         {/* nav */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/allmovies" element={<AllMovies />} />
-          <Route path="/allmovies/results" element={<Results />} />
-          <Route path="/allmovies/:movieid" element={<OneMovie />} />
+          <Route path="/movies" element={<AllMovies />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/movies/:movieid" element={<OneMovie />} />
         </Routes>
       </Router>
-      <Home />
     </div>
   );
 }

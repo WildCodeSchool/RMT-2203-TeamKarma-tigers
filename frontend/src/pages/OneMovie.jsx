@@ -1,19 +1,19 @@
-import { React, useParams } from "react";
+import { React } from "react";
+import { useParams } from "react-router-dom";
 import CardCastingCarousel from "../components/Casting/CardCastingCarousel";
 import CardReviewCarousel from "../components/CardReviewCarousel";
 import MovieVideoCarousel from "../components/MovieVideoCarousel";
 import CardDetailSynopsis from "../components/CardDetailSynopsis";
 
-function OneMovie() {
-  const { movieId } = useParams();
+export default function OneMovie() {
+  const { movieid } = useParams();
 
   return (
     <div>
-      <CardReviewCarousel movie={movieId} />
-      <CardCastingCarousel movie={movieId} />
-      <MovieVideoCarousel movie={movieId} />
+      <CardReviewCarousel movie={movieid} />
+      <CardCastingCarousel movie={movieid} />
+      <MovieVideoCarousel movie={movieid} />
       <CardDetailSynopsis />
     </div>
   );
 }
-export default OneMovie;

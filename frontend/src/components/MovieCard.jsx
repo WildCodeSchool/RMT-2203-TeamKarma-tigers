@@ -38,7 +38,7 @@ function MovieCard({ movie }) {
         <Badge colorScheme="green" fontSize="md" maxW="25%">
           {moment(Date()).diff(movie.release_date, "days") < 30 ? "NEW" : ""}
         </Badge>
-        <LinkOverlay href={`/moviePage-${movie.id}`}>
+        <LinkOverlay href={`/movies/${movie.id}`}>
           <Flex
             bgColor="white"
             direction="column"
