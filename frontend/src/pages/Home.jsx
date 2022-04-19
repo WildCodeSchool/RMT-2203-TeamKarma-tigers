@@ -1,9 +1,9 @@
+import Searchbar from "@components/Searchbar";
 import Counter from "../components/Counter";
 import logo from "../assets/logo.svg";
 
 import MovieCarousel from "../components/MovieCarousel";
 import CardReviewCarousel from "../components/CardReviewCarousel";
-import Searchbar from "@components/Searchbar";
 
 export default function Home() {
   return (
