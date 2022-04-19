@@ -16,6 +16,14 @@ function App() {
           <Route path="/movies" element={<AllMovies />} />
           <Route path="/results" element={<Results />} />
           <Route path="/movies/:movieid" element={<OneMovie />} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>Oops! We cannot find the page you are looking for</p>
+              </main>
+            }
+          />
         </Routes>
       </Router>
     </div>
