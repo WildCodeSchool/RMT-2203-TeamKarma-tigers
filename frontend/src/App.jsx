@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Results from "./pages/Results";
 import AllMovies from "./pages/AllMovies";
 import OneMovie from "./pages/OneMovie";
+import Error from "./pages/Error";
 
 import "./styles/App.css";
 
@@ -16,14 +17,7 @@ function App() {
           <Route path="/movies" element={<AllMovies />} />
           <Route path="/results" element={<Results />} />
           <Route path="/movies/:movieid" element={<OneMovie />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: "1rem" }}>
-                <p>Oops! We cannot find the page you are looking for</p>
-              </main>
-            }
-          />
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     </div>
