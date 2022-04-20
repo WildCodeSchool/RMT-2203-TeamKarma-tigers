@@ -27,7 +27,7 @@ function Searchbar() {
       {moviesData.length !== 0 && search !== "" && (
         <div className="movie-list">
           {moviesData.map((movie) => (
-            <a className="movie-link" href="/">
+            <a className="movie-link" href={`/movies/${movie.id}`}>
               {movie.title}
             </a>
           ))}

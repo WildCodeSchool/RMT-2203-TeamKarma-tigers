@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-// import { browserHistory } from "history";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CardReview from "./CardReview";
-// import Error from "../pages/Error";
 
 function CardReviewCarousel({ movie }) {
   const [reviews, setReviews] = React.useState([]);

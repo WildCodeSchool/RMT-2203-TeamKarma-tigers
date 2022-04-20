@@ -3,6 +3,7 @@
   height: 40px;
   border-radius: 20px;
   font-size: 1rem;
+  color : black;
 }
 
 .movie-list {
@@ -16,6 +17,7 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  color : black;
 }
 
 .movie-list::-webkit-scrollbar {
