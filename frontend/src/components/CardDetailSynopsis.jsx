@@ -9,9 +9,9 @@ export default function CardDetailSynopsis() {
         <ReadMore>
           A ticking-time-bomb insomniac and a slippery soap salesman channel
           primal male aggression into a shocking new form of therapy. Their
-          concept catches on, with underground &quotfight clubs&quot forming in
-          every town, until an eccentric gets in the way and ignites an
-          out-of-control spiral toward oblivion.
+          concept catches on, with underground fight clubs forming in every
+          town, until an eccentric gets in the way and ignites an out-of-control
+          spiral toward oblivion.
         </ReadMore>
       </div>
       <div className="utility-container">

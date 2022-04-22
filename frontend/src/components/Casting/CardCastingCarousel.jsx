@@ -25,9 +25,13 @@ function CardCastingCarousel({ movie }) {
     <div>
       <div>
         {casting
-          .filter((cast) => cast.known_for_department.includes("Acting"))
-          .map((cast) => (
-            <CardCasting cast={cast} />
+          .filter(
+            (element) =>
+              element.known_for_department &&
+              element.known_for_department.includes("Acting")
+          )
+          .map((element) => (
+            <CardCasting cast={element} key={element.credit_id} />
           ))}
       </div>
     </div>
