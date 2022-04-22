@@ -7,11 +7,14 @@ import "./MovieCarousel.css";
 function MovieCarousel({ type, url }) {
   const [Movies, setMovies] = React.useState([]);
   const [MoviePage, setMoviePage] = React.useState(1);
+  const controller = new AbortController();
+  const { signal } = controller;
 
   const getMovies = () => {
     axios
       .get(
-        `${url}&api_key=20d0a760d82811eb01a3f02b31edc400&language=en-US&page=${MoviePage}`
+        `${url}&api_key=20d0a760d82811eb01a3f02b31edc400&language=en-US&page=${MoviePage}`,
+        { signal }
       )
       .then((response) => response.data)
       .then((data) => {
@@ -26,7 +29,7 @@ function MovieCarousel({ type, url }) {
   useEffect(() => {
     getMovies();
     return () => {
-      // window.stop();
+      controller.abort();
     };
   }, [MoviePage]);
 
