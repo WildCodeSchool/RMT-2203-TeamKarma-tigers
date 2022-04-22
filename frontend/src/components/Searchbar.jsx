@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../style/searchbar.css";
 
 function Searchbar() {
   const [moviesData, setMoviesData] = useState([]);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -14,9 +16,14 @@ function Searchbar() {
       .then((response) => [setMoviesData(response.data.results)]);
   }, [search]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    return navigate("/results");
+  };
+
   return (
     <div className="seachbar-component">
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           className="movie-input"
           type="text"
@@ -27,7 +34,7 @@ function Searchbar() {
       {moviesData.length !== 0 && search !== "" && (
         <div className="movie-list">
           {moviesData.map((movie) => (
-            <a className="movie-link" href="/">
+            <a className="movie-link" href={`/movies/${movie.id}`}>
               {movie.title}
             </a>
           ))}

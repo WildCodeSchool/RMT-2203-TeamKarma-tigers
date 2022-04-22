@@ -20,9 +20,11 @@ export default function MovieVideoCarousel({ movie }) {
   }, []);
   return (
     <div>
-      {allVideos.map((video) => (
-        <Video videoInfo={video} key={video.key} />
-      ))}
+      {allVideos
+        .filter((video) => video.type === "Trailer" && video.official === true)
+        .map((video) => (
+          <Video videoInfo={video} key={video.key} />
+        ))}
     </div>
   );
 }
