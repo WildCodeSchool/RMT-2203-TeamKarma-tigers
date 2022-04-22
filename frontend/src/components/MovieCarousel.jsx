@@ -26,7 +26,7 @@ function MovieCarousel({ type, url }) {
   useEffect(() => {
     getMovies();
     return () => {
-      window.stop();
+      // window.stop();
     };
   }, [MoviePage]);
 

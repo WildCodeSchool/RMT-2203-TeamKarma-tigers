@@ -24,9 +24,6 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "axios": "^0.26.1",
-    "framer-motion": "^6.3.0",
-    "moment": "^2.29.2",
-    "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0"
+    "framer-motion": "^6.3.0"
   }
 }
