@@ -18,7 +18,7 @@ function Searchbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return navigate("/results");
+    return navigate(`/results/${search}`);
   };
 
   return (
