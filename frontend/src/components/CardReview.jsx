@@ -48,7 +48,21 @@ function CardReview({ review }) {
               />
             ))}
         </Box>
-        <Box scrollBehavior="smooth" overflow="scroll" maxH="100px">
+        <Box
+          scrollBehavior="smooth"
+          overflowY="scroll"
+          maxH="100px"
+          sx={{
+            "&::-webkit-scrollbar": {
+              width: "16px",
+              borderRadius: "8px",
+              backgroundColor: "white",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#282c34",
+            },
+          }}
+        >
           <Text fontSize="xs" margin="0.5rem" align="center">
             {review.content}
           </Text>
