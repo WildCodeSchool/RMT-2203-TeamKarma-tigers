@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Container, Flex, Text, Box } from "@chakra-ui/react";
+import { Avatar, Container, Flex, Text, Box, HStack } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import moment from "moment";
 
@@ -13,8 +13,9 @@ function CardReview({ review }) {
       margin="1rem"
       padding="0.5rem"
     >
-      <Flex justifyContent="space-around">
+      <HStack spacing="150px">
         <Avatar
+          marginLeft="1rem"
           alignSelf="center"
           size="md"
           src={
@@ -29,7 +30,7 @@ function CardReview({ review }) {
           <Text>{review.author}</Text>
           <Text mt={2}>{moment(review.updated_at).format("MMMM Do YYYY")}</Text>
         </Flex>
-      </Flex>
+      </HStack>
       <Flex flexDirection="column">
         <Box display="flex" mt="2" alignSelf="center" margin="0.5rem">
           {Array(5)
@@ -47,9 +48,11 @@ function CardReview({ review }) {
               />
             ))}
         </Box>
-        <Text noOfLines={3} fontSize="xs" margin="0.5rem" align="center">
-          {review.content}
-        </Text>
+        <Box scrollBehavior="smooth" overflow="scroll" maxH="100px">
+          <Text fontSize="xs" margin="0.5rem" align="center">
+            {review.content}
+          </Text>
+        </Box>
       </Flex>
     </Container>
   );

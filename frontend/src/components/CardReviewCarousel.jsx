@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
 import axios from "axios";
 import CardReview from "./CardReview";
 
@@ -38,9 +39,14 @@ function CardReviewCarousel({ movie }) {
         ))}
       </div>
       <div>
-        <button onClick={handleMoreReviews} type="button">
+        <Button
+          colorScheme="teal"
+          variant="solid"
+          onClick={handleMoreReviews}
+          type="button"
+        >
           Read more reviews
-        </button>
+        </Button>
       </div>
     </div>
   );
