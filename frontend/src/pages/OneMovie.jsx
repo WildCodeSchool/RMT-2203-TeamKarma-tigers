@@ -1,11 +1,7 @@
 import { React } from "react";
 import { useParams } from "react-router-dom";
-import CardDetailOverall from "../components/CardDetailOverall";
-import CardCastingCarousel from "../components/Casting/CardCastingCarousel";
-import CardReviewCarousel from "../components/CardReviewCarousel";
-import MovieVideoCarousel from "../components/MovieVideoCarousel";
-import CardDetailSynopsis from "../components/CardDetailSynopsis";
 import Header from "../components/Header";
+import CardDetailOverall from "../components/CardDetailOverall";
 
 export default function OneMovie() {
   const { movieid } = useParams();
@@ -14,10 +10,6 @@ export default function OneMovie() {
     <div>
       <Header />
       <CardDetailOverall movie={movieid} />
-      <CardReviewCarousel movie={movieid} />
-      <CardCastingCarousel movie={movieid} />
-      <MovieVideoCarousel movie={movieid} />
-      <CardDetailSynopsis movie={movieid} />
     </div>
   );
 }

@@ -1,12 +1,14 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Flex, Heading, Image } from "@chakra-ui/react";
 import emptyImage from "../assets/emptyImage.svg";
+import ButtonGroupFilmNavigation from "./ButtonGroupFilmNavigation";
 
 export default function CardDetailOverall({ movie }) {
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
+  const { movieid } = useParams();
 
   const getMovie = () => {
     axios
@@ -27,36 +29,38 @@ export default function CardDetailOverall({ movie }) {
   }, []);
 
   return (
-    <Container
-      maxW="95%"
-      h="75vh"
-      marginBottom="16px"
-      bg="#282c34"
-      color="white"
-    >
-      <Flex>
-        <Image
-          src={
-            results.poster_path
-              ? `https://image.tmdb.org/t/p/w300/${results.poster_path}`
-              : `url(${emptyImage})`
-          }
-          w="400px"
-          h="70vh"
-          m="1rem"
-          overflow="hidden"
-          borderRadius="lg"
-          shadow="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
-        />
+    <Flex>
+      <Image
+        src={
+          results.poster_path
+            ? `https://image.tmdb.org/t/p/w300/${results.poster_path}`
+            : `url(${emptyImage})`
+        }
+        alt={results.original_title}
+        w="400px"
+        h="60vh"
+        marginLeft="1rem"
+        overflow="hidden"
+        shadow="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+      />
+      <Container
+        maxW="95%"
+        h="60vh"
+        marginBottom="1rem"
+        marginRight="1rem"
+        bg="#282c34"
+        color="white"
+      >
         <Flex flexDir="column" m="2rem">
           <Heading as="h2" size="xl">
             {results.original_title}
           </Heading>
-          <Heading as="h3" size="sm" marginTop="1rem">
+          <Heading as="h3" size="sm" marginTop="1rem" marginBottom="1rem">
             The movie lasts {results.runtime} minutes
           </Heading>
+          <ButtonGroupFilmNavigation movie={movieid} />
         </Flex>
-      </Flex>
-    </Container>
+      </Container>
+    </Flex>
   );
 }
