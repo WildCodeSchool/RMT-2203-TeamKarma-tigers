@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Input, Container, List, ListItem } from "@chakra-ui/react";
 import "../styles/searchbar.css";
 import emptyImage from "../assets/emptyImage.svg";
 
@@ -25,34 +26,36 @@ function Searchbar() {
   };
 
   return (
-    <div className="seachbar-component">
+    <Container maxW="md">
       <form onSubmit={handleSubmit}>
-        <input
-          className="movie-input"
+        <Input
+          placeholder="Searching a movie ?"
+          size="md"
           type="text"
-          placeholder="   Nom de votre film ?"
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>
-      {moviesData.length !== 0 && search !== "" && (
-        <div className="movie-list">
-          {moviesData.map((movie) => (
-            <a className="movie-link" href={`/movies/${movie.id} `}>
-              <img
-                className="movie-img-searchbar"
-                src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
-                    : `${emptyImage}`
-                }
-                alt="Movie poster"
-              />
-              {movie.title}
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
+      <List>
+        {moviesData.length !== 0 && search !== "" && (
+          <ListItem>
+            {moviesData.map((movie) => (
+              <a className="movie-link" href={`/movies/${movie.id} `}>
+                <img
+                  className="movie-img-searchbar"
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                      : `${emptyImage}`
+                  }
+                  alt="Movie poster"
+                />
+                {movie.title}
+              </a>
+            ))}
+          </ListItem>
+        )}
+      </List>
+    </Container>
   );
 }
 
