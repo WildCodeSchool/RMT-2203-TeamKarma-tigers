@@ -17,7 +17,6 @@ function MovieCard({ movie }) {
     <div>
       <LinkBox
         as="article"
-        w="100%"
         h="450px"
         m="20px"
         maxW="320px"
