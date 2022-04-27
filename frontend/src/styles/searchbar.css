@@ -1,59 +1,18 @@
-.movie-input {
-  width: 300px;
-  height: 40px;
-  border-radius: 20px;
-  font-size: 1rem;
-  color: black;
-  text-indent:15px;
-}
-
-form {
-  margin:0;
-}
-
-.seachbar-component {
-  padding-top: 25px;
-  height: 100px;
-  z-index:1;
-  align-items: center;
-  margin-bottom: 100px;
-}
-
-.movie-list {
-  position: relative;
-  border-radius: 20px;
-  margin-top: 5px;
-  width: 300px;
-  height: 200px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  overflow: hidden;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  color: black;
-  z-index: 1000;
-}
-
-.movie-list::-webkit-scrollbar {
-  display: none;
-}
-
-.movie-link:link {
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.movie-link {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom:10px;
-  margin-top:10px;
-  margin-left:10px;
-}
-
-.movie-img-searchbar {
-  width: 100px;
-  border-radius: 15px;
-}
+  .movie-link:link {
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .movie-link {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom:10px;
+    margin-top:10px;
+    margin-left:10px;
+  }
+  
+  .movie-img-searchbar {
+    width: 100px;
+    border-radius: 15px;
+  }
