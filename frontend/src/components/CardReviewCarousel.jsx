@@ -44,7 +44,7 @@ function CardReviewCarousel({ movie }) {
 
   return (
     <div>
-      <Flex flexDirection="column">
+      <Flex flexDirection="column" maxW="900px" mx="auto">
         {reviews.map((review) =>
           review ? (
             <Flex
