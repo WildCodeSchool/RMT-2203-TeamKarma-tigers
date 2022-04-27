@@ -13,11 +13,11 @@ export default function OneMovie() {
   return (
     <div>
       <Header />
-      <CardDetailOverall />
+      <CardDetailOverall movie={movieid} />
       <CardReviewCarousel movie={movieid} />
       <CardCastingCarousel movie={movieid} />
       <MovieVideoCarousel movie={movieid} />
-      <CardDetailSynopsis />
+      <CardDetailSynopsis movie={movieid} />
     </div>
   );
 }
