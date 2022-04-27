@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../style/searchbar.css";
+import "../styles/searchbar.css";
 
 function Searchbar() {
   const [moviesData, setMoviesData] = useState([]);
