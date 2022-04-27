@@ -37,6 +37,11 @@ function Searchbar() {
         <div className="movie-list">
           {moviesData.map((movie) => (
             <a className="movie-link" href={`/movies/${movie.id}`}>
+              <img
+                className="movie-img-searchbar"
+                src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                alt="Movie poster"
+              />
               {movie.title}
             </a>
           ))}

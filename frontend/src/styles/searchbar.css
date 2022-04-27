@@ -16,6 +16,7 @@ form {
   height: 100px;
   z-index:1;
   align-items: center;
+  margin-bottom: 100px;
 }
 
 .movie-list {
@@ -41,4 +42,15 @@ form {
 .movie-link:link {
   text-decoration: none;
   font-size: 1rem;
+}
+
+.movie-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom:10px;
+}
+
+.movie-img-searchbar {
+  width: 100px;
 }
