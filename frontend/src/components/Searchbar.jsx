@@ -1,7 +1,15 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Input, Container, List, ListItem, Flex } from "@chakra-ui/react";
+import {
+  Input,
+  Container,
+  List,
+  ListItem,
+  Flex,
+  IconButton,
+} from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import "../styles/searchbar.css";
 import emptyImage from "../assets/emptyImage.svg";
 
@@ -34,14 +42,23 @@ function Searchbar() {
       color="black"
     >
       <form onSubmit={handleSubmit}>
-        <Input
-          placeholder="Searching a movie ?"
-          _placeholder={{ opacity: 1, color: "gray.500" }}
-          size="lg"
-          type="text"
-          variant="unstyled"
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <Flex>
+          <Input
+            placeholder="Searching a movie ?"
+            _placeholder={{ opacity: 1, color: "gray.500" }}
+            size="lg"
+            type="text"
+            variant="unstyled"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <IconButton
+            variant="unstyled"
+            colorScheme="blue"
+            aria-label="Search database"
+            icon={<SearchIcon />}
+            onClick={handleSubmit}
+          />
+        </Flex>
       </form>
       <List bg="white" h="auto" overflowX="hidden">
         {moviesData.length !== 0 && search !== "" && (
