@@ -4,8 +4,14 @@ import emptyImage from "../../assets/emptyImage.svg";
 
 function CardCasting({ cast }) {
   return (
-    <Container border="1px">
-      <Flex border="1px" flexDirection="column" align="center">
+    <Container minW="250px">
+      <Flex
+        border="1px"
+        borderRadius="30px"
+        flexDirection="column"
+        align="center"
+        minH="400px"
+      >
         <Image
           src={
             cast.profile_path
@@ -13,11 +19,14 @@ function CardCasting({ cast }) {
               : `${emptyImage}`
           }
           alt=""
-          width="200px"
-          borderRadius="30px"
+          borderTopRadius="28px"
+          w="250px"
+          h="324px"
         />
-        <Box>
-          <Text>{cast.name}</Text>
+        <Box mt="12px">
+          <Text fontSize="lg" fontWeight="bold">
+            {cast.name}
+          </Text>
           <Text>{cast.character}</Text>
         </Box>
       </Flex>
