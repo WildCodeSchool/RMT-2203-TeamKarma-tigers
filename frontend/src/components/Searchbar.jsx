@@ -37,22 +37,27 @@ function Searchbar() {
       </form>
       <List>
         {moviesData.length !== 0 && search !== "" && (
-          <ListItem>
-            {moviesData.map((movie) => (
-              <a className="movie-link" href={`/movies/${movie.id} `}>
-                <img
-                  className="movie-img-searchbar"
-                  src={
-                    movie.poster_path
-                      ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
-                      : `${emptyImage}`
-                  }
-                  alt="Movie poster"
-                />
-                {movie.title}
-              </a>
-            ))}
-          </ListItem>
+          <div
+            className="scrolling"
+            style={{ overflowY: "scroll", height: "30vh", width: "100%" }}
+          >
+            <ListItem>
+              {moviesData.map((movie) => (
+                <a className="movie-link" href={`/movies/${movie.id} `}>
+                  <img
+                    className="movie-img-searchbar"
+                    src={
+                      movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                        : `${emptyImage}`
+                    }
+                    alt="Movie poster"
+                  />
+                  {movie.title}
+                </a>
+              ))}
+            </ListItem>
+          </div>
         )}
       </List>
     </Container>
