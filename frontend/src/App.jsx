@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<AllMovies />} />
-          <Route path="/results" element={<Results />} />
+          <Route path="/results/:search" element={<Results />} />
           <Route path="/movies/:movieid" element={<OneMovie />} />
           <Route path="*" element={<Error />} />
         </Routes>
