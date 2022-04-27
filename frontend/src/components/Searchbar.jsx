@@ -46,18 +46,21 @@ function Searchbar() {
           <Input
             placeholder="Searching a movie ?"
             _placeholder={{ opacity: 1, color: "gray.500" }}
-            size="lg"
+            size=""
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <IconButton
-            variant="unstyled"
-            colorScheme="blue"
-            aria-label="Search database"
-            icon={<SearchIcon />}
-            onClick={handleSubmit}
-          />
+          {search.length >= 1 && (
+            <IconButton
+              variant="unstyled"
+              colorScheme="blue"
+              aria-label="Search database"
+              icon={<SearchIcon />}
+              onClick={handleSubmit}
+              size=""
+            />
+          )}
         </Flex>
       </form>
       <List bg="white" h="auto" overflowX="hidden">
