@@ -34,14 +34,8 @@ function Searchbar() {
   };
 
   return (
-    <Container
-      bg="white"
-      zIndex="9999"
-      maxW="lg"
-      borderRadius={15}
-      color="black"
-    >
-      <form onSubmit={handleSubmit}>
+    <Container w="50%" bg="white" zIndex="9999" borderRadius={15} color="black">
+      <form onSubmit={handleSubmit} w="100%">
         <Flex>
           <Input
             placeholder="Searching a movie ?"
@@ -74,9 +68,14 @@ function Searchbar() {
                 {moviesData.map((movie) => (
                   <a className="movie-link" href={`/movies/${movie.id} `}>
                     <Flex
+                      _hover={{
+                        transform: "scale(1.03)",
+                        color: "teal.500",
+                        borderRadius: "10px",
+                      }}
                       direction="row"
                       justify="space-between"
-                      w="40vh"
+                      w="43vw"
                       align="center"
                       mb="10px"
                       fontSize="1.3rem"
