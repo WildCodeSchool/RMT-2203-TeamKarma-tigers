@@ -9,11 +9,13 @@ function Searchbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?api_key=20d0a760d82811eb01a3f02b31edc400&query=${search}&language=en-US&page=1&include_adult=false`
-      )
-      .then((response) => [setMoviesData(response.data.results)]);
+    if (search.length >= 1) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/search/movie?api_key=20d0a760d82811eb01a3f02b31edc400&query=${search}&language=en-US&page=1&include_adult=false`
+        )
+        .then((response) => [setMoviesData(response.data.results)]);
+    }
   }, [search]);
 
   const handleSubmit = (event) => {
