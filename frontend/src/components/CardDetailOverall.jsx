@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Flex, Heading, Box, Image } from "@chakra-ui/react";
+import { Container, Flex, Heading, Image } from "@chakra-ui/react";
 import emptyImage from "../assets/emptyImage.svg";
 
 export default function CardDetailOverall({ movie }) {
@@ -27,7 +27,13 @@ export default function CardDetailOverall({ movie }) {
   }, []);
 
   return (
-    <Container border="1px solid black" maxW="95%" h="75vh" marginBottom="16px">
+    <Container
+      maxW="95%"
+      h="75vh"
+      marginBottom="16px"
+      bg="#282c34"
+      color="white"
+    >
       <Flex>
         <Image
           src={
@@ -35,35 +41,20 @@ export default function CardDetailOverall({ movie }) {
               ? `https://image.tmdb.org/t/p/w300/${results.poster_path}`
               : `url(${emptyImage})`
           }
-          w="500px"
+          w="400px"
           h="70vh"
-          border="1px solid black"
           m="1rem"
           overflow="hidden"
           borderRadius="lg"
+          shadow="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
         />
         <Flex flexDir="column" m="2rem">
           <Heading as="h2" size="xl">
             {results.original_title}
           </Heading>
           <Heading as="h3" size="sm" marginTop="1rem">
-            The movie lasts {results.runtime} minutes + RATING
+            The movie lasts {results.runtime} minutes
           </Heading>
-          <Box w="200px" h="50px" border="1px solid black" marginTop="1rem">
-            LINK INFO CARD
-          </Box>
-          <Box
-            marginTop="1rem"
-            borderTop="1px solid black"
-            borderBottom="1px solid black"
-            borderRadius="lg"
-            p="1rem"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-            quidem debitis praesentium. In aperiam soluta enim corporis iusto
-            laboriosam excepturi dolores, culpa autem, eum repellendus!
-            Perferendis porro tempora dicta eveniet!
-          </Box>
         </Flex>
       </Flex>
     </Container>
