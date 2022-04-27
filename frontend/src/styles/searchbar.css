@@ -4,16 +4,20 @@
   border-radius: 20px;
   font-size: 1rem;
   color: black;
+  text-indent:15px;
 }
+
 form {
   margin:0;
 }
+
 .seachbar-component {
   padding-top: 25px;
   height: 100px;
   z-index:1;
   align-items: center;
 }
+
 .movie-list {
   position: relative;
   border-radius: 20px;
