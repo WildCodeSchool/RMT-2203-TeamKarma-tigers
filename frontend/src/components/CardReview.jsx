@@ -7,13 +7,14 @@ function CardReview({ review }) {
   return (
     <Container
       border="1px"
+      borderRadius="10px"
       maxH="200px"
       bg="#282c34"
       color="white"
       margin="1rem"
       padding="0.5rem"
     >
-      <HStack spacing="150px">
+      <HStack spacing="110px">
         <Avatar
           marginLeft="1rem"
           alignSelf="center"
