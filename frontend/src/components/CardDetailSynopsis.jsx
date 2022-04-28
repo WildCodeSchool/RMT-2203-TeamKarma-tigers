@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/CardDetailSynopsis.css";
-import ReadMore from "./ReadMoreButton";
 
 export default function CardDetailSynopsis({ movie }) {
   const [synopsis, setSynopsis] = useState([]);
@@ -22,13 +21,7 @@ export default function CardDetailSynopsis({ movie }) {
     <div className="detailed-container">
       <div className="synopsis-container">
         <h3>SYNOPSIS</h3>
-        <ReadMore>
-          A ticking-time-bomb insomniac and a slippery soap salesman channel
-          primal male aggression into a shocking new form of therapy. Their
-          concept catches on, with underground fight clubs forming in every
-          town, until an eccentric gets in the way and ignites an out-of-control
-          spiral toward oblivion.
-        </ReadMore>
+        {synopsis.overview}
       </div>
       <div className="utility-container">
         <div className="parent">

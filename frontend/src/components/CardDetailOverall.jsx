@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Flex, Heading, Image, Box } from "@chakra-ui/react";
+import { Text, Flex, Heading, Image, Box } from "@chakra-ui/react";
+import moment from "moment";
 import emptyImage from "../assets/emptyImage.svg";
 import ButtonGroupFilmNavigation from "./ButtonGroupFilmNavigation";
 
@@ -29,39 +30,50 @@ export default function CardDetailOverall({ movie }) {
   }, []);
 
   return (
-    <Container
-      maxW="95%"
-      marginBottom="1rem"
-      marginRight="1rem"
-      bg="#282c34"
-      color="white"
-    >
-      <Flex>
+    <Box w="100%">
+      <Flex justifyContent="center">
         <Image
           src={
             results.poster_path
               ? `https://image.tmdb.org/t/p/w300/${results.poster_path}`
               : `url(${emptyImage})`
           }
-          alt={results.original_title}
-          w="300px"
+          alt={results.title}
+          w="18%"
           h="50vh"
-          m="1rem"
           overflow="hidden"
-          shadow="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
         />
-        <Flex flexDir="column" m="2rem">
-          <Heading as="h2" size="xl">
-            {results.original_title}
-          </Heading>
-          <Heading as="h3" size="sm" marginTop="1rem" marginBottom="1rem">
-            The movie lasts {results.runtime} minutes
-          </Heading>
-          <Box w="100%">
-            <ButtonGroupFilmNavigation movie={movieid} />
-          </Box>
-        </Flex>
+        <Box
+          w="25%"
+          h="50vh"
+          marginBottom="1rem"
+          marginRight="1rem"
+          bg="black"
+          color="white"
+        >
+          <Flex flexDir="column" m="1rem" alignItems="flex-start">
+            <Heading as="h2" size="xl">
+              {results.title}
+            </Heading>
+            <Heading as="h3" size="sm" marginTop="1rem">
+              The movie lasts {results.runtime} minutes
+            </Heading>
+            <Heading as="h3" size="sm">
+              The movie was released on the{" "}
+              {moment(results.release_date).format("MMMM Do YYYY")}
+            </Heading>
+            {/* {results.genres.map((genre) => (
+              <Heading as="h3" size="sm" marginBottom="1rem" key={genre.id}>
+                {genre.name}
+              </Heading>
+            ))} */}
+            <Text align="left">{results.overview}</Text>
+          </Flex>
+        </Box>
       </Flex>
-    </Container>
+      <Box w="75%" m="0 auto">
+        <ButtonGroupFilmNavigation movie={movieid} />
+      </Box>
+    </Box>
   );
 }
