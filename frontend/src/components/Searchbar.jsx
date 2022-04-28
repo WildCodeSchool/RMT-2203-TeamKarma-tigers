@@ -1,7 +1,15 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Input, Container, List, ListItem, Flex } from "@chakra-ui/react";
+import {
+  Input,
+  Container,
+  List,
+  ListItem,
+  Flex,
+  IconButton,
+} from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import "../styles/searchbar.css";
 import emptyImage from "../assets/emptyImage.svg";
 
@@ -26,22 +34,28 @@ function Searchbar() {
   };
 
   return (
-    <Container
-      bg="white"
-      zIndex="9999"
-      maxW="lg"
-      borderRadius={15}
-      color="black"
-    >
-      <form onSubmit={handleSubmit}>
-        <Input
-          placeholder="Searching a movie ?"
-          _placeholder={{ opacity: 1, color: "gray.500" }}
-          size="lg"
-          type="text"
-          variant="unstyled"
-          onChange={(e) => setSearch(e.target.value)}
-        />
+    <Container w="50%" bg="white" zIndex="9999" borderRadius={15} color="black">
+      <form onSubmit={handleSubmit} w="100%">
+        <Flex>
+          <Input
+            placeholder="Searching a movie ?"
+            _placeholder={{ opacity: 1, color: "gray.500" }}
+            size=""
+            type="text"
+            variant="unstyled"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {search.length >= 1 && (
+            <IconButton
+              variant="unstyled"
+              colorScheme="blue"
+              aria-label="Search database"
+              icon={<SearchIcon />}
+              onClick={handleSubmit}
+              size=""
+            />
+          )}
+        </Flex>
       </form>
       <List bg="white" h="auto" overflowX="hidden">
         {moviesData.length !== 0 && search !== "" && (
@@ -54,9 +68,14 @@ function Searchbar() {
                 {moviesData.map((movie) => (
                   <a className="movie-link" href={`/movies/${movie.id} `}>
                     <Flex
+                      _hover={{
+                        transform: "scale(1.03)",
+                        color: "teal.500",
+                        borderRadius: "10px",
+                      }}
                       direction="row"
                       justify="space-between"
-                      w="40vh"
+                      w="43vw"
                       align="center"
                       mb="10px"
                       fontSize="1.3rem"
