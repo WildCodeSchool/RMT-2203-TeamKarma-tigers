@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Input, Container, List, ListItem, Flex } from "@chakra-ui/react";
 import "../styles/searchbar.css";
 import emptyImage from "../assets/emptyImage.svg";
 
@@ -25,34 +26,61 @@ function Searchbar() {
   };
 
   return (
-    <div className="seachbar-component">
+    <Container
+      bg="white"
+      zIndex="9999"
+      maxW="lg"
+      borderRadius={15}
+      color="black"
+    >
       <form onSubmit={handleSubmit}>
-        <input
-          className="movie-input"
+        <Input
+          placeholder="Searching a movie ?"
+          _placeholder={{ opacity: 1, color: "gray.500" }}
+          size="lg"
           type="text"
-          placeholder="   Nom de votre film ?"
+          variant="unstyled"
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>
-      {moviesData.length !== 0 && search !== "" && (
-        <div className="movie-list">
-          {moviesData.map((movie) => (
-            <a className="movie-link" href={`/movies/${movie.id} `}>
-              <img
-                className="movie-img-searchbar"
-                src={
-                  movie.poster_path
-                    ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
-                    : `${emptyImage}`
-                }
-                alt="Movie poster"
-              />
-              {movie.title}
-            </a>
-          ))}
-        </div>
-      )}
-    </div>
+      <List bg="white" h="auto" overflowX="hidden">
+        {moviesData.length !== 0 && search !== "" && (
+          <div
+            className="scrolling"
+            style={{ overflowY: "scroll", height: "35vh" }}
+          >
+            <ListItem>
+              <Flex direction="column" align="start">
+                {moviesData.map((movie) => (
+                  <a className="movie-link" href={`/movies/${movie.id} `}>
+                    <Flex
+                      direction="row"
+                      justify="space-between"
+                      w="40vh"
+                      align="center"
+                      mb="10px"
+                      fontSize="1.3rem"
+                    >
+                      <img
+                        className="movie-img-searchbar"
+                        src={
+                          movie.poster_path
+                            ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                            : `${emptyImage}`
+                        }
+                        alt="Movie poster"
+                        style={{ width: "100px", borderRadius: "15px" }}
+                      />
+                      {movie.title}
+                    </Flex>
+                  </a>
+                ))}
+              </Flex>
+            </ListItem>
+          </div>
+        )}
+      </List>
+    </Container>
   );
 }
 
