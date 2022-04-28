@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Flex, Heading, Image } from "@chakra-ui/react";
+import { Container, Flex, Heading, Image, Box } from "@chakra-ui/react";
 import emptyImage from "../assets/emptyImage.svg";
 import ButtonGroupFilmNavigation from "./ButtonGroupFilmNavigation";
 
@@ -29,28 +29,27 @@ export default function CardDetailOverall({ movie }) {
   }, []);
 
   return (
-    <Flex>
-      <Image
-        src={
-          results.poster_path
-            ? `https://image.tmdb.org/t/p/w300/${results.poster_path}`
-            : `url(${emptyImage})`
-        }
-        alt={results.original_title}
-        w="400px"
-        h="60vh"
-        marginLeft="1rem"
-        overflow="hidden"
-        shadow="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
-      />
-      <Container
-        maxW="95%"
-        h="60vh"
-        marginBottom="1rem"
-        marginRight="1rem"
-        bg="#282c34"
-        color="white"
-      >
+    <Container
+      maxW="95%"
+      marginBottom="1rem"
+      marginRight="1rem"
+      bg="#282c34"
+      color="white"
+    >
+      <Flex>
+        <Image
+          src={
+            results.poster_path
+              ? `https://image.tmdb.org/t/p/w300/${results.poster_path}`
+              : `url(${emptyImage})`
+          }
+          alt={results.original_title}
+          w="300px"
+          h="50vh"
+          m="1rem"
+          overflow="hidden"
+          shadow="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+        />
         <Flex flexDir="column" m="2rem">
           <Heading as="h2" size="xl">
             {results.original_title}
@@ -58,9 +57,11 @@ export default function CardDetailOverall({ movie }) {
           <Heading as="h3" size="sm" marginTop="1rem" marginBottom="1rem">
             The movie lasts {results.runtime} minutes
           </Heading>
-          <ButtonGroupFilmNavigation movie={movieid} />
+          <Box w="100%">
+            <ButtonGroupFilmNavigation movie={movieid} />
+          </Box>
         </Flex>
-      </Container>
-    </Flex>
+      </Flex>
+    </Container>
   );
 }
