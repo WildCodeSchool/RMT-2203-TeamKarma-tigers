@@ -8,13 +8,13 @@
 }
 
 form {
-  margin:0;
+  margin: 0;
 }
 
 .seachbar-component {
   padding-top: 25px;
   height: 100px;
-  z-index:1;
+  z-index: 1;
   align-items: center;
   margin-bottom: 100px;
 }
