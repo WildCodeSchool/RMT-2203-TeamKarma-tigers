@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom";
-
-import "../styles/Navbar.css";
+import { HStack, Button } from "@chakra-ui/react";
 
 export default function Navbar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/movies">Movies</Link>
-        </li>
-        <li>
-          <Link to="/movies">Page2</Link>
-        </li>
-        <li>
-          <Link to="/movies">Page3</Link>
-        </li>
-      </ul>
-    </nav>
+    <HStack spacing="5" wrap="nowrap">
+      <nav>
+        <Button variant="ghost" size="lg" _hover={{ bgColor: "#2B3543" }}>
+          <Link to="/movies">All Movies</Link>
+        </Button>
+        <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
+          <Link to="/popular">Popular</Link>
+        </Button>
+        <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
+          <Link to="/movies">What should I Watch?</Link>
+        </Button>
+      </nav>
+    </HStack>
   );
 }
