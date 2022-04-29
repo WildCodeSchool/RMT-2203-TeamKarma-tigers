@@ -70,7 +70,7 @@ function MovieCard({ movie }) {
                   <StarIcon
                     w={4}
                     h={4}
-                    key={movie.id}
+                    key={`${movie.id}_${movie.release_date}_${movie.original_title}`}
                     color={
                       i < Math.round(movie.vote_average / 2)
                         ? "teal.500"

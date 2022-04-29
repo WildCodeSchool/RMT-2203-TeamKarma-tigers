@@ -1,12 +1,4 @@
-import {
-  // Button,
-  // Container,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-} from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 
 import CardReviewCarousel from "./CardReviewCarousel";
 import CardDetailSynopsis from "./CardDetailSynopsis";

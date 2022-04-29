@@ -10,7 +10,7 @@ export default function OneMovie() {
 
   return (
     <div>
-      <Header />
+      <Header isOnHome={false} />
       <ButtonGroupFilmNavigation movie={movieid} />
       <Footer />
     </div>
