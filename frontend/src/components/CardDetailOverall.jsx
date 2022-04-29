@@ -44,8 +44,7 @@ export default function CardDetailOverall({ movie }) {
           overflow="hidden"
         />
         <Box
-          w="25%"
-          h="50vh"
+          w="70%"
           marginBottom="1rem"
           marginRight="1rem"
           bg="black"
@@ -58,8 +57,8 @@ export default function CardDetailOverall({ movie }) {
             <Heading as="h3" size="sm" marginTop="1rem">
               The movie lasts {results.runtime} minutes
             </Heading>
-            <Heading as="h3" size="sm">
-              The movie was released on the{" "}
+            <Heading as="h3" size="sm" marginBottom="1rem">
+              The movie was released on{" "}
               {moment(results.release_date).format("MMMM Do YYYY")}
             </Heading>
             {/* {results.genres.map((genre) => (
@@ -68,12 +67,13 @@ export default function CardDetailOverall({ movie }) {
               </Heading>
             ))} */}
             <Text align="left">{results.overview}</Text>
+            <ButtonGroupFilmNavigation movie={movieid} />
           </Flex>
         </Box>
       </Flex>
-      <Box w="75%" m="0 auto">
-        <ButtonGroupFilmNavigation movie={movieid} />
-      </Box>
+      {/* <Box w="75%" m="0 auto">
+
+      </Box> */}
     </Box>
   );
 }
