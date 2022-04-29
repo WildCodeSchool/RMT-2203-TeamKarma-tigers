@@ -84,7 +84,7 @@ export default function Footer() {
         </Flex>
       </Flex>
       <LinkBox justify="flex-end" alignSelf="center">
-        <LinkOverlay href="/#">
+        <LinkOverlay href="#">
           <Button variant="solid" borderRadius="100%" w={12} h={12}>
             <ArrowUpIcon w={10} h={10} color="#15141f" />
           </Button>

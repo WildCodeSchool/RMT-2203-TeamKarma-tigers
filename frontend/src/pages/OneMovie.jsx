@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import ButtonGroupFilmNavigation from "../components/ButtonGroupFilmNavigation";
+import CardDetailOverall from "../components/CardDetailOverall";
 
 export default function OneMovie() {
   const { movieid } = useParams();
@@ -11,7 +11,7 @@ export default function OneMovie() {
   return (
     <div>
       <Header isOnHome={false} />
-      <ButtonGroupFilmNavigation movie={movieid} />
+      <CardDetailOverall movie={movieid} />
       <Footer />
     </div>
   );

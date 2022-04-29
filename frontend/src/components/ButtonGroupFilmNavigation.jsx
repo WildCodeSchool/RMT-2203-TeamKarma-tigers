@@ -7,7 +7,14 @@ import MovieVideoCarousel from "./MovieVideoCarousel";
 
 export default function ButtonGroupFilmNavigation({ movie }) {
   return (
-    <Tabs variant="solid-rounded" colorScheme="red" isFitted>
+    <Tabs
+      variant="solid-rounded"
+      colorScheme="red"
+      isFitted
+      w="100%"
+      m="0 auto"
+      marginTop="1rem"
+    >
       <TabList
         border="1px"
         borderColor="#313D4D"
