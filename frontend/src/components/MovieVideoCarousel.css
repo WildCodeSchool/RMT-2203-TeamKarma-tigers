@@ -35,5 +35,5 @@
 
 .slide.active {
   opacity: 1;
-  transition-duration: 1s;
+  transition-duration: 1s ease-in-out;
 }

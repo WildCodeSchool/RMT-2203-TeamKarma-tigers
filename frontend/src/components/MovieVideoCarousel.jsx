@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { Flex } from "@chakra-ui/react";
 
 import Video from "./Video";
@@ -25,6 +25,22 @@ export default function MovieVideoCarousel({ movie }) {
       });
   };
 
+  const filterVideos = (cur, allVid) => {
+    const res = [];
+    res.push(allVid[cur]);
+    if (cur === allVid.length - 1) {
+      res.push(allVid[0]);
+      res.push(allVid[1]);
+    } else if (cur === allVid.length - 2) {
+      res.push(allVid[allVid.length - 1]);
+      res.push(allVid[0]);
+    } else {
+      res.push(allVid[cur + 1]);
+      res.push(allVid[cur + 2]);
+    }
+    return res;
+  };
+
   useEffect(() => {
     getVideos();
   }, []);
@@ -42,25 +58,15 @@ export default function MovieVideoCarousel({ movie }) {
 
   return (
     <Flex className="slider">
-      <ArrowLeftIcon className="left-arrow" onClick={prevSlide} />
+      <ArrowBackIcon className="left-arrow" onClick={prevSlide} />
 
-      {allVideos.map((video, index) => (
-        <div
-          className={
-            index === current || index === current + 1 || index === current + 2
-              ? "slide active"
-              : "slide"
-          }
-          key={video.key}
-        >
-          {(index === current ||
-            index === current + 1 ||
-            index === current + 2) && (
+      {allVideos.length &&
+        filterVideos(current, allVideos).map((video) => (
+          <div className="slide active" key={video.key}>
             <Video videoInfo={video} key={video.key} />
-          )}
-        </div>
-      ))}
-      <ArrowRightIcon className="right-arrow" onClick={nextSlide} />
+          </div>
+        ))}
+      <ArrowForwardIcon className="right-arrow" onClick={nextSlide} />
     </Flex>
   );
 }
