@@ -10,7 +10,7 @@ function Results() {
 
   return (
     <div>
-      <Header />
+      <Header isOnHome={false} />
       <Heading as="h2">Search Results for: {search}...</Heading>
       <Container maxW="90vw" my={5}>
         <Flex h="100vh" p={5}>

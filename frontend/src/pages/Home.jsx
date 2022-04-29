@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <main className="App-header">
-        <Header />
+        <Header isOnHome />
         <Searchbar />
 
         <h1>Popular Movie</h1>
