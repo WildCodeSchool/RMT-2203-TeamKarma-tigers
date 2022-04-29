@@ -19,8 +19,8 @@ export default function ButtonGroupFilmNavigation({ movie }) {
       variant="solid-rounded"
       colorScheme="red"
       isFitted
-      minW="90%"
-      margin="0 auto"
+      w="100%"
+      m="0 auto"
       marginTop="1rem"
     >
       <TabList

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Box, Text, Heading, Flex, HStack } from "@chakra-ui/react";
 import "../styles/CardDetailSynopsis.css";
 
 export default function CardDetailSynopsis({ movie }) {
@@ -18,31 +19,43 @@ export default function CardDetailSynopsis({ movie }) {
   }, []);
 
   return (
-    <div className="detailed-container">
-      <div className="synopsis-container">
-        <h3>SYNOPSIS</h3>
+    <Box>
+      <Text borderBottom="1px solid black" padding="1.5rem" textAlign="left">
+        <Heading size="lg" paddingBottom="1rem">
+          SYNOPSIS
+        </Heading>
         {synopsis.overview}
-      </div>
-      <div className="utility-container">
-        <div className="parent">
-          <h3 className="release-date">
-            {" "}
-            RELEASE DATE <br /> <h5>{synopsis.release_date}</h5>
-          </h3>
-          <h3 className="genre">
-            {" "}
-            GENRE <br /> <h5>DRAMA</h5>
-          </h3>
-          <h3 className="popularity">
-            {" "}
-            POPULARITY <br /> <h5>{synopsis.popularity}</h5>
-          </h3>
-          <h3 className="revenue">
-            {" "}
-            REVENUE <br /> <h5>{synopsis.revenue}</h5>
-          </h3>
-        </div>
-      </div>
-    </div>
+      </Text>
+      <Flex
+        borderBottom="1px solid black"
+        marginTop="2rem"
+        justifyContent="space-around"
+        w="100%"
+      >
+        <Flex flexDir="column">
+          <Heading size="md" paddingBottom="0.5rem">
+            GENRES
+          </Heading>
+          <HStack>
+            {synopsis.genres &&
+              synopsis.genres.map((genre) => {
+                return <Text>{genre.name}</Text>;
+              })}
+          </HStack>
+          <Heading size="md" marginTop="1rem">
+            POPULARITY
+          </Heading>
+          <Text marginBottom="1rem">{synopsis.popularity}</Text>
+        </Flex>
+        <Flex flexDir="column">
+          <Heading size="md" paddingBottom="0.5rem">
+            REVENUE
+          </Heading>
+          <Text marginBottom="1rem">{synopsis.revenue}</Text>
+          <Heading size="md">AVERAGE VOTE</Heading>
+          <Text marginBottom="1rem">{synopsis.vote_average}</Text>
+        </Flex>
+      </Flex>
+    </Box>
   );
 }
