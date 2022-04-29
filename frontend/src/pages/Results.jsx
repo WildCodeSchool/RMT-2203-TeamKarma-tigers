@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Box, Container, Flex, Heading } from "@chakra-ui/react";
 
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import MovieCarousel from "../components/MovieCarousel";
 
@@ -26,6 +27,7 @@ function Results() {
           </Box>
         </Flex>
       </Container>
+      <Footer />
     </div>
   );
 }
