@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { Flex } from "@chakra-ui/react";
 
 import CardCasting from "./CardCasting";
 
@@ -13,7 +14,7 @@ function CardCastingCarousel({ movie }) {
       )
       .then((response) => response.data)
       .then((data) => {
-        setCasting(data.cast);
+        setCasting(casting.concat(data.cast));
       });
   };
 
@@ -22,19 +23,34 @@ function CardCastingCarousel({ movie }) {
   }, []);
 
   return (
-    <div>
-      <div>
-        {casting
-          .filter(
-            (element) =>
-              element.known_for_department &&
-              element.known_for_department.includes("Acting")
-          )
-          .map((element) => (
-            <CardCasting cast={element} key={element.credit_id} />
-          ))}
-      </div>
-    </div>
+    <Flex
+      scrollBehavior="smooth"
+      overflowX="scroll"
+      w="inherit"
+      maxW="100%"
+      sx={{
+        "&::-webkit-scrollbar": {
+          width: "16px",
+          borderRadius: "8px",
+          border: "1px",
+          backgroundColor: "white",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          borderRadius: "8px",
+          backgroundColor: "#282c34",
+        },
+      }}
+    >
+      {casting
+        .filter(
+          (element) =>
+            element.known_for_department &&
+            element.known_for_department.includes("Acting")
+        )
+        .map((element) => (
+          <CardCasting cast={element} key={element.credit_id} />
+        ))}
+    </Flex>
   );
 }
 

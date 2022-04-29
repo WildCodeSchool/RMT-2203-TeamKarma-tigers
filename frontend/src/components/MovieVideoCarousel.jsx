@@ -1,9 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
+import { Flex } from "@chakra-ui/react";
+
 import Video from "./Video";
+import "./MovieVideoCarousel.css";
 
 export default function MovieVideoCarousel({ movie }) {
   const [allVideos, setAllVideos] = useState([]);
+
+  const [current, setCurrent] = useState(0);
   const getVideos = () => {
     axios
       .get(
@@ -11,20 +17,56 @@ export default function MovieVideoCarousel({ movie }) {
       )
       .then((response) => response.data)
       .then((data) => {
-        setAllVideos(data.results);
+        setAllVideos(
+          data.results.filter(
+            (video) => video.type === "Trailer" && video.official === true
+          )
+        );
       });
+  };
+
+  const filterVideos = (cur, allVid) => {
+    const res = [];
+    res.push(allVid[cur]);
+    if (cur === allVid.length - 1) {
+      res.push(allVid[0]);
+      res.push(allVid[1]);
+    } else if (cur === allVid.length - 2) {
+      res.push(allVid[allVid.length - 1]);
+      res.push(allVid[0]);
+    } else {
+      res.push(allVid[cur + 1]);
+      res.push(allVid[cur + 2]);
+    }
+    return res;
   };
 
   useEffect(() => {
     getVideos();
   }, []);
+
+  const nextSlide = () => {
+    setCurrent(current === allVideos.length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? allVideos.length - 1 : current - 1);
+  };
+  if (allVideos.length === 1) {
+    return current + 1;
+  }
+
   return (
-    <div>
-      {allVideos
-        .filter((video) => video.type === "Trailer" && video.official === true)
-        .map((video) => (
-          <Video videoInfo={video} key={video.key} />
+    <Flex className="slider">
+      <ArrowBackIcon className="left-arrow" onClick={prevSlide} />
+
+      {allVideos.length &&
+        filterVideos(current, allVideos).map((video) => (
+          <div className="slide active" key={video.key}>
+            <Video videoInfo={video} key={video.key} />
+          </div>
         ))}
-    </div>
+      <ArrowForwardIcon className="right-arrow" onClick={nextSlide} />
+    </Flex>
   );
 }
