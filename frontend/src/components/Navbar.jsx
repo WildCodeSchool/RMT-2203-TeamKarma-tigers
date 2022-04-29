@@ -11,9 +11,9 @@ export default function Navbar() {
         <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
           <Link to="/popular">Popular</Link>
         </Button>
-        <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
+        {/* <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
           <Link to="/movies">What should I Watch?</Link>
-        </Button>
+        </Button> */}
       </nav>
     </HStack>
   );

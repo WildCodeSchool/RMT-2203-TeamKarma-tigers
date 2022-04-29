@@ -4,6 +4,7 @@ import Results from "./pages/Results";
 import AllMovies from "./pages/AllMovies";
 import OneMovie from "./pages/OneMovie";
 import Error from "./pages/Error";
+import PopularMovies from "./pages/PopularMovies";
 
 import "./styles/App.css";
 
@@ -18,7 +19,7 @@ function App() {
         />
         <Route
           path="/popular"
-          element={<AllMovies sortType="popularity.desc" />}
+          element={<PopularMovies sortType="popularity.desc" />}
         />
         <Route path="/results/:search" element={<Results />} />
         <Route path="/movies/:movieid" element={<OneMovie />} />
