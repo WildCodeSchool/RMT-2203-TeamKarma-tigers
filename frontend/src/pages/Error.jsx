@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Image, Flex, SkeletonCircle } from "@chakra-ui/react";
+import { Text, Image, Flex, SkeletonCircle, Heading } from "@chakra-ui/react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import fond404 from "../assets/fond_404.jpg";
@@ -15,28 +15,28 @@ function Error() {
         justifyContent="space-around"
       >
         <Flex alignSelf="center" marginTop="2rem">
-          <Text paddingRight="1rem" fontSize="7xl" color="white">
+          <Heading paddingRight="1.5rem" fontSize="6xl" color="white">
             PAGE
-          </Text>
-          <Text
+          </Heading>
+          <Heading
             paddingRight="0.5rem"
-            fontSize="7xl"
+            fontSize="6xl"
             color="white"
             alignSelf="center"
           >
             4
-          </Text>
+          </Heading>
           <SkeletonCircle
             startColor="white"
             endColor="#15141f"
-            size="70px"
+            size="60px"
             alignSelf="center"
             speed="1.5"
           />
           {/* <CircularProgress isIndeterminate color="#15141f" size="70px" /> */}
-          <Text paddingLeft="0.5rem" fontSize="7xl" color="white">
+          <Heading paddingLeft="0.5rem" fontSize="6xl" color="white">
             4
-          </Text>
+          </Heading>
         </Flex>
         <Flex h="80%" justifyContent="space-between">
           <Image
