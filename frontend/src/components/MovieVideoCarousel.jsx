@@ -60,7 +60,7 @@ export default function MovieVideoCarousel({ movie }) {
     <Flex W="400px" mx="auto">
       <ArrowBackIcon
         mt="13rem"
-        _hover={{ cursor: "pointer" }}
+        _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
         fontSize="3rem"
         className="left-arrow"
         onClick={prevSlide}
@@ -74,7 +74,7 @@ export default function MovieVideoCarousel({ movie }) {
         ))}
       <ArrowForwardIcon
         mt="13rem"
-        _hover={{ bg: "teal.600" }}
+        _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
         fontSize="3rem"
         className="right-arrow"
         onClick={nextSlide}
