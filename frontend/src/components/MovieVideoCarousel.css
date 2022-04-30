@@ -1,4 +1,4 @@
-.slider {
+/* .slider {
   position: relative;
   height: 100vh;
   display: flex;
@@ -36,4 +36,4 @@
 .slide.active {
   opacity: 1;
   transition-duration: 1s ease-in-out;
-}
+} */

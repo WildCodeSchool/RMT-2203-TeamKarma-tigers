@@ -57,16 +57,28 @@ export default function MovieVideoCarousel({ movie }) {
   }
 
   return (
-    <Flex className="slider">
-      <ArrowBackIcon className="left-arrow" onClick={prevSlide} />
+    <Flex W="400px" mx="auto">
+      <ArrowBackIcon
+        mt="13rem"
+        _hover={{ cursor: "pointer" }}
+        fontSize="3rem"
+        className="left-arrow"
+        onClick={prevSlide}
+      />
 
       {allVideos.length &&
         filterVideos(current, allVideos).map((video) => (
           <div className="slide active" key={video.key}>
-            <Video videoInfo={video} key={video.key} />
+            <Video w="400px" videoInfo={video} key={video.key} />
           </div>
         ))}
-      <ArrowForwardIcon className="right-arrow" onClick={nextSlide} />
+      <ArrowForwardIcon
+        mt="13rem"
+        _hover={{ bg: "teal.600" }}
+        fontSize="3rem"
+        className="right-arrow"
+        onClick={nextSlide}
+      />
     </Flex>
   );
 }
