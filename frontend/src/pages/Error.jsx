@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Image, Flex } from "@chakra-ui/react";
+import { Text, Image, Flex, SkeletonCircle } from "@chakra-ui/react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import fond404 from "../assets/fond_404.jpg";
@@ -8,42 +8,50 @@ function Error() {
   return (
     <div>
       <Header isOnHome={false} />
-      <Box bgColor="#15141f" w="100vw" h="73vh">
-        <Flex justifyContent="center">
+      <Flex
+        bgColor="#15141f"
+        h="75.9vh"
+        flexDirection="column"
+        justifyContent="space-around"
+      >
+        <Flex alignSelf="center" marginTop="2rem">
+          <Text paddingRight="1rem" fontSize="7xl" color="white">
+            PAGE
+          </Text>
           <Text
-            position="absolute"
-            zIndex="1"
+            paddingRight="0.5rem"
+            fontSize="7xl"
             color="white"
-            padding="2rem"
-            fontSize="3xl"
+            alignSelf="center"
           >
+            4
+          </Text>
+          <SkeletonCircle
+            startColor="white"
+            endColor="#15141f"
+            size="70px"
+            alignSelf="center"
+            speed="1.5"
+          />
+          {/* <CircularProgress isIndeterminate color="#15141f" size="70px" /> */}
+          <Text paddingLeft="0.5rem" fontSize="7xl" color="white">
+            4
+          </Text>
+        </Flex>
+        <Flex h="80%" justifyContent="space-between">
+          <Image
+            alignSelf="center"
+            opacity="0.5"
+            src={fond404}
+            objectFit="cover"
+            w="50%"
+          />
+          <Text color="white" padding="2rem" fontSize="4xl" alignSelf="center">
             &ldquo;I don&apos;t believe there is a good or bad situation&rdquo;
             &hellip; however this page cannot be found
           </Text>
         </Flex>
-        <Image
-          position="absolute"
-          left="4rem"
-          right="4rem"
-          zIndex="0"
-          src={fond404}
-          objectFit="contain"
-          w="87vw"
-          h="73vh"
-        />
-        <Text
-          position="absolute"
-          zIndex="1"
-          top="50%"
-          left="20%"
-          right="60%"
-          color="white"
-          fontSize="3xl"
-          transform="rotate(-11deg)"
-        >
-          Error 404, Page not found !
-        </Text>
-      </Box>
+      </Flex>
       <Footer />
     </div>
   );

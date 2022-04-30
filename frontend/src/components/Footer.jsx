@@ -22,7 +22,6 @@ export default function Footer() {
       bgColor="#15141f"
       bgPosition="center"
       height="120px"
-      opacity="0.9"
       justifyContent="space-around"
     >
       <Flex flexDirection="column" justifyContent="space-around" width="100px">
