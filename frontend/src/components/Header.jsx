@@ -17,21 +17,21 @@ export default function Header({ isOnHome }) {
       justify="space-between"
       h="100px"
     >
-      <Flex gap={10} w="100%">
+      <Flex gap={10} w="100%" align="center" justify="space-between">
         <a href="/">
           <Logo />
         </a>
         <Navbar />
         {!isOnHome && <Searchbar />}
+        <HStack>
+          <Button colorScheme="teal" size="lg">
+            {CTA}
+          </Button>
+          <Button variant="ghost" _hover={{ bgColor: "#2B3543" }} size="lg">
+            {CTA2}
+          </Button>
+        </HStack>
       </Flex>
-      <HStack>
-        <Button colorScheme="teal" size="lg">
-          {CTA}
-        </Button>
-        <Button variant="ghost" _hover={{ bgColor: "#2B3543" }} size="lg">
-          {CTA2}
-        </Button>
-      </HStack>
     </Flex>
   );
 }
