@@ -34,7 +34,14 @@ function Searchbar() {
   };
 
   return (
-    <Container w="50%" bg="white" zIndex="9999" borderRadius={15} color="black">
+    <Container
+      h="40px"
+      w="50%"
+      bg="white"
+      zIndex="9999"
+      borderRadius={15}
+      color="black"
+    >
       <form onSubmit={handleSubmit} w="100%">
         <Flex>
           <Input
