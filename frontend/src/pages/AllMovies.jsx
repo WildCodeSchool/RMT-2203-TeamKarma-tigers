@@ -9,7 +9,7 @@ function AllMovies({ sortType }) {
   return (
     <div>
       <Header isOnHome={false} />
-      <Flex h="100vh" p={5}>
+      <Flex h="100vh" p={5} bg="#15141f">
         <Box my="20px" w="30vw" h="full" bg="gray.50" borderRadius="md">
           Filter Section
         </Box>
