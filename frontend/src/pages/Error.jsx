@@ -33,7 +33,6 @@ function Error() {
             alignSelf="center"
             speed="1.5"
           />
-          {/* <CircularProgress isIndeterminate color="#15141f" size="70px" /> */}
           <Heading paddingLeft="0.5rem" fontSize="6xl" color="white">
             4
           </Heading>
