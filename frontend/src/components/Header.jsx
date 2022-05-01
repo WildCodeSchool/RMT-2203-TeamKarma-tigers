@@ -9,8 +9,15 @@ const CTA2 = "Sign up";
 
 export default function Header({ isOnHome }) {
   return (
-    <Flex w="100%" px="6" py="5" align="center" justify="space-between">
-      <Flex gap={10}>
+    <Flex
+      w="100%"
+      px="6"
+      py="5"
+      align="center"
+      justify="space-between"
+      h="100px"
+    >
+      <Flex gap={10} w="100%">
         <a href="/">
           <Logo />
         </a>
