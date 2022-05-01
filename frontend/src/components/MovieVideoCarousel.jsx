@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
 import { Flex } from "@chakra-ui/react";
-
 import Video from "./Video";
 import "./MovieVideoCarousel.css";
 
@@ -72,6 +71,7 @@ export default function MovieVideoCarousel({ movie }) {
             <Video w="400px" videoInfo={video} key={video.key} />
           </div>
         ))}
+
       <ArrowForwardIcon
         mt="13rem"
         _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
