@@ -2,7 +2,7 @@ import React from "react";
 import { Text, Image, Flex, SkeletonCircle, Heading } from "@chakra-ui/react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import fond404 from "../assets/fond_404.jpg";
+import img404 from "../assets/img404.png";
 
 function Error() {
   return (
@@ -41,10 +41,10 @@ function Error() {
         <Flex h="80%" justifyContent="space-between">
           <Image
             alignSelf="center"
-            opacity="0.5"
-            src={fond404}
-            objectFit="cover"
-            w="50%"
+            src={img404}
+            objectFit="contain"
+            w="60%"
+            h="100%"
           />
           <Text color="white" padding="2rem" fontSize="4xl" alignSelf="center">
             &ldquo;I don&apos;t believe there is a good or bad situation&rdquo;
