@@ -47,6 +47,8 @@ function Searchbar() {
           <Input
             placeholder="Searching a movie ?"
             _placeholder={{ opacity: 1, color: "gray.500" }}
+            textAlign={["center"]}
+            h="35px"
             size=""
             type="text"
             variant="unstyled"
