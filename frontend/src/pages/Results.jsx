@@ -12,9 +12,7 @@ function Results() {
   return (
     <Box bg="#15141f">
       <Header isOnHome={false} />
-      <Heading as="h2" color="white">
-        Search Results for: {search}...
-      </Heading>
+      <Heading as="h2">Search Results for: {search}...</Heading>
       <Container maxW="90vw" my={5}>
         <Box w="full" h="full">
           <MovieCarousel

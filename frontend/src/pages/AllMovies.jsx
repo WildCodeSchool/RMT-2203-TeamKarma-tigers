@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 function AllMovies({ sortType }) {
   return (
-    <Box bg="#15141f" color="white">
+    <Box bg="#15141f">
       <Header isOnHome={false} />
       <Flex p={5}>
         <Flex

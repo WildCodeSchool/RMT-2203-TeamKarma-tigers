@@ -7,7 +7,7 @@ function Error() {
   return (
     <div>
       <Header isOnHome={false} />
-      <Box bg="#15141f" color="white" h="100vh">
+      <Box bg="#15141f" h="100vh">
         <p>page 404</p>
         {/* Importer movie carousel filtered by the query */}
       </Box>
