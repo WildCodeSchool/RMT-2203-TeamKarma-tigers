@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Searchbar from "../components/Searchbar";
 import MovieCarousel from "../components/MovieCarousel";
 import Header from "../components/Header";
@@ -9,7 +9,11 @@ export default function Home() {
     <Box bg="#15141f">
       <main>
         <Header isOnHome />
-        <Searchbar />
+        <Flex h="100vh" alignItems="center" pb="200px">
+          <Box w="100%">
+            <Searchbar />
+          </Box>
+        </Flex>
         <h2>This Week Trending Movie</h2>
         <MovieCarousel
           type="thisWeekTrendingMovies"
