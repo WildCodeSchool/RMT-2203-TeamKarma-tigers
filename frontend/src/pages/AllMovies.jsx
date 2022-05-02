@@ -7,10 +7,17 @@ import Footer from "../components/Footer";
 
 function AllMovies({ sortType }) {
   return (
-    <div>
+    <Box bg="#15141f" color="white">
       <Header isOnHome={false} />
       <Flex h="100vh" p={5}>
-        <Box my="20px" w="30vw" h="full" bg="gray.50" borderRadius="md">
+        <Box
+          my="20px"
+          w="30vw"
+          h="full"
+          bg="gray.50"
+          borderRadius="md"
+          color="black"
+        >
           Filter Section
         </Box>
         <MovieCarousel
@@ -19,7 +26,7 @@ function AllMovies({ sortType }) {
         />
       </Flex>
       <Footer />
-    </div>
+    </Box>
   );
 }
 
