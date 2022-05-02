@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <Flex justify="flex-start" align="center">
       <Image src={LogoImg} alt="logo" w="70px" />
-      <Text fontSize="2xl" fontWeight="semibold">
+      <Text fontSize="2xl" fontWeight="semibold" color="white">
         Movieflix
       </Text>
     </Flex>

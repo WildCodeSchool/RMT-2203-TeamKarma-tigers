@@ -10,7 +10,7 @@ function Results() {
   const { search } = useParams();
 
   return (
-    <div>
+    <Box bg="#15141f">
       <Header isOnHome={false} />
       <Heading as="h2">Search Results for: {search}...</Heading>
       <Container maxW="90vw" my={5}>
@@ -22,7 +22,7 @@ function Results() {
         </Box>
       </Container>
       <Footer />
-    </div>
+    </Box>
   );
 }
 export default Results;
