@@ -16,6 +16,7 @@ export default function Home() {
           bgImage="url('./src/assets/home-background.jpg')"
           bgPosition="center"
           bgRepeat="no-repeat"
+          bgSize="cover"
         >
           <Box w="100%">
             <Searchbar />
