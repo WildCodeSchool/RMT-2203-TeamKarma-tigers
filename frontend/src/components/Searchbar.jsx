@@ -37,12 +37,12 @@ function Searchbar() {
 
   return (
     <Container
-      h="40px"
+      h="50px"
       w="50%"
       bg="white"
       zIndex="9999"
       borderRadius={15}
-      opacity="1"
+      opacity="0.8"
     >
       <form onSubmit={handleSubmit}>
         <Flex>

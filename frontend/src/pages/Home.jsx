@@ -9,7 +9,14 @@ export default function Home() {
     <Box bg="#15141f">
       <main>
         <Header isOnHome />
-        <Flex h="100vh" alignItems="center" pb="200px">
+        <Flex
+          h="100vh"
+          alignItems="center"
+          pb="200px"
+          bgImage="url('./src/assets/home-background.jpg')"
+          bgPosition="center"
+          bgRepeat="no-repeat"
+        >
           <Box w="100%">
             <Searchbar />
           </Box>
