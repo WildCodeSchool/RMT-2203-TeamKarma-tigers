@@ -8,6 +8,8 @@ import {
   ListItem,
   Flex,
   IconButton,
+  Box,
+  Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import "../styles/searchbar.css";
@@ -40,16 +42,18 @@ function Searchbar() {
       bg="white"
       zIndex="9999"
       borderRadius={15}
-      color="black"
+      opacity="1"
     >
-      <form onSubmit={handleSubmit} w="100%">
+      <form onSubmit={handleSubmit}>
         <Flex>
           <Input
             placeholder="Searching a movie ?"
-            _placeholder={{ opacity: 1, color: "gray.500" }}
+            _placeholder={{
+              opacity: 1,
+              color: "gray.500",
+              h: "100px",
+            }}
             textAlign={["center"]}
-            h="35px"
-            size=""
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
@@ -61,21 +65,33 @@ function Searchbar() {
               aria-label="Search database"
               icon={<SearchIcon />}
               onClick={handleSubmit}
-              size=""
             />
           )}
         </Flex>
       </form>
-      <List bg="white" h="auto" overflowX="hidden">
+      <List
+        bg="white"
+        h="auto"
+        overflowX="hidden"
+        w="100%"
+        borderRadius="19px"
+        marginTop="1rem"
+      >
         {moviesData.length !== 0 && search !== "" && (
-          <div
+          <Box
             className="scrolling"
             style={{ overflowY: "scroll", height: "35vh" }}
           >
-            <ListItem>
-              <Flex direction="column" align="start">
+            <ListItem p="16px">
+              <Flex
+                direction="column"
+                align="start"
+                position="relative"
+                w="100%"
+                justify="space-between"
+              >
                 {moviesData.map((movie) => (
-                  <a className="movie-link" href={`/movies/${movie.id} `}>
+                  <a href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
                         transform: "scale(1.03)",
@@ -83,8 +99,7 @@ function Searchbar() {
                         borderRadius: "10px",
                       }}
                       direction="row"
-                      justify="space-between"
-                      w="43vw"
+                      w="100%"
                       align="center"
                       mb="10px"
                       fontSize="1.3rem"
@@ -97,15 +112,21 @@ function Searchbar() {
                             : `${emptyImage}`
                         }
                         alt="Movie poster"
-                        style={{ width: "100px", borderRadius: "15px" }}
+                        style={{
+                          maxWidth: "10vw",
+                          borderRadius: "15px",
+                          zIndex: "9999",
+                        }}
                       />
-                      {movie.title}
+                      <Flex pl="20px" zIndex="9999">
+                        <Text fontSize="1.2vw">{movie.title}</Text>
+                      </Flex>
                     </Flex>
                   </a>
                 ))}
               </Flex>
             </ListItem>
-          </div>
+          </Box>
         )}
       </List>
     </Container>

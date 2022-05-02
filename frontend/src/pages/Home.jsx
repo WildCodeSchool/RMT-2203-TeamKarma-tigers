@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <Box bg="#15141f" color="white">
+    <Box bg="#15141f">
       <main>
         <Header isOnHome />
         <Searchbar />
