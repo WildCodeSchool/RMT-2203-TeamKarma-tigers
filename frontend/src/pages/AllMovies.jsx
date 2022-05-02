@@ -7,6 +7,22 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function AllMovies({ sortType }) {
+  const showStarRating = (rating) => {
+    return (
+      <Box display="flex" alignItems="center">
+        {Array(5)
+          .fill("")
+          .map((_, i) => (
+            <StarIcon
+              w={4}
+              h={4}
+              color={i < rating - 1 ? "teal.500" : "gray.300"}
+            />
+          ))}
+      </Box>
+    );
+  };
+
   return (
     <Box bg="#15141f">
       <Header isOnHome={false} />
@@ -55,82 +71,22 @@ function AllMovies({ sortType }) {
               display="flex"
               align="center"
             >
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      w={4}
-                      h={4}
-                      color={i < 5 ? "teal.500" : "gray.300"}
-                    />
-                  ))}
-              </Box>
+              {showStarRating(5)}
             </Checkbox>
             <Checkbox size="lg" colorScheme="teal" defaultChecked>
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      w={4}
-                      h={4}
-                      color={i < 4 ? "teal.500" : "gray.300"}
-                    />
-                  ))}
-              </Box>
+              {showStarRating(4)}
             </Checkbox>
             <Checkbox size="lg" colorScheme="teal" defaultChecked>
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      w={4}
-                      h={4}
-                      color={i < 3 ? "teal.500" : "gray.300"}
-                    />
-                  ))}
-              </Box>{" "}
+              {showStarRating(3)}
             </Checkbox>
             <Checkbox size="lg" colorScheme="teal" defaultChecked>
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      w={4}
-                      h={4}
-                      color={i < 2 ? "teal.500" : "gray.300"}
-                    />
-                  ))}
-              </Box>{" "}
+              {showStarRating(2)}
             </Checkbox>
             <Checkbox size="lg" colorScheme="teal" defaultChecked>
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      w={4}
-                      h={4}
-                      color={i < 1 ? "teal.500" : "gray.300"}
-                    />
-                  ))}
-              </Box>{" "}
+              {showStarRating(1)}
             </Checkbox>
             <Checkbox size="lg" colorScheme="teal" defaultChecked>
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      w={4}
-                      h={4}
-                      color={i < 0 ? "teal.500" : "gray.300"}
-                    />
-                  ))}
-              </Box>{" "}
+              {showStarRating(0)}
             </Checkbox>
           </Stack>
         </Flex>
