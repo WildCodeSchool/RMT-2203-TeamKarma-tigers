@@ -3,7 +3,7 @@ import { HStack, Button } from "@chakra-ui/react";
 
 export default function Navbar() {
   return (
-    <HStack spacing="5" wrap="nowrap">
+    <HStack spacing="5" wrap="nowrap" color="white">
       <nav>
         <Button variant="ghost" size="lg" _hover={{ bgColor: "#2B3543" }}>
           <Link to="/movies">All Movies</Link>

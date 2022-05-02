@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 function PopularMovies({ sortType }) {
   return (
-    <Box bg="#15141f" color="white">
+    <Box bg="#15141f">
       <Header isOnHome={false} />
       <MovieCarousel
         type="alphabeticalMovies"
