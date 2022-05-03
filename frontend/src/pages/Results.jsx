@@ -8,7 +8,7 @@ import MovieCarousel from "../components/MovieCarousel";
 
 function Results() {
   const { search } = useParams();
-  const breakpoints = ["0em", "30em", "48em", "62em", "80em", "96em"];
+
   return (
     <Box bg="#15141f">
       <Header isOnHome={false} />

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { Flex, HStack, Button, Box, VStack } from "@chakra-ui/react";
+import { Flex, HStack, Button, Box } from "@chakra-ui/react";
 import Video from "./Video";
 import "./MovieVideoCarousel.css";
 
