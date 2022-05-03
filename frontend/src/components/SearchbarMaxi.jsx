@@ -45,7 +45,7 @@ function Searchbar() {
       opacity="0.8"
     >
       <form onSubmit={handleSubmit}>
-        <Flex>
+        <Flex marginBottom="6vh">
           <Input
             placeholder="Lookin' for a movie ?"
             _placeholder={{
@@ -61,6 +61,7 @@ function Searchbar() {
           />
           {search.length >= 1 && (
             <IconButton
+              fontSize="3vw"
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
@@ -70,18 +71,11 @@ function Searchbar() {
           )}
         </Flex>
       </form>
-      <List
-        bg="white"
-        h="auto"
-        overflowX="hidden"
-        maxW="80vw"
-        borderRadius="19px"
-        marginTop="1rem"
-      >
+      <List bg="white" overflowX="hidden" maxW="80vw" borderRadius="19px">
         {moviesData.length !== 0 && search !== "" && (
           <Box
             className="scrolling"
-            style={{ overflowY: "scroll", height: "35vh" }}
+            style={{ overflowY: "scroll", maxHeight: "35vh" }}
           >
             <ListItem p="16px">
               <Flex
@@ -103,7 +97,6 @@ function Searchbar() {
                       w="100%"
                       align="center"
                       mb="10px"
-                      fontSize="3vw"
                     >
                       <img
                         className="movie-img-searchbar"
@@ -114,13 +107,13 @@ function Searchbar() {
                         }
                         alt="Movie poster"
                         style={{
-                          maxWidth: "10vw",
+                          maxHeight: "12vh",
                           borderRadius: "15px",
                           zIndex: "9999",
                         }}
                       />
                       <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="3vw">{movie.title}</Text>
+                        <Text fontSize="2.5vw">{movie.title}</Text>
                       </Flex>
                     </Flex>
                   </a>

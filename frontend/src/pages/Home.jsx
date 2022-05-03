@@ -14,6 +14,7 @@ export default function Home() {
           h="100vh"
           alignItems="center"
           bgImage="url('./src/assets/home-background.jpg')"
+          bgPosition="center"
           bgSize="cover"
         >
           <SearchbarMaxi />
