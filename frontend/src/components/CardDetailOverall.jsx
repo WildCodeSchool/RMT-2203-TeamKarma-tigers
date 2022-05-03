@@ -25,10 +25,8 @@ export default function CardDetailOverall({ movie }) {
       });
   };
 
-  const showTime = moment(
-    moment.duration({ minutes: results.runtime }).asHours(),
-    "HH mm"
-  );
+  const duration = moment.duration(results.runtime);
+  const formatted = moment.utc(duration.asHours()).format("H[h]m[m]");
 
   useEffect(() => {
     getMovie();
@@ -36,7 +34,7 @@ export default function CardDetailOverall({ movie }) {
 
   return (
     <Grid templateColumns={{ md: "100%", xl: "31% 50%" }} gap="6" color="white">
-      <GridItem w="100%">
+      <GridItem w="100%" mt={{ sm: "1rem", md: "1rem", lg: "1rem" }}>
         <Image
           src={
             results.poster_path
@@ -44,8 +42,13 @@ export default function CardDetailOverall({ movie }) {
               : `url(${emptyImage})`
           }
           alt={results.title}
-          minW="-webkit-fill-available"
-          m={{ md: "0 auto", xl: "1rem" }}
+          minW={{ xl: "-webkit-fill-available" }}
+          m={{
+            sm: "0 auto",
+            md: "0 auto",
+            lg: "0 auto",
+            xl: "1rem",
+          }}
         />
       </GridItem>
       <GridItem w="100%" m={{ lg: "0 auto" }}>
@@ -61,7 +64,7 @@ export default function CardDetailOverall({ movie }) {
           </Heading>
           <Heading as="h3" size="sm" marginTop="1rem">
             The movie lasts {results.runtime} minutes ||{" "}
-            {showTime.format("HH[h] mm[min]")}
+            {moment(results.runtime).format("H[h] mm[m]")}
           </Heading>
           <Heading as="h3" size="sm" marginBottom="1rem">
             {moment(Date()).diff(results.release_date, "hours") >= 24

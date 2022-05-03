@@ -31,6 +31,7 @@ export default function CardDetailSynopsis({ movie }) {
         marginTop="2rem"
         justifyContent="space-around"
         w="100%"
+        flexDir={{ md: "" }}
       >
         <Flex flexDir="column">
           <Heading size="md" paddingBottom="0.5rem">
@@ -51,7 +52,12 @@ export default function CardDetailSynopsis({ movie }) {
           <Heading size="md" paddingBottom="0.5rem">
             REVENUE
           </Heading>
-          <Text marginBottom="1rem">{synopsis.revenue}</Text>
+          <Text marginBottom="1rem">
+            {new Intl.NumberFormat("de-DE", {
+              style: "currency",
+              currency: "USD",
+            }).format(synopsis.revenue)}
+          </Text>
           <Heading size="md">AVERAGE VOTE</Heading>
           <Text marginBottom="1rem">{synopsis.vote_average}</Text>
         </Flex>
