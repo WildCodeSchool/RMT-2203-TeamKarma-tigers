@@ -26,7 +26,8 @@ export default function CardDetailOverall({ movie }) {
   };
 
   const showTime = moment(
-    moment.duration(results.runtime, "minutes").asHours()
+    moment.duration({ minutes: results.runtime }).asHours(),
+    "HH mm"
   );
 
   useEffect(() => {
@@ -62,8 +63,7 @@ export default function CardDetailOverall({ movie }) {
                 {results.title}
               </Heading>
               <Heading as="h3" size="sm" marginTop="1rem">
-                The movie lasts{" "}
-                {/* {moment.duration(results.runtime, "minutes").asHours()} */}
+                The movie lasts {results.runtime} minutes ||{" "}
                 {showTime.format("HH[h] mm[min]")}
               </Heading>
               <Heading as="h3" size="sm" marginBottom="1rem">
