@@ -20,14 +20,14 @@ export default function CardDetailSynopsis({ movie }) {
 
   return (
     <Box>
-      <Text borderBottom="1px solid black" padding="1.5rem" textAlign="left">
+      <Text borderBottom="1px solid white" padding="1.5rem" textAlign="left">
         <Heading size="lg" paddingBottom="1rem">
           SYNOPSIS
         </Heading>
         {synopsis.overview}
       </Text>
       <Flex
-        borderBottom="1px solid black"
+        borderBottom="1px solid white"
         marginTop="2rem"
         justifyContent="space-around"
         w="100%"
