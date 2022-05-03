@@ -32,7 +32,11 @@ function Searchbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return navigate(`/results/${search}`);
+    const searchParam = search;
+    setSearch("");
+    setMoviesData([]);
+
+    return navigate(`/results/${searchParam}`);
   };
 
   return (

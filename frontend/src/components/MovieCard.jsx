@@ -19,7 +19,6 @@ function MovieCard({ movie }) {
         as="article"
         h="450px"
         m="20px"
-        maxW="320px"
         bg="grey"
         borderRadius="md"
         backgroundImage={
@@ -45,6 +44,7 @@ function MovieCard({ movie }) {
             align="flex-start"
             justify="flex-start"
             h="150px"
+            w="300px"
             p="2"
             _hover={{ height: "250px" }}
           >
