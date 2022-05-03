@@ -33,6 +33,7 @@ function AllMovies({ sortType }) {
           marginTop="2.5vh"
           boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
           w="30vw"
+          minW="30%"
           h="100vh"
           gap={10}
           bg="white"
