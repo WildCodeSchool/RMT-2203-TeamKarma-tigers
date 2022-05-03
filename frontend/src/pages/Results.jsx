@@ -8,7 +8,7 @@ import MovieCarousel from "../components/MovieCarousel";
 
 function Results() {
   const { search } = useParams();
-
+  const breakpoints = ["0em", "30em", "48em", "62em", "80em", "96em"];
   return (
     <Box bg="#15141f">
       <Header isOnHome={false} />
@@ -16,6 +16,7 @@ function Results() {
       <Container maxW="90vw" my={5}>
         <Box w="full" h="full">
           <MovieCarousel
+            h={[20, 40, 60]}
             type="searchQuery"
             url={`https://api.themoviedb.org/3/search/movie?&query=${search}&language=en-US&include_adult=false`}
           />

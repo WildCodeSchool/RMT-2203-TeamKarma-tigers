@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { Flex, HStack, Button } from "@chakra-ui/react";
+import { Flex, HStack, Button, Box, VStack } from "@chakra-ui/react";
 import Video from "./Video";
 import "./MovieVideoCarousel.css";
 
@@ -56,41 +56,44 @@ export default function MovieVideoCarousel({ movie }) {
   }
 
   return (
-    <Flex W="400px" mx="auto">
-      <HStack>
-        <Button
-          position="relative"
-          z-index="9000"
-          variant="solid"
-          borderRadius="100%"
-          w={12}
-          h={12}
-        >
-          <ArrowBackIcon
+    <Box>
+      <Flex
+        W="400px"
+        mx="auto"
+        direction="raw"
+        align="center"
+        gap="15px"
+        mt="100px"
+        justify="center"
+      >
+        <HStack>
+          <Button variant="solid" borderRadius="100%" w="50px" h="50px">
+            <ArrowBackIcon
+              color="red"
+              _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
+              fontSize="3rem"
+              className="left-arrow"
+              onClick={prevSlide}
+            />
+          </Button>
+        </HStack>
+
+        {allVideos.length &&
+          filterVideos(current, allVideos).map((video) => (
+            <div className="slide active" key={video.key}>
+              <Video videoInfo={video} key={video.key} />
+            </div>
+          ))}
+        <Button variant="solid" borderRadius="100%" w="50px" h="50px">
+          <ArrowForwardIcon
             color="red"
-            // mt="13rem"
             _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
             fontSize="3rem"
-            className="left-arrow"
-            onClick={prevSlide}
+            className="right-arrow"
+            onClick={nextSlide}
           />
         </Button>
-      </HStack>
-
-      {allVideos.length &&
-        filterVideos(current, allVideos).map((video) => (
-          <div className="slide active" key={video.key}>
-            <Video w="400px" videoInfo={video} key={video.key} />
-          </div>
-        ))}
-
-      <ArrowForwardIcon
-        mt="13rem"
-        _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
-        fontSize="3rem"
-        className="right-arrow"
-        onClick={nextSlide}
-      />
-    </Flex>
+      </Flex>
+    </Box>
   );
 }
