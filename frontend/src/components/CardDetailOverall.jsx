@@ -25,12 +25,16 @@ export default function CardDetailOverall({ movie }) {
       });
   };
 
+  const showTime = moment(
+    moment.duration(results.runtime, "minutes").asHours()
+  );
+
   useEffect(() => {
     getMovie();
   }, []);
 
   return (
-    <Box w="100%" maxW="1900px" m="0 auto" overflow="hidden">
+    <Box w="100%" maxW="1900px" m="0 auto" overflow="hidden" color="white">
       <Flex>
         <Grid templateColumns="500px 1000px" gap="6">
           <GridItem w="100%">
@@ -58,11 +62,18 @@ export default function CardDetailOverall({ movie }) {
                 {results.title}
               </Heading>
               <Heading as="h3" size="sm" marginTop="1rem">
-                The movie lasts {results.runtime} minutes
+                The movie lasts{" "}
+                {/* {moment.duration(results.runtime, "minutes").asHours()} */}
+                {showTime.format("HH[h] mm[min]")}
               </Heading>
               <Heading as="h3" size="sm" marginBottom="1rem">
-                The movie was released on{" "}
-                {moment(results.release_date).format("MMMM Do YYYY")}
+                {moment(Date()).diff(results.release_date, "hours") >= 24
+                  ? `The movie was released on ${moment(
+                      results.release_date
+                    ).format("MMMM Do YYYY")}`
+                  : `The movie will be released on ${moment(
+                      results.release_date
+                    ).format("MMMM Do YYYY")}`}
               </Heading>
               <ButtonGroupFilmNavigation movie={movieid} />
             </Flex>
