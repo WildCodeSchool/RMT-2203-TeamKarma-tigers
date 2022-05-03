@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { Button } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
-import "./MovieCarousel.css";
 
-function MovieCarousel({ type, url }) {
+function MovieCarousel({ type, url, onResultChange = null }) {
   const [Movies, setMovies] = React.useState([]);
   const [MoviePage, setMoviePage] = React.useState(1);
+  const [totalPages, setTotalPages] = React.useState(1);
+
   const controller = new AbortController();
   const { signal } = controller;
 
@@ -18,7 +19,17 @@ function MovieCarousel({ type, url }) {
       )
       .then((response) => response.data)
       .then((data) => {
-        setMovies(Movies.concat(data.results));
+        setTotalPages(data.total_pages);
+
+        if (onResultChange) {
+          onResultChange(data.total_results);
+        }
+
+        if (MoviePage > 1) {
+          setMovies(Movies.concat(data.results));
+        } else {
+          setMovies(data.results);
+        }
       });
   };
 
@@ -31,21 +42,28 @@ function MovieCarousel({ type, url }) {
     return () => {
       controller.abort();
     };
-  }, [MoviePage]);
+  }, [MoviePage, url]);
+
+  useEffect(() => {
+    setMoviePage(1);
+  }, [url]);
 
   return (
-    <div>
-      <div className="Movie-Carousel">
+    <div width="90%">
+      <Flex wrap="wrap" align="center" justify="space-evenly">
         {Movies.filter((movie) => movie.release_date).map((movie) => (
           <MovieCard
             key={`${type}_${movie.id}_${movie.original_title}`}
             movie={movie}
           />
         ))}
-      </div>
-      <Button colorScheme="teal" size="lg" onClick={handleMoreMovies}>
-        Load More
-      </Button>
+      </Flex>
+      )
+      {totalPages > 1 && (
+        <Button colorScheme="teal" size="lg" onClick={handleMoreMovies}>
+          Load More
+        </Button>
+      )}
     </div>
   );
 }
