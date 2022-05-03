@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import Searchbar from "../components/Searchbar";
 import MovieCarousel from "../components/MovieCarousel";
 import Header from "../components/Header";
@@ -5,8 +6,8 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div>
-      <main className="App-header">
+    <Box bg="#15141f">
+      <main>
         <Header isOnHome />
         <Searchbar />
         <h2>This Week Trending Movie</h2>
@@ -18,6 +19,6 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </Box>
   );
 }
