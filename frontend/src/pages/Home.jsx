@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
-import Searchbar from "../components/Searchbar";
+import SearchbarMaxi from "../components/Searchbar";
 import MovieCarousel from "../components/MovieCarousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -19,7 +19,7 @@ export default function Home() {
           bgSize="cover"
         >
           <Box w="100%">
-            <Searchbar />
+            <SearchbarMaxi />
           </Box>
         </Flex>
         <h2>This Week Trending Movie</h2>
