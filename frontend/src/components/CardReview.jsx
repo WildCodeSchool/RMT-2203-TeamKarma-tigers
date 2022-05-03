@@ -5,16 +5,8 @@ import moment from "moment";
 
 function CardReview({ review }) {
   return (
-    <Container
-      border="1px"
-      borderRadius="10px"
-      maxH="200px"
-      bg="#282c34"
-      color="white"
-      margin="1rem"
-      padding="0.5rem"
-    >
-      <HStack spacing="110px">
+    <Container maxH="200px" color="white" margin="0.5rem" padding="0.5rem">
+      <HStack spacing="130px">
         <Avatar
           marginLeft="1rem"
           alignSelf="center"
@@ -28,39 +20,44 @@ function CardReview({ review }) {
           alt=""
         />
         <Flex flexDirection="column">
-          <Text>{review.author}</Text>
-          <Text mt={2}>{moment(review.updated_at).format("MMMM Do YYYY")}</Text>
+          <Text fontSize="xl">{review.author}</Text>
+          <Text mb={2} fontSize="md" fontStyle="italic">
+            {moment(review.updated_at).format("MMMM Do YYYY")}
+          </Text>
         </Flex>
       </HStack>
-      <Flex flexDirection="column">
-        <Box display="flex" mt="2" alignSelf="center" margin="0.5rem">
-          {Array(5)
-            .fill("")
-            .map((_, i) => (
-              <StarIcon
-                w={4}
-                h={4}
-                key={review.id}
-                color={
-                  i < Math.round(review.author_details.rating / 2)
-                    ? "teal.500"
-                    : "gray.300"
-                }
-              />
-            ))}
+      <Flex flexDirection="column" bg="#2b3543" h="70%" borderRadius="8px">
+        <Box display="flex" alignSelf="center" margin="0.5rem">
+          {review.author_details.rating === null
+            ? null
+            : Array(5)
+                .fill("")
+                .map((_, i) => (
+                  <StarIcon
+                    w={4}
+                    h={4}
+                    key={review.id}
+                    color={
+                      i < Math.round(review.author_details.rating / 2)
+                        ? "teal.500"
+                        : "gray.300"
+                    }
+                  />
+                ))}
         </Box>
         <Box
+          margin=".5rem"
           scrollBehavior="smooth"
-          overflowY="scroll"
-          maxH="100px"
+          overflowY="auto"
           sx={{
             "&::-webkit-scrollbar": {
-              width: "16px",
+              width: "14px",
               borderRadius: "8px",
               backgroundColor: "white",
             },
             "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "#282c34",
+              borderRadius: "5.9px",
+              backgroundColor: "#15141f",
             },
           }}
         >
