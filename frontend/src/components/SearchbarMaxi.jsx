@@ -32,38 +32,36 @@ function Searchbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const searchParam = search;
-    setSearch("");
-    setMoviesData([]);
-
-    return navigate(`/results/${searchParam}`);
+    return navigate(`/results/${search}`);
   };
 
   return (
     <Container
-      h="50px"
-      w="50%"
+      maxH="8vh"
+      maxW="80vw"
       bg="white"
       zIndex="9999"
       borderRadius={15}
       opacity="0.8"
     >
       <form onSubmit={handleSubmit}>
-        <Flex>
+        <Flex marginBottom="6vh">
           <Input
-            placeholder="Searching a movie ?"
+            placeholder="Lookin' for a movie ?"
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              h: "100px",
+              fontSize: "3vw",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
+            fontSize="3vw"
           />
           {search.length >= 1 && (
             <IconButton
+              fontSize="3vw"
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
@@ -73,23 +71,16 @@ function Searchbar() {
           )}
         </Flex>
       </form>
-      <List
-        bg="white"
-        h="auto"
-        overflowX="hidden"
-        w="100%"
-        borderRadius="19px"
-        marginTop="1rem"
-      >
+      <List bg="white" overflowX="hidden" maxW="80vw" borderRadius="19px">
         {moviesData.length !== 0 && search !== "" && (
           <Box
             className="scrolling"
-            style={{ overflowY: "scroll", height: "35vh" }}
+            style={{ overflowY: "scroll", maxHeight: "35vh" }}
           >
             <ListItem p="16px">
               <Flex
                 direction="column"
-                align="start"
+                align="center"
                 position="relative"
                 w="100%"
                 justify="space-between"
@@ -106,7 +97,6 @@ function Searchbar() {
                       w="100%"
                       align="center"
                       mb="10px"
-                      fontSize="1.3rem"
                     >
                       <img
                         className="movie-img-searchbar"
@@ -117,13 +107,13 @@ function Searchbar() {
                         }
                         alt="Movie poster"
                         style={{
-                          maxWidth: "10vw",
+                          maxHeight: "12vh",
                           borderRadius: "15px",
                           zIndex: "9999",
                         }}
                       />
                       <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="1.2vw">{movie.title}</Text>
+                        <Text fontSize="2.5vw">{movie.title}</Text>
                       </Flex>
                     </Flex>
                   </a>

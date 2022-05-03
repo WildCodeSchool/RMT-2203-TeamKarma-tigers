@@ -16,6 +16,7 @@ export default function Header({ isOnHome }) {
       align="center"
       justify="space-between"
       h="100px"
+      position="fixed"
     >
       <Flex gap={10} w="100%" align="center" justify="space-between">
         <a href="/">
