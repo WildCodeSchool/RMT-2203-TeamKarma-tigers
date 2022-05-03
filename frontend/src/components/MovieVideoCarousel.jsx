@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { Flex } from "@chakra-ui/react";
+import { Flex, HStack, Button } from "@chakra-ui/react";
 import Video from "./Video";
 import "./MovieVideoCarousel.css";
 
@@ -57,13 +57,25 @@ export default function MovieVideoCarousel({ movie }) {
 
   return (
     <Flex W="400px" mx="auto">
-      <ArrowBackIcon
-        mt="13rem"
-        _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
-        fontSize="3rem"
-        className="left-arrow"
-        onClick={prevSlide}
-      />
+      <HStack>
+        <Button
+          position="relative"
+          z-index="9000"
+          variant="solid"
+          borderRadius="100%"
+          w={12}
+          h={12}
+        >
+          <ArrowBackIcon
+            color="red"
+            // mt="13rem"
+            _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
+            fontSize="3rem"
+            className="left-arrow"
+            onClick={prevSlide}
+          />
+        </Button>
+      </HStack>
 
       {allVideos.length &&
         filterVideos(current, allVideos).map((video) => (

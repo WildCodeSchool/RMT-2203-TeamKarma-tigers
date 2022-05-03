@@ -6,12 +6,7 @@ export default function Video({ videoInfo }) {
   return (
     <div>
       <Pulse>
-        <Box
-          rounded="md"
-          w="full"
-          _hover={{ transform: "scale(1.2)" }}
-          mt="5rem"
-        >
+        <Box borderRadius={15} w="full" mt="5rem" pl="1rem">
           <iframe
             width="400"
             height="315"
@@ -19,7 +14,6 @@ export default function Video({ videoInfo }) {
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            rounded="full"
             loading="eager"
           />
         </Box>

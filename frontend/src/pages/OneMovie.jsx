@@ -1,5 +1,6 @@
 import { React } from "react";
 import { useParams } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -9,10 +10,10 @@ export default function OneMovie() {
   const { movieid } = useParams();
 
   return (
-    <div>
+    <Box bg="#15141f">
       <Header isOnHome={false} />
       <CardDetailOverall movie={movieid} />
       <Footer />
-    </div>
+    </Box>
   );
 }
