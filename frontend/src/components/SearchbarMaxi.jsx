@@ -103,7 +103,7 @@ function Searchbar() {
                       w="100%"
                       align="center"
                       mb="10px"
-                      fontSize="1.3rem"
+                      fontSize="3vw"
                     >
                       <img
                         className="movie-img-searchbar"
@@ -120,7 +120,7 @@ function Searchbar() {
                         }}
                       />
                       <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="2rem">{movie.title}</Text>
+                        <Text fontSize="3vw">{movie.title}</Text>
                       </Flex>
                     </Flex>
                   </a>
