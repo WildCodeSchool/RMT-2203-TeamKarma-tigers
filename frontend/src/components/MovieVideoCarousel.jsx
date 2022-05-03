@@ -57,7 +57,7 @@ export default function MovieVideoCarousel({ movie }) {
   }
 
   return (
-    <Flex className="slider">
+    <Flex>
       <ArrowBackIcon className="left-arrow" onClick={prevSlide} />
 
       {allVideos.length &&

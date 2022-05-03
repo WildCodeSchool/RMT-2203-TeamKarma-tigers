@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { HStack, Button } from "@chakra-ui/react";
+import ModalInspiration from "./ModalInspiration";
 
 export default function Navbar() {
   return (
@@ -11,9 +12,10 @@ export default function Navbar() {
         <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
           <Link to="/popular">Popular</Link>
         </Button>
-        <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
-          <Link to="/movies">What should I Watch?</Link>
-        </Button>
+        {/* <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
+          <Link to="/get-inspired">What should I Watch?</Link>
+        </Button> */}
+        <ModalInspiration />
       </nav>
     </HStack>
   );
