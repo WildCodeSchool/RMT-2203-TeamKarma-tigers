@@ -50,7 +50,7 @@ function CardReviewCarousel({ movie }) {
         maxW="900px"
         mx="auto"
         scrollBehavior="smooth"
-        overflowY="scroll"
+        overflowY="auto"
         sx={{
           "&::-webkit-scrollbar": {
             width: "14px",
