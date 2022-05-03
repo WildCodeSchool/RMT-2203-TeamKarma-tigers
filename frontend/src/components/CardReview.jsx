@@ -6,28 +6,28 @@ import moment from "moment";
 function CardReview({ review }) {
   return (
     <Container maxH="200px" color="white" margin="0.5rem" padding="0.5rem">
-      <HStack spacing="130px">
-        <Avatar
-          marginLeft="1rem"
-          alignSelf="center"
-          size="md"
-          src={
-            review.author_details.avatar_path === null ||
-            review.author_details.avatar_path.includes("gravatar") === true
-              ? `https://bit.ly/broken-link`
-              : `https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`
-          }
-          alt=""
-        />
-        <Flex flexDirection="column">
-          <Text fontSize="xl">{review.author}</Text>
-          <Text mb={2} fontSize="md" fontStyle="italic">
-            {moment(review.updated_at).format("MMMM Do YYYY")}
-          </Text>
-        </Flex>
-      </HStack>
-      <Flex flexDirection="column" bg="#2b3543" h="70%" borderRadius="8px">
-        <Box display="flex" alignSelf="center" margin="0.5rem">
+      <Flex justifyContent="space-between">
+        <HStack spacing="30px">
+          <Avatar
+            marginLeft="1rem"
+            alignSelf="center"
+            size="md"
+            src={
+              review.author_details.avatar_path === null ||
+              review.author_details.avatar_path.includes("gravatar") === true
+                ? `https://bit.ly/broken-link`
+                : `https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`
+            }
+            alt=""
+          />
+          <Flex flexDirection="column">
+            <Text fontSize="xl">{review.author}</Text>
+            <Text mb={2} fontSize="md" fontStyle="italic">
+              {moment(review.updated_at).format("MMMM Do YYYY")}
+            </Text>
+          </Flex>
+        </HStack>
+        <Box display="flex" alignSelf="center" margin="0.5rem" width="30%">
           {review.author_details.rating === null
             ? null
             : Array(5)
@@ -45,6 +45,8 @@ function CardReview({ review }) {
                   />
                 ))}
         </Box>
+      </Flex>
+      <Flex bg="#2b3543" h="70%" borderRadius="8px">
         <Box
           margin=".5rem"
           scrollBehavior="smooth"

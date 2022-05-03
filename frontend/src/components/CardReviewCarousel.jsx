@@ -44,10 +44,29 @@ function CardReviewCarousel({ movie }) {
 
   return (
     <div>
-      <Flex flexDirection="column" maxW="900px" mx="auto">
+      <Flex
+        flexDirection="column"
+        height="500px"
+        maxW="900px"
+        mx="auto"
+        scrollBehavior="smooth"
+        overflowY="scroll"
+        sx={{
+          "&::-webkit-scrollbar": {
+            width: "14px",
+            borderRadius: "8px",
+            backgroundColor: "white",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            borderRadius: "5.9px",
+            backgroundColor: "#15141f",
+          },
+        }}
+      >
         {reviews.map((review) =>
           review ? (
             <Flex
+              height="160px"
               _even={{
                 alignSelf: "flex-end",
               }}
@@ -57,18 +76,18 @@ function CardReviewCarousel({ movie }) {
           ) : null
         )}
       </Flex>
-      <div>
-        {results + 3 <= totalResult && (
-          <Button
-            colorScheme="teal"
-            variant="solid"
-            onClick={handleMoreReviews}
-            type="button"
-          >
-            Read more reviews
-          </Button>
-        )}
-      </div>
+      {results + 3 <= totalResult && (
+        <Button
+          width="20%"
+          alignSelf="center"
+          colorScheme="teal"
+          variant="solid"
+          onClick={handleMoreReviews}
+          type="button"
+        >
+          Read more reviews
+        </Button>
+      )}
     </div>
   );
 }
