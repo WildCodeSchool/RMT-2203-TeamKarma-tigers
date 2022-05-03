@@ -37,7 +37,7 @@ function Searchbar() {
 
   return (
     <Container
-      h="7%"
+      maxH="8vh"
       maxW="80vw"
       bg="white"
       zIndex="9999"
@@ -47,16 +47,17 @@ function Searchbar() {
       <form onSubmit={handleSubmit}>
         <Flex>
           <Input
-            placeholder="Searching a movie ?"
+            placeholder="Lookin' for a movie ?"
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              h: "100px",
+              fontSize: "3vw",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
+            fontSize="3vw"
           />
           {search.length >= 1 && (
             <IconButton
@@ -119,7 +120,7 @@ function Searchbar() {
                         }}
                       />
                       <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="1.2vw">{movie.title}</Text>
+                        <Text fontSize="2rem">{movie.title}</Text>
                       </Flex>
                     </Flex>
                   </a>
