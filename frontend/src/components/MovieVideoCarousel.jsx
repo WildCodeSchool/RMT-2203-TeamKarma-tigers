@@ -60,11 +60,11 @@ export default function MovieVideoCarousel({ movie }) {
       <Flex
         W="400px"
         mx="auto"
-        direction="raw"
         align="center"
         gap="15px"
         mt="100px"
         justify="center"
+        direction={{ base: "column", md: "column", lg: "column", x1: "row" }}
       >
         <HStack>
           <Button variant="solid" borderRadius="100%" w="50px" h="50px">
