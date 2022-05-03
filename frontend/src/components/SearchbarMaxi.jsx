@@ -37,8 +37,8 @@ function Searchbar() {
 
   return (
     <Container
-      h="50px"
-      w="50%"
+      h="7%"
+      maxW="80vw"
       bg="white"
       zIndex="9999"
       borderRadius={15}
@@ -73,7 +73,7 @@ function Searchbar() {
         bg="white"
         h="auto"
         overflowX="hidden"
-        w="100%"
+        maxW="80vw"
         borderRadius="19px"
         marginTop="1rem"
       >
@@ -85,7 +85,7 @@ function Searchbar() {
             <ListItem p="16px">
               <Flex
                 direction="column"
-                align="start"
+                align="center"
                 position="relative"
                 w="100%"
                 justify="space-between"

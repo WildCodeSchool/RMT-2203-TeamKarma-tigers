@@ -1,26 +1,22 @@
 import { Box, Flex } from "@chakra-ui/react";
-import SearchbarMaxi from "../components/Searchbar";
+import SearchbarMaxi from "../components/SearchbarMaxi";
 import MovieCarousel from "../components/MovieCarousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <Box bg="#15141f">
+    <Box bg="#15141f" w="100vw">
       <main>
         <Header isOnHome />
         <Flex
+          w="100vw"
           h="100vh"
           alignItems="center"
-          pb="200px"
           bgImage="url('./src/assets/home-background.jpg')"
-          bgPosition="center"
-          bgRepeat="no-repeat"
           bgSize="cover"
         >
-          <Box w="100%">
-            <SearchbarMaxi />
-          </Box>
+          <SearchbarMaxi />
         </Flex>
         <h2>This Week Trending Movie</h2>
         <MovieCarousel
