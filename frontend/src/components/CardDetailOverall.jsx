@@ -25,8 +25,14 @@ export default function CardDetailOverall({ movie }) {
       });
   };
 
-  const duration = moment.duration(results.runtime);
-  const formatted = moment.utc(duration.asHours()).format("H[h]m[m]");
+  const hour = parseInt(
+    moment.duration(results.runtime, "minutes").asHours(),
+    10
+  );
+  const minute = parseInt(
+    moment.duration(results.runtime % 60, "minutes").asMinutes(),
+    10
+  );
 
   useEffect(() => {
     getMovie();
@@ -63,8 +69,9 @@ export default function CardDetailOverall({ movie }) {
             {results.title}
           </Heading>
           <Heading as="h3" size="sm" marginTop="1rem">
-            The movie lasts {results.runtime} minutes ||{" "}
-            {moment(results.runtime).format("H[h] mm[m]")}
+            {hour === 0
+              ? `The movie lasts ${minute} minutes`
+              : `The movie lasts ${hour} hours and ${minute} minutes`}
           </Heading>
           <Heading as="h3" size="sm" marginBottom="1rem">
             {moment(Date()).diff(results.release_date, "hours") >= 24
