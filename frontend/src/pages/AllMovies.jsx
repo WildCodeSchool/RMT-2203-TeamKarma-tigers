@@ -95,6 +95,7 @@ function AllMovies({ sortType }) {
         <MovieCarousel
           type="alphabeticalMovies"
           url={`https://api.themoviedb.org/3/discover/movie?sort_by=${sortType}&include_adult=false`}
+          isFilterable
         />
       </Flex>
       <Footer />
