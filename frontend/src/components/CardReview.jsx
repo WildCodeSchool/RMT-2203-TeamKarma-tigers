@@ -46,7 +46,7 @@ function CardReview({ review }) {
                 ))}
         </Box>
       </Flex>
-      <Flex bg="#2b3543" h="70%" borderRadius="8px">
+      <Flex bg="#2b3543" h="70%" borderRadius="8px" justifyContent="center">
         <Box
           margin=".5rem"
           scrollBehavior="smooth"
@@ -63,7 +63,7 @@ function CardReview({ review }) {
             },
           }}
         >
-          <Text fontSize="xs" margin="0.5rem" align="center">
+          <Text fontSize="xs" margin="0.5rem">
             {review.content}
           </Text>
         </Box>
