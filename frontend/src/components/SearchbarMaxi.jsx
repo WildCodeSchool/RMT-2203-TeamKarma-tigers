@@ -8,7 +8,6 @@ import {
   ListItem,
   Flex,
   IconButton,
-  Box,
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -40,9 +39,9 @@ function Searchbar() {
       maxH="8vh"
       maxW="80vw"
       bg="white"
-      zIndex="9999"
       borderRadius={15}
       opacity="0.8"
+      marginBottom={40}
     >
       <form onSubmit={handleSubmit}>
         <Flex marginBottom="6vh">
@@ -70,14 +69,13 @@ function Searchbar() {
             />
           )}
         </Flex>
-      </form>
-      <List bg="white" overflowX="hidden" maxW="80vw" borderRadius="19px">
-        {moviesData.length !== 0 && search !== "" && (
-          <Box
-            className="scrolling"
-            style={{ overflowY: "scroll", maxHeight: "35vh" }}
-          >
-            <ListItem p="16px">
+        <List bg="white" overflowX="hidden" maxW="80vw" borderRadius="19px">
+          {moviesData.length !== 0 && search !== "" && (
+            <ListItem
+              p="16px"
+              className="scrolling"
+              style={{ overflowY: "scroll", maxHeight: "35vh" }}
+            >
               <Flex
                 direction="column"
                 align="center"
@@ -120,9 +118,9 @@ function Searchbar() {
                 ))}
               </Flex>
             </ListItem>
-          </Box>
-        )}
-      </List>
+          )}
+        </List>
+      </form>
     </Container>
   );
 }

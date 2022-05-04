@@ -2,15 +2,11 @@
 
 .things > .content {
     display:flex;
-    align-items: center;
-    float: left;
+    align-items: center;    
+    justify-content: center;
     width: 50%;
-    height: 200px;
-    margin-top: 300px;
-    -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box;    
-    box-sizing: border-box;
-    position: relative;
+    height: 100px;
+    position:absolute;
   }
   
   .things > .content h1 {
@@ -18,10 +14,7 @@
     font-weight: bold;
     font-size: 2vw;
     text-transform: uppercase;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin-left: -47vw;
     margin-top: 7vh;
     position: absolute;
     height: 0px;
@@ -34,12 +27,12 @@
   .arrow {
     position: relative;
     margin: 0 auto;
-    width: 2vw;
-    padding-right: 60vw;
+    width: 15px;
+    padding-right: 100vw;
   }
   
   .arrow .curve {
-    border: 0.5vw solid #b1f80be7;
+    border: 6px solid #b1f80be7;
     border-color: transparent transparent transparent #b1f80be7;
     height: 360px;
     width: 1200px;
@@ -54,7 +47,7 @@
   
   .arrow .point:before, .arrow .point:after {
     border: 2px solid #b1f80be7;
-    height: 4vh;
+    height: 30px;
     content: "";
     position: absolute;
   }

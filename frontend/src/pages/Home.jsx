@@ -20,8 +20,12 @@ export default function Home() {
           flexDirection="column"
           justifyContent="center"
         >
-          <SearchbarMaxi />
-          <Arrow />
+          <Box w="100%">
+            <SearchbarMaxi />
+          </Box>
+          <Flex>
+            <Arrow />
+          </Flex>
         </Flex>
         <MovieCarousel
           type="thisWeekTrendingMovies"
