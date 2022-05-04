@@ -40,7 +40,7 @@ function Searchbar() {
       maxH="8vh"
       maxW="80vw"
       bg="white"
-      zIndex="9999"
+      zIndex="1"
       borderRadius={15}
       opacity="0.8"
     >

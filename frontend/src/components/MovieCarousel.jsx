@@ -4,7 +4,12 @@ import { Button, Flex } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
 import GenreFilter from "./GenreFilter";
 
-function MovieCarousel({ type, url, onResultChange = null }) {
+function MovieCarousel({
+  type,
+  url,
+  onResultChange = null,
+  isFilterable = false,
+}) {
   const [Movies, setMovies] = React.useState([]);
   const [MoviePage, setMoviePage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
@@ -53,7 +58,10 @@ function MovieCarousel({ type, url, onResultChange = null }) {
 
   return (
     <div width="90%">
-      <GenreFilter movieList={Movies} setMovieList={setMovies} />
+      {isFilterable && (
+        <GenreFilter movieList={Movies} setMovieList={setMovies} />
+      )}
+
       <Flex wrap="wrap" align="center" justify="space-evenly">
         {Movies.filter((movie) => movie.release_date).map((movie) => (
           <MovieCard
@@ -62,7 +70,6 @@ function MovieCarousel({ type, url, onResultChange = null }) {
           />
         ))}
       </Flex>
-      )
       {totalPages > 1 && (
         <Button colorScheme="teal" size="lg" onClick={handleMoreMovies}>
           Load More
