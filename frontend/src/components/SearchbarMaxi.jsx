@@ -107,10 +107,9 @@ function Searchbar() {
                         style={{
                           maxHeight: "12vh",
                           borderRadius: "15px",
-                          zIndex: "9999",
                         }}
                       />
-                      <Flex pl="20px" zIndex="9999">
+                      <Flex pl="20px">
                         <Text fontSize="2.5vw">{movie.title}</Text>
                       </Flex>
                     </Flex>

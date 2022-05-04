@@ -20,7 +20,7 @@ export default function Home() {
           flexDirection="column"
           justifyContent="center"
         >
-          <Box w="100%">
+          <Box w="100%" zIndex={9999}>
             <SearchbarMaxi />
           </Box>
           <Flex>
