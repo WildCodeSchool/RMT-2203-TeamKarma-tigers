@@ -53,7 +53,7 @@ export default function CardDetailSynopsis({ movie }) {
             REVENUE
           </Heading>
           <Text marginBottom="1rem">
-            {new Intl.NumberFormat("de-DE", {
+            {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
             }).format(synopsis.revenue)}

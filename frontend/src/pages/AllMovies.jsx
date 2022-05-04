@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Flex, Box, Select, Stack, Checkbox, Heading } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 import MovieCarousel from "../components/MovieCarousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import getGenreList from "../services/GetGenreList";
 
 function AllMovies({ sortType }) {
-  const [dropdownGenre, setDropdownGenre] = useState([]);
-
   const showStarRating = (rating) => {
     return (
       <Box display="flex" alignItems="center">
@@ -25,10 +22,6 @@ function AllMovies({ sortType }) {
       </Box>
     );
   };
-
-  useEffect(() => {
-    getGenreList().then((result) => setDropdownGenre(result));
-  }, []);
 
   return (
     <Box bg="#15141f">
@@ -66,9 +59,9 @@ function AllMovies({ sortType }) {
             width="100%"
             variant="filled"
           >
-            {dropdownGenre.map((genre) => (
-              <option value={genre.id}>{genre.name}</option>
-            ))}
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
           </Select>
 
           <Stack width="80%" spacing={[1, 5]} direction={["column"]}>
