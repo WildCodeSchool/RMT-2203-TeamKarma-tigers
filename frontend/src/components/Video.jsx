@@ -6,9 +6,16 @@ export default function Video({ videoInfo }) {
   return (
     <Pulse>
       <Box
-        ml={{ "2xl": "0.4em" }}
-        w={{ xl: "15vw", "2xl": "15.5vw" }}
-        h={{ xl: "17vh", "2xl": "25vh" }}
+        p="0"
+        ml={{
+          sm: "0.4em",
+          md: "0.4em",
+          lg: "0.4em",
+          xl: "0.4em",
+          "2xl": "0.4em",
+        }}
+        w={{ xl: "15vw", "2xl": "15vw" }}
+        h={{ lg: "16vh", xl: "13vh", "2xl": "15vh" }}
       >
         <iframe
           width="100%"

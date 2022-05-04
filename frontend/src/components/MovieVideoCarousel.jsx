@@ -56,28 +56,27 @@ export default function MovieVideoCarousel({ movie }) {
 
   return (
     <Flex
-      mr={{ "2xl": "2em" }}
+      mr={{ "2xl": "18em" }}
+      ml={{ xl: "5em" }}
       W="70vw"
-      mt={{ xl: "5em", "2xl": "5em" }}
+      mt={{ lg: "2.5em", xl: "5em", "2xl": "5em" }}
       justify="center"
     >
       {allVideos.length && (
         <>
           <Button
+            alignSelf="center"
             _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
             variant="solid"
             borderRadius="100%"
-            w="3.125em"
-            h="3.125em"
-            mt={{ xl: "2.5em", "2xl": "5em" }}
+            minWidth="3.125em"
+            maxWidth="3.125em"
+            minHeight="3.125em"
+            maxHeight="3.125em"
             mr={{ xl: "1em", "2xl": "1em" }}
+            ml={{ "2xl": "12em" }}
           >
-            <ArrowBackIcon
-              color="red"
-              fontSize="3rem"
-              className="left-arrow"
-              onClick={prevSlide}
-            />
+            <ArrowBackIcon color="red" fontSize="3rem" onClick={prevSlide} />
           </Button>
           {filterVideos(current, allVideos).map((video) => (
             <Box key={video.key}>
@@ -85,20 +84,17 @@ export default function MovieVideoCarousel({ movie }) {
             </Box>
           ))}
           <Button
+            alignSelf="center"
+            _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
             variant="solid"
             borderRadius="100%"
-            w="3.125em"
-            h="3.125em"
-            ml={{ xl: "1.5em" }}
-            mt={{ xl: "2.5em", "2xl": "5em" }}
+            minWidth="3.125em"
+            maxWidth="3.125em"
+            minHeight="3.125em"
+            maxHeight="3.125em"
+            ml={{ sm: "0.4em", md: "0.4em", lg: "0.4em", xl: "1.5em" }}
           >
-            <ArrowForwardIcon
-              _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
-              color="red"
-              fontSize="3rem"
-              className="right-arrow"
-              onClick={nextSlide}
-            />
+            <ArrowForwardIcon color="red" fontSize="3rem" onClick={nextSlide} />
           </Button>
         </>
       )}
