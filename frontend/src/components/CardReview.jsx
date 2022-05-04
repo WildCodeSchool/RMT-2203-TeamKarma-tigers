@@ -1,12 +1,24 @@
 import React from "react";
-import { Avatar, Container, Flex, Text, Box, HStack } from "@chakra-ui/react";
+import {
+  Avatar,
+  Container,
+  Flex,
+  Text,
+  Box,
+  HStack,
+  Button,
+  Collapse,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import moment from "moment";
 
 function CardReview({ review }) {
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <Container
-      maxH="20vh"
+      h="21vh"
       color="white"
       margin="0.5rem"
       padding="0.5rem"
@@ -54,31 +66,77 @@ function CardReview({ review }) {
       </Flex>
       <Flex
         bg="#2b3543"
-        h="80%"
+        h="15vh"
         borderRadius="8px"
         justifyContent="center"
         mt="0.5rem"
       >
-        <Box
-          margin=".5rem"
-          scrollBehavior="smooth"
-          overflowY="auto"
-          sx={{
-            "&::-webkit-scrollbar": {
-              width: "14px",
-              borderRadius: "8px",
-              backgroundColor: "white",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              borderRadius: "5.9px",
-              backgroundColor: "#15141f",
-            },
-          }}
+        {isOpen ? null : (
+          <Text fontSize="sm" margin="0.9rem" lineHeight="1.7" noOfLines="auto">
+            {review.content}
+          </Text>
+        )}
+
+        {isOpen || `${review.content.length}` < 200 ? null : (
+          <Button
+            onClick={onToggle}
+            alignSelf="flex-end"
+            justifySelf="flex-end"
+            color="#15141f"
+            h={7}
+            mb="0.5rem"
+            mr="0.5rem"
+          >
+            More
+          </Button>
+        )}
+
+        <Collapse in={isOpen}>
+          <Box
+            margin=".5rem"
+            h="14vh"
+            scrollBehavior="smooth"
+            overflowY="auto"
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: "14px",
+                borderRadius: "8px",
+                backgroundColor: "white",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                borderRadius: "5.9px",
+                backgroundColor: "#15141f",
+              },
+            }}
+          >
+            <Text fontSize="sm" margin="1rem" lineHeight="1.7">
+              {review.content}
+            </Text>
+            <Button onClick={onToggle} color="#15141f" h={7} mb="0.5rem">
+              Less
+            </Button>
+          </Box>
+        </Collapse>
+        {/* <Box
+        // margin=".5rem"
+        // scrollBehavior="smooth"
+        // overflowY="auto"
+        // sx={{
+        //   "&::-webkit-scrollbar": {
+        //     width: "14px",
+        //     borderRadius: "8px",
+        //     backgroundColor: "white",
+        //   },
+        //   "&::-webkit-scrollbar-thumb": {
+        //     borderRadius: "5.9px",
+        //     backgroundColor: "#15141f",
+        //   },
+        // }}
         >
           <Text fontSize="sm" margin="0.5rem" lineHeight="1.7">
             {review.content}
           </Text>
-        </Box>
+        </Box> */}
       </Flex>
     </Container>
   );
