@@ -18,7 +18,7 @@ function CardReview({ review }) {
 
   return (
     <Container
-      h="21vh"
+      h={{ sm: "22vh", md: "22vh", lg: "22vh", xl: "18vh" }}
       color="white"
       margin="0.5rem"
       padding="0.5rem"
@@ -66,7 +66,7 @@ function CardReview({ review }) {
       </Flex>
       <Flex
         bg="#2b3543"
-        h="15vh"
+        h={{ sm: "16vh", md: "16vh", lg: "16vh", xl: "11vh" }}
         borderRadius="8px"
         justifyContent="center"
         mt="0.5rem"

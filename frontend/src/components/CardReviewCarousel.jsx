@@ -34,9 +34,7 @@ function CardReviewCarousel({ movie }) {
     <div>
       <Flex
         flexDirection="column"
-        height="500px"
-        maxW="900px"
-        mx="auto"
+        h={{ sm: "500px", md: "500px", lg: "500px", xl: "400px" }}
         scrollBehavior="smooth"
         overflowY="auto"
         sx={{
