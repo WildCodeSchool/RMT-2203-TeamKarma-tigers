@@ -4,7 +4,11 @@ import LogoImg from "../assets/movieflix-logo.png";
 
 export default function Logo() {
   return (
-    <Flex justify="flex-start" align="center">
+    <Flex
+      justify="flex-start"
+      align="center"
+      wrap={{ base: "wrap", sm: "nowrap", md: "nowrap", lg: "nowrap" }}
+    >
       <Image
         src={LogoImg}
         alt="logo"

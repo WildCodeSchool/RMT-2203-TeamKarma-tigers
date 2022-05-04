@@ -1,4 +1,4 @@
-import { Flex, Button, HStack } from "@chakra-ui/react";
+import { Flex, Button } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "./Navbar";
 import Searchbar from "./Searchbar";
@@ -30,7 +30,7 @@ export default function Header({ isOnHome }) {
         </a>
         <Navbar />
         {!isOnHome && <Searchbar />}
-        <HStack>
+        <Flex direction="column">
           <Button
             colorScheme="teal"
             size={{ sm: "24px", md: "40px", lg: "120px" }}
@@ -44,7 +44,7 @@ export default function Header({ isOnHome }) {
           >
             {CTA2}
           </Button>
-        </HStack>
+        </Flex>
       </Flex>
     </Flex>
   );

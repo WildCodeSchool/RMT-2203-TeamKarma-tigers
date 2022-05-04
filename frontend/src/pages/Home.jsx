@@ -23,9 +23,7 @@ export default function Home() {
           <Box w="100%" zIndex={9999}>
             <SearchbarMaxi />
           </Box>
-          <Flex>
-            <Arrow />
-          </Flex>
+          <Arrow />
         </Flex>
         <MovieCarousel
           type="thisWeekTrendingMovies"
