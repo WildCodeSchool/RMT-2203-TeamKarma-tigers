@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Flex, Heading, Image, Box, Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Heading, Image, Grid, GridItem } from "@chakra-ui/react";
 import moment from "moment";
 import emptyImage from "../assets/emptyImage.svg";
 import ButtonGroupFilmNavigation from "./ButtonGroupFilmNavigation";
@@ -25,50 +25,66 @@ export default function CardDetailOverall({ movie }) {
       });
   };
 
+  const hour = parseInt(
+    moment.duration(results.runtime, "minutes").asHours(),
+    10
+  );
+  const minute = parseInt(
+    moment.duration(results.runtime % 60, "minutes").asMinutes(),
+    10
+  );
+
   useEffect(() => {
     getMovie();
   }, []);
 
   return (
-    <Box w="100%" maxW="1900px" m="0 auto" overflow="hidden">
-      <Flex>
-        <Grid templateColumns="500px 1000px" gap="6">
-          <GridItem w="100%">
-            <Image
-              src={
-                results.poster_path
-                  ? `https://image.tmdb.org/t/p/w500/${results.poster_path}`
-                  : `url(${emptyImage})`
-              }
-              alt={results.title}
-              minW="-webkit-fill-available"
-              overflow="hidden"
-              m="1rem"
-            />
-          </GridItem>
-          <GridItem w="100%">
-            <Flex
-              flexDir="column"
-              w="100%"
-              m="1rem"
-              alignItems="flex-start"
-              marginLeft="2rem"
-            >
-              <Heading as="h2" size="xl">
-                {results.title}
-              </Heading>
-              <Heading as="h3" size="sm" marginTop="1rem">
-                The movie lasts {results.runtime} minutes
-              </Heading>
-              <Heading as="h3" size="sm" marginBottom="1rem">
-                The movie was released on{" "}
-                {moment(results.release_date).format("MMMM Do YYYY")}
-              </Heading>
-              <ButtonGroupFilmNavigation movie={movieid} />
-            </Flex>
-          </GridItem>
-        </Grid>
-      </Flex>
-    </Box>
+    <Grid templateColumns={{ md: "100%", xl: "31% 50%" }} gap="6" color="white">
+      <GridItem w="100%" mt={{ sm: "1rem", md: "1rem", lg: "1rem" }}>
+        <Image
+          src={
+            results.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${results.poster_path}`
+              : `url(${emptyImage})`
+          }
+          alt={results.title}
+          minW={{ xl: "-webkit-fill-available" }}
+          m={{
+            sm: "0 auto",
+            md: "0 auto",
+            lg: "0 auto",
+            xl: "1rem",
+          }}
+        />
+      </GridItem>
+      <GridItem w="100%" m={{ lg: "0 auto" }}>
+        <Flex
+          flexDir="column"
+          w={{ lg: "90%", xl: "100%" }}
+          m="1rem"
+          alignItems={{ lg: "center", xl: "flex-start" }}
+          marginLeft="2rem"
+        >
+          <Heading as="h2" size="xl">
+            {results.title}
+          </Heading>
+          <Heading as="h3" size="sm" marginTop="1rem">
+            {hour === 0
+              ? `The movie lasts ${minute} minutes`
+              : `The movie lasts ${hour} hours and ${minute} minutes`}
+          </Heading>
+          <Heading as="h3" size="sm" marginBottom="1rem">
+            {moment(Date()).diff(results.release_date, "hours") >= 24
+              ? `The movie was released on ${moment(
+                  results.release_date
+                ).format("MMMM Do YYYY")}`
+              : `The movie will be released on ${moment(
+                  results.release_date
+                ).format("MMMM Do YYYY")}`}
+          </Heading>
+          <ButtonGroupFilmNavigation movie={movieid} />
+        </Flex>
+      </GridItem>
+    </Grid>
   );
 }
