@@ -44,7 +44,7 @@ function Searchbar() {
       marginBottom={40}
     >
       <form onSubmit={handleSubmit}>
-        <Flex>
+        <Flex align="center" marginBottom={20}>
           <Input
             placeholder="Lookin' for a movie ?"
             _placeholder={{
@@ -70,22 +70,28 @@ function Searchbar() {
             />
           )}
         </Flex>
-        <List bg="white" overflowX="hidden" maxW="80vw" borderRadius="19px">
+        <List bg="white" overflowX="hidden" w="80vw" borderRadius="19px">
           {moviesData.length !== 0 && search !== "" && (
             <ListItem
               p="16px"
               className="scrolling"
-              style={{ overflowY: "scroll", maxHeight: "35vh" }}
+              style={{
+                overflowY: "scroll",
+                maxHeight: "35vh",
+                display: "flex",
+              }}
             >
               <Flex
                 direction="column"
-                align="center"
                 position="relative"
                 w="100%"
-                justify="space-between"
+                align="space-around"
+                margin="auto 50%"
+                transform="translateX(-50%)"
+                gap="10px"
               >
                 {moviesData.map((movie) => (
-                  <a href={`/movies/${movie.id} `}>
+                  <a w="100%" href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
                         transform: "scale(1.03)",
