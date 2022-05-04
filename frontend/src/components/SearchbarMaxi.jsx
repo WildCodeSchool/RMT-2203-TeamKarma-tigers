@@ -61,7 +61,6 @@ function Searchbar() {
           />
           {search.length >= 1 && (
             <IconButton
-              fontSize="3vw"
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
@@ -70,7 +69,14 @@ function Searchbar() {
             />
           )}
         </Flex>
-        <List overflowX="hidden" w="80vw" position="absolute" left="0">
+        <List
+          bg="white"
+          overflowX="hidden"
+          w="80vw"
+          position="absolute"
+          left="0"
+          borderRadius={50}
+        >
           {moviesData.length !== 0 && search !== "" && (
             <ListItem
               className="scrolling"
@@ -79,6 +85,7 @@ function Searchbar() {
                 height: "40vh",
                 display: "flex",
                 position: "relative",
+                borderRadius: "50px",
               }}
             >
               <Flex
