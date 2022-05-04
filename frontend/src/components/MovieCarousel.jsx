@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { Button, Flex } from "@chakra-ui/react";
 import MovieCard from "./MovieCard";
+import GenreFilter from "./GenreFilter";
 
 function MovieCarousel({ type, url, onResultChange = null }) {
   const [Movies, setMovies] = React.useState([]);
@@ -47,9 +48,12 @@ function MovieCarousel({ type, url, onResultChange = null }) {
   useEffect(() => {
     setMoviePage(1);
   }, [url]);
+  // eslint-disable-next-line no-restricted-syntax
+  console.log(Movies);
 
   return (
     <div width="90%">
+      <GenreFilter movieList={Movies} setMovieList={setMovies} />
       <Flex wrap="wrap" align="center" justify="space-evenly">
         {Movies.filter((movie) => movie.release_date).map((movie) => (
           <MovieCard

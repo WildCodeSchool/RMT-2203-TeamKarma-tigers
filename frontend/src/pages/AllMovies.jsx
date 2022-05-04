@@ -1,12 +1,17 @@
-import React from "react";
-import { Flex, Box, Select, Stack, Checkbox, Heading } from "@chakra-ui/react";
+// import React, { useState, useEffect } from "react";
+import { Flex, Box, Stack, Checkbox, Heading } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 import MovieCarousel from "../components/MovieCarousel";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+// import getGenreList from "../services/GetGenreList";
+// import GenreFilter from "../components/GenreFilter";
 
 function AllMovies({ sortType }) {
+  // const [dropDownGenre, setDropDownGenre] = useState([]);
+  // const [filtered, setFiltered] = useState(null);
+
   const showStarRating = (rating) => {
     return (
       <Box display="flex" alignItems="center">
@@ -22,6 +27,10 @@ function AllMovies({ sortType }) {
       </Box>
     );
   };
+
+  // useEffect(() => {
+  //   getGenreList().then((result) => setDropDownGenre(result));
+  // }, []);
 
   return (
     <Box bg="#15141f">
@@ -52,17 +61,22 @@ function AllMovies({ sortType }) {
           >
             Filters
           </Heading>
-          <Select
-            placeholder="Select Genre"
+          {/* <GenreFilter /> */}
+          {/* <Select
+            placeholder="All Genres"
             size="lg"
             color="#15141f"
             width="100%"
             variant="filled"
+            onChange={(event) => {
+              setFiltered(event.target.value);
+              debugger;
+            }}
           >
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </Select>
+            {dropDownGenre.map((genre) => (
+              <option value={genre.id}>{genre.id}</option>
+            ))}
+          </Select> */}
 
           <Stack width="80%" spacing={[1, 5]} direction={["column"]}>
             <Checkbox
@@ -91,7 +105,6 @@ function AllMovies({ sortType }) {
             </Checkbox>
           </Stack>
         </Flex>
-
         <MovieCarousel
           type="alphabeticalMovies"
           url={`https://api.themoviedb.org/3/discover/movie?sort_by=${sortType}&include_adult=false`}
