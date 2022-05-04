@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import axios from "axios";
 import CardReview from "./CardReview";
 
 function CardReviewCarousel({ movie }) {
   const [reviews, setReviews] = React.useState([]);
-  const [results, setResults] = React.useState(0);
-  const [totalResult, setTotalResult] = React.useState(0);
 
   const navigate = useNavigate();
 
@@ -18,14 +16,7 @@ function CardReviewCarousel({ movie }) {
       )
       .then((response) => response.data)
       .then((data) => {
-        setReviews(
-          reviews.concat(
-            data.results[results],
-            data.results[results + 1],
-            data.results[results + 2]
-          )
-        );
-        setTotalResult(data.total_results);
+        setReviews(reviews.concat(data.results));
       })
       .catch((err) => {
         if (err.response.status === 404) {
@@ -37,10 +28,7 @@ function CardReviewCarousel({ movie }) {
 
   useEffect(() => {
     getReviewFromMovie();
-  }, [results]);
-  const handleMoreReviews = () => {
-    setResults(results + 3);
-  };
+  }, []);
 
   return (
     <div>
@@ -53,20 +41,21 @@ function CardReviewCarousel({ movie }) {
         overflowY="auto"
         sx={{
           "&::-webkit-scrollbar": {
-            width: "14px",
+            width: "18px",
             borderRadius: "8px",
             backgroundColor: "white",
           },
           "&::-webkit-scrollbar-thumb": {
-            borderRadius: "5.9px",
-            backgroundColor: "#15141f",
+            borderRadius: "8px",
+            backgroundColor: "#2b3543",
+            border: "1px",
+            color: "red",
           },
         }}
       >
         {reviews.map((review) =>
           review ? (
             <Flex
-              height="160px"
               _even={{
                 alignSelf: "flex-end",
               }}
@@ -76,18 +65,6 @@ function CardReviewCarousel({ movie }) {
           ) : null
         )}
       </Flex>
-      {results + 3 <= totalResult && (
-        <Button
-          width="20%"
-          alignSelf="center"
-          colorScheme="teal"
-          variant="solid"
-          onClick={handleMoreReviews}
-          type="button"
-        >
-          Read more reviews
-        </Button>
-      )}
     </div>
   );
 }
