@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { Flex, HStack, Button, Box } from "@chakra-ui/react";
+import { Flex, Button, Box } from "@chakra-ui/react";
 import Video from "./Video";
-import "./MovieVideoCarousel.css";
 
 export default function MovieVideoCarousel({ movie }) {
   const [allVideos, setAllVideos] = useState([]);
@@ -56,44 +55,53 @@ export default function MovieVideoCarousel({ movie }) {
   }
 
   return (
-    <Box>
-      <Flex
-        W="400px"
-        mx="auto"
-        align="center"
-        gap="15px"
-        mt="100px"
-        justify="center"
-        direction={{ base: "column", md: "column", lg: "column", x1: "row" }}
-      >
-        <HStack>
-          <Button variant="solid" borderRadius="100%" w="50px" h="50px">
+    <Flex
+      mr={{ "2xl": "2em" }}
+      W="70vw"
+      mt={{ xl: "5em", "2xl": "5em" }}
+      justify="center"
+    >
+      {allVideos.length && (
+        <>
+          <Button
+            _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
+            variant="solid"
+            borderRadius="100%"
+            w="3.125em"
+            h="3.125em"
+            mt={{ xl: "2.5em", "2xl": "5em" }}
+            mr={{ xl: "1em", "2xl": "1em" }}
+          >
             <ArrowBackIcon
               color="red"
-              _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
               fontSize="3rem"
               className="left-arrow"
               onClick={prevSlide}
             />
           </Button>
-        </HStack>
-
-        {allVideos.length &&
-          filterVideos(current, allVideos).map((video) => (
-            <div className="slide active" key={video.key}>
+          {filterVideos(current, allVideos).map((video) => (
+            <Box key={video.key}>
               <Video videoInfo={video} key={video.key} />
-            </div>
+            </Box>
           ))}
-        <Button variant="solid" borderRadius="100%" w="50px" h="50px">
-          <ArrowForwardIcon
-            color="red"
-            _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
-            fontSize="3rem"
-            className="right-arrow"
-            onClick={nextSlide}
-          />
-        </Button>
-      </Flex>
-    </Box>
+          <Button
+            variant="solid"
+            borderRadius="100%"
+            w="3.125em"
+            h="3.125em"
+            ml={{ xl: "1.5em" }}
+            mt={{ xl: "2.5em", "2xl": "5em" }}
+          >
+            <ArrowForwardIcon
+              _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
+              color="red"
+              fontSize="3rem"
+              className="right-arrow"
+              onClick={nextSlide}
+            />
+          </Button>
+        </>
+      )}
+    </Flex>
   );
 }
