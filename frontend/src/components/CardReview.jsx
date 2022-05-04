@@ -94,7 +94,7 @@ function CardReview({ review }) {
         <Collapse in={isOpen}>
           <Box
             margin=".5rem"
-            h="14vh"
+            h={{ sm: "14vh", md: "14vh", lg: "14vh", xl: "9vh" }}
             scrollBehavior="smooth"
             overflowY="auto"
             sx={{
@@ -109,7 +109,13 @@ function CardReview({ review }) {
               },
             }}
           >
-            <Text fontSize="sm" margin="1rem" lineHeight="1.7">
+            <Text
+              fontSize="sm"
+              marginLeft="1rem"
+              marginRight="1rem"
+              marginBottom="1rem"
+              lineHeight="1.7"
+            >
               {review.content}
             </Text>
             <Button onClick={onToggle} color="#15141f" h={7} mb="0.5rem">
