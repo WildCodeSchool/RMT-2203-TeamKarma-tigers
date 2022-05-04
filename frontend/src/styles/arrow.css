@@ -36,10 +36,11 @@
     border: 6px solid #b1f80be7;
     border-color: transparent transparent transparent #b1f80be7;
     height: 360px;
-    width: 1200px;
+    width: 100vw;
     border-radius: 230px 0 0 150px;
   }
-  
+
+
   .arrow .point {
     position: absolute;
     left: 40px;

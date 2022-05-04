@@ -24,17 +24,24 @@ export default function Header({ isOnHome }) {
       }
       position={isOnHome ? "fixed" : "relative"}
     >
-      <Flex gap={10} w="100%" align="center" justify="space-between">
+      <Flex gap={10} w="100%" align="center" justify="space-around">
         <a href="/">
           <Logo />
         </a>
         <Navbar />
         {!isOnHome && <Searchbar />}
         <HStack>
-          <Button colorScheme="teal" size="lg">
+          <Button
+            colorScheme="teal"
+            size={{ sm: "24px", md: "40px", lg: "120px" }}
+          >
             {CTA}
           </Button>
-          <Button variant="ghost" _hover={{ bgColor: "#2B3543" }} size="lg">
+          <Button
+            variant="ghost"
+            _hover={{ bgColor: "#2B3543" }}
+            size={{ sm: "24px", md: "40px", lg: "120px" }}
+          >
             {CTA2}
           </Button>
         </HStack>

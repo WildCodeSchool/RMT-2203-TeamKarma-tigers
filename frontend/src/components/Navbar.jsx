@@ -9,7 +9,12 @@ export default function Navbar() {
           <Link to="/movies">All Movies</Link>
         </Button>
         <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
-          <Link to="/popular">Popular</Link>
+          <Link
+            fontSize={{ sm: "24px", md: "40px", lg: "120px" }}
+            to="/popular"
+          >
+            Popular
+          </Link>
         </Button>
         <Button variant="ghost" _hover={{ bgColor: "#2B3543" }}>
           <Link to="/movies">What should I Watch?</Link>

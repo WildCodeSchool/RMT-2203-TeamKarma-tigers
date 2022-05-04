@@ -44,13 +44,14 @@ function Searchbar() {
       marginBottom={40}
     >
       <form onSubmit={handleSubmit}>
-        <Flex marginBottom="6vh">
+        <Flex>
           <Input
             placeholder="Lookin' for a movie ?"
             _placeholder={{
               opacity: 1,
               color: "gray.500",
               fontSize: "3vw",
+              verticalAlign: "middle",
             }}
             textAlign={["center"]}
             type="text"
