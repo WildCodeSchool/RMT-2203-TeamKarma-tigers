@@ -4,18 +4,14 @@ import LogoImg from "../assets/movieflix-logo.png";
 
 export default function Logo() {
   return (
-    <Flex
-      justify="flex-start"
-      align="center"
-      wrap={{ base: "wrap", sm: "nowrap", md: "nowrap", lg: "nowrap" }}
-    >
+    <Flex align="center">
       <Image
         src={LogoImg}
         alt="logo"
-        w={{ base: "80px", sm: "110px", md: "130px", lg: "150px" }}
+        w={{ base: "60px", sm: "70px", md: "100px", lg: "150px" }}
       />
       <Text
-        fontSize={{ base: "20px", sm: "25px", md: "35px", lg: "45px" }}
+        fontSize={{ base: "15px", sm: "20px", md: "35px", lg: "45px" }}
         fontWeight="semibold"
         color="white"
       >

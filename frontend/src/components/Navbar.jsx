@@ -8,21 +8,21 @@ export default function Navbar() {
         <Button
           variant="ghost"
           _hover={{ bgColor: "#2B3543" }}
-          fontSize={{ base: "15px", sm: "20px", md: "25px", lg: "30px" }}
+          fontSize={{ base: "10px", sm: "15px", md: "20px", lg: "30px" }}
         >
           <Link to="/movies">All Movies</Link>
         </Button>
         <Button
           variant="ghost"
           _hover={{ bgColor: "#2B3543" }}
-          fontSize={{ base: "15px", sm: "20px", md: "25px", lg: "30px" }}
+          fontSize={{ base: "10px", sm: "15px", md: "20px", lg: "30px" }}
         >
           <Link to="/popular">Popular</Link>
         </Button>
         <Button
           variant="ghost"
           _hover={{ bgColor: "#2B3543" }}
-          fontSize={{ base: "15px", sm: "20px", md: "25px", lg: "30px" }}
+          fontSize={{ base: "10px", sm: "15px", md: "20px", lg: "30px" }}
         >
           <Link to="/movies">What should I Watch?</Link>
         </Button>

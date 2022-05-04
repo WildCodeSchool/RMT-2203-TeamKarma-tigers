@@ -42,7 +42,7 @@ function Searchbar() {
   return (
     <Container
       h="50px"
-      w="100%"
+      w="80%"
       bg="white"
       zIndex="9999"
       borderRadius={15}
