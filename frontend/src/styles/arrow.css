@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 .things > .content {
+    display:flex;
+    align-items: center;
     float: left;
     width: 50%;
     height: 200px;
@@ -14,14 +16,13 @@
   .things > .content h1 {
     font-family: 'Indie Flower', cursive;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2vw;
     text-transform: uppercase;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin-top: 170px;
-    margin-left: -450px;
+    margin-top: 7vh;
     position: absolute;
     height: 0px;
     color: #b1f80be7;
@@ -33,12 +34,12 @@
   .arrow {
     position: relative;
     margin: 0 auto;
-    width: 100px;
+    width: 2vw;
     padding-right: 60vw;
   }
   
   .arrow .curve {
-    border: 4px solid #b1f80be7;
+    border: 0.5vw solid #b1f80be7;
     border-color: transparent transparent transparent #b1f80be7;
     height: 360px;
     width: 1200px;
@@ -53,13 +54,13 @@
   
   .arrow .point:before, .arrow .point:after {
     border: 2px solid #b1f80be7;
-    height: 27px;
+    height: 4vh;
     content: "";
     position: absolute;
   }
   
   .arrow .point:before {
-    top: -11px;
+    top: -14px;
     left: -11px;
     transform:rotate(-74deg);
     -webkit-transform:rotate(-74deg);
@@ -68,7 +69,7 @@
   }
   
   .arrow .point:after {
-    top: -20px;
+    top: -25px;
     left: 5px;
     transform:rotate(12deg);
     -webkit-transform: rotate(12deg);

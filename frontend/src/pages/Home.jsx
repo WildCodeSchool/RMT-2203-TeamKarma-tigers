@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <Box bg="#15141f" w="100vw">
+    <Box bg="#15141f" w="100vw" overflow="hidden">
       <main>
         <Header isOnHome />
         <Flex
