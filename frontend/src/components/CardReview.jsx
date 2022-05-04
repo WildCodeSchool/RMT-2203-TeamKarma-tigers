@@ -5,7 +5,13 @@ import moment from "moment";
 
 function CardReview({ review }) {
   return (
-    <Container maxH="200px" color="white" margin="0.5rem" padding="0.5rem">
+    <Container
+      maxH="20vh"
+      color="white"
+      margin="0.5rem"
+      padding="0.5rem"
+      mb="2rem"
+    >
       <Flex justifyContent="space-between">
         <HStack spacing="30px">
           <Avatar
@@ -34,8 +40,8 @@ function CardReview({ review }) {
                 .fill("")
                 .map((_, i) => (
                   <StarIcon
-                    w={4}
-                    h={4}
+                    w={5}
+                    h={5}
                     key={review.id}
                     color={
                       i < Math.round(review.author_details.rating / 2)
@@ -46,7 +52,13 @@ function CardReview({ review }) {
                 ))}
         </Box>
       </Flex>
-      <Flex bg="#2b3543" h="70%" borderRadius="8px" justifyContent="center">
+      <Flex
+        bg="#2b3543"
+        h="80%"
+        borderRadius="8px"
+        justifyContent="center"
+        mt="0.5rem"
+      >
         <Box
           margin=".5rem"
           scrollBehavior="smooth"
@@ -63,7 +75,7 @@ function CardReview({ review }) {
             },
           }}
         >
-          <Text fontSize="xs" margin="0.5rem">
+          <Text fontSize="sm" margin="0.5rem" lineHeight="1.7">
             {review.content}
           </Text>
         </Box>
