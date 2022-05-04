@@ -1,73 +1,128 @@
 import React from "react";
-import { Avatar, Container, Flex, Text, Box, HStack } from "@chakra-ui/react";
+import {
+  Avatar,
+  Container,
+  Flex,
+  Text,
+  Box,
+  HStack,
+  Button,
+  Collapse,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import moment from "moment";
 
 function CardReview({ review }) {
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
     <Container
-      border="1px"
-      borderRadius="10px"
-      maxH="200px"
-      bg="#282c34"
+      h={{ sm: "22vh", md: "22vh", lg: "22vh", xl: "18vh" }}
       color="white"
-      margin="1rem"
+      margin="0.5rem"
       padding="0.5rem"
+      mb="2rem"
     >
-      <HStack spacing="110px">
-        <Avatar
-          marginLeft="1rem"
-          alignSelf="center"
-          size="md"
-          src={
-            review.author_details.avatar_path === null ||
-            review.author_details.avatar_path.includes("gravatar") === true
-              ? `https://bit.ly/broken-link`
-              : `https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`
-          }
-          alt=""
-        />
-        <Flex flexDirection="column">
-          <Text>{review.author}</Text>
-          <Text mt={2}>{moment(review.updated_at).format("MMMM Do YYYY")}</Text>
-        </Flex>
-      </HStack>
-      <Flex flexDirection="column">
-        <Box display="flex" mt="2" alignSelf="center" margin="0.5rem">
-          {Array(5)
-            .fill("")
-            .map((_, i) => (
-              <StarIcon
-                w={4}
-                h={4}
-                key={review.id}
-                color={
-                  i < Math.round(review.author_details.rating / 2)
-                    ? "teal.500"
-                    : "gray.300"
-                }
-              />
-            ))}
+      <Flex justifyContent="space-between">
+        <HStack spacing="30px">
+          <Avatar
+            marginLeft="1rem"
+            alignSelf="center"
+            size="md"
+            src={
+              review.author_details.avatar_path === null ||
+              review.author_details.avatar_path.includes("gravatar") === true
+                ? `https://bit.ly/broken-link`
+                : `https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`
+            }
+            alt=""
+          />
+          <Flex flexDirection="column">
+            <Text fontSize="xl">{review.author}</Text>
+            <Text mb={2} fontSize="md" fontStyle="italic">
+              {moment(review.updated_at).format("MMMM Do YYYY")}
+            </Text>
+          </Flex>
+        </HStack>
+        <Box display="flex" alignSelf="center" margin="0.5rem" width="30%">
+          {review.author_details.rating === null
+            ? null
+            : Array(5)
+                .fill("")
+                .map((_, i) => (
+                  <StarIcon
+                    w={5}
+                    h={5}
+                    key={review.id}
+                    color={
+                      i < Math.round(review.author_details.rating / 2)
+                        ? "teal.500"
+                        : "gray.300"
+                    }
+                  />
+                ))}
         </Box>
-        <Box
-          scrollBehavior="smooth"
-          overflowY="scroll"
-          maxH="100px"
-          sx={{
-            "&::-webkit-scrollbar": {
-              width: "16px",
-              borderRadius: "8px",
-              backgroundColor: "white",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "#282c34",
-            },
-          }}
-        >
-          <Text fontSize="xs" margin="0.5rem" align="center">
+      </Flex>
+      <Flex
+        bg="#2b3543"
+        h={{ sm: "16vh", md: "16vh", lg: "16vh", xl: "11vh" }}
+        borderRadius="8px"
+        justifyContent="center"
+        mt="0.5rem"
+      >
+        {isOpen ? null : (
+          <Text fontSize="sm" margin="0.9rem" lineHeight="1.7" noOfLines="auto">
             {review.content}
           </Text>
-        </Box>
+        )}
+
+        {isOpen || `${review.content.length}` < 300 ? null : (
+          <Button
+            onClick={onToggle}
+            alignSelf="flex-end"
+            justifySelf="flex-end"
+            color="#15141f"
+            h={7}
+            mb="0.5rem"
+            mr="0.5rem"
+          >
+            More
+          </Button>
+        )}
+
+        <Collapse in={isOpen}>
+          <Box
+            margin=".5rem"
+            h={{ sm: "14vh", md: "14vh", lg: "14vh", xl: "9vh" }}
+            scrollBehavior="smooth"
+            overflowY="auto"
+            sx={{
+              "&::-webkit-scrollbar": {
+                width: "14px",
+                borderRadius: "8px",
+                backgroundColor: "white",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                borderRadius: "5.9px",
+                backgroundColor: "#15141f",
+              },
+            }}
+          >
+            <Text
+              fontSize="sm"
+              marginLeft="1rem"
+              marginRight="1rem"
+              marginBottom="1rem"
+              lineHeight="1.7"
+            >
+              {review.content}
+            </Text>
+            <Button onClick={onToggle} color="#15141f" h={7} mb="0.5rem">
+              Less
+            </Button>
+          </Box>
+        </Collapse>
       </Flex>
     </Container>
   );
