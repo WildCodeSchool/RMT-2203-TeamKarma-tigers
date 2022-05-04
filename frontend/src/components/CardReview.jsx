@@ -77,7 +77,7 @@ function CardReview({ review }) {
           </Text>
         )}
 
-        {isOpen || `${review.content.length}` < 200 ? null : (
+        {isOpen || `${review.content.length}` < 300 ? null : (
           <Button
             onClick={onToggle}
             alignSelf="flex-end"
@@ -123,26 +123,6 @@ function CardReview({ review }) {
             </Button>
           </Box>
         </Collapse>
-        {/* <Box
-        // margin=".5rem"
-        // scrollBehavior="smooth"
-        // overflowY="auto"
-        // sx={{
-        //   "&::-webkit-scrollbar": {
-        //     width: "14px",
-        //     borderRadius: "8px",
-        //     backgroundColor: "white",
-        //   },
-        //   "&::-webkit-scrollbar-thumb": {
-        //     borderRadius: "5.9px",
-        //     backgroundColor: "#15141f",
-        //   },
-        // }}
-        >
-          <Text fontSize="sm" margin="0.5rem" lineHeight="1.7">
-            {review.content}
-          </Text>
-        </Box> */}
       </Flex>
     </Container>
   );
