@@ -42,6 +42,7 @@ function Searchbar() {
       borderRadius={15}
       opacity="0.8"
       marginBottom={40}
+      position="relative"
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={20}>
@@ -51,7 +52,6 @@ function Searchbar() {
               opacity: 1,
               color: "gray.500",
               fontSize: "3vw",
-              verticalAlign: "middle",
             }}
             textAlign={["center"]}
             type="text"
@@ -70,25 +70,27 @@ function Searchbar() {
             />
           )}
         </Flex>
-        <List bg="white" overflowX="hidden" w="80vw" borderRadius="19px">
+        <List overflowX="hidden" w="80vw" position="absolute" left="0">
           {moviesData.length !== 0 && search !== "" && (
             <ListItem
-              p="16px"
               className="scrolling"
               style={{
                 overflowY: "scroll",
-                maxHeight: "35vh",
+                height: "40vh",
                 display: "flex",
+                position: "relative",
               }}
             >
               <Flex
                 direction="column"
-                position="relative"
-                w="100%"
+                position="absolute"
                 align="space-around"
-                margin="auto 50%"
-                transform="translateX(-50%)"
+                top="0em"
+                left="0"
                 gap="10px"
+                w="100%"
+                bgColor="white"
+                borderRadius="15px"
               >
                 {moviesData.map((movie) => (
                   <a w="100%" href={`/movies/${movie.id} `}>
@@ -117,7 +119,16 @@ function Searchbar() {
                         }}
                       />
                       <Flex pl="20px">
-                        <Text fontSize="2.5vw">{movie.title}</Text>
+                        <Text
+                          fontSize={{
+                            base: "10px",
+                            sm: "15px",
+                            md: "20px",
+                            lg: "30px",
+                          }}
+                        >
+                          {movie.title}
+                        </Text>
                       </Flex>
                     </Flex>
                   </a>

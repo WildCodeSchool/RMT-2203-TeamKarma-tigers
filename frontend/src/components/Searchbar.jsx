@@ -8,7 +8,6 @@ import {
   ListItem,
   Flex,
   IconButton,
-  Box,
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -41,29 +40,32 @@ function Searchbar() {
 
   return (
     <Container
-      h="50px"
-      w="80%"
+      maxH="8vh"
+      maxW="40vw"
       bg="white"
-      zIndex="9999"
       borderRadius={15}
-      opacity="0.8"
+      marginBottom={10}
+      zIndex="9999"
+      position="relative"
     >
       <form onSubmit={handleSubmit}>
-        <Flex>
+        <Flex align="center" marginBottom={20}>
           <Input
-            placeholder="Searching a movie ?"
+            placeholder="Try a new search !"
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              h: "100px",
+              fontSize: "3vw",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
+            fontSize="3vw"
           />
           {search.length >= 1 && (
             <IconButton
+              fontSize="3vw"
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
@@ -72,30 +74,30 @@ function Searchbar() {
             />
           )}
         </Flex>
-      </form>
-      <List
-        bg="white"
-        h="auto"
-        overflowX="hidden"
-        w="100%"
-        borderRadius="19px"
-        marginTop="1rem"
-      >
-        {moviesData.length !== 0 && search !== "" && (
-          <Box
-            className="scrolling"
-            style={{ overflowY: "scroll", height: "35vh" }}
-          >
-            <ListItem p="16px">
+        <List overflowX="hidden" width="60vw" position="absolute" left="0">
+          {moviesData.length !== 0 && search !== "" && (
+            <ListItem
+              className="scrolling"
+              style={{
+                overflowY: "scroll",
+                height: "50vh",
+                display: "flex",
+                position: "relative",
+              }}
+            >
               <Flex
                 direction="column"
-                align="start"
-                position="relative"
-                w="100%"
-                justify="space-between"
+                position="absolute"
+                align="space-around"
+                top="0em"
+                left="0"
+                gap="10px"
+                bgColor="white"
+                w="67%"
+                borderRadius="15px"
               >
                 {moviesData.map((movie) => (
-                  <a href={`/movies/${movie.id} `}>
+                  <a w="100%" href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
                         transform: "scale(1.03)",
@@ -106,7 +108,6 @@ function Searchbar() {
                       w="100%"
                       align="center"
                       mb="10px"
-                      fontSize="1.3rem"
                     >
                       <img
                         className="movie-img-searchbar"
@@ -117,22 +118,30 @@ function Searchbar() {
                         }
                         alt="Movie poster"
                         style={{
-                          maxWidth: "10vw",
+                          maxHeight: "12vh",
                           borderRadius: "15px",
-                          zIndex: "9999",
                         }}
                       />
-                      <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="1.2vw">{movie.title}</Text>
+                      <Flex pl="20px">
+                        <Text
+                          fontSize={{
+                            base: "10px",
+                            sm: "15px",
+                            md: "20px",
+                            lg: "30px",
+                          }}
+                        >
+                          {movie.title}
+                        </Text>
                       </Flex>
                     </Flex>
                   </a>
                 ))}
               </Flex>
             </ListItem>
-          </Box>
-        )}
-      </List>
+          )}
+        </List>
+      </form>
     </Container>
   );
 }
