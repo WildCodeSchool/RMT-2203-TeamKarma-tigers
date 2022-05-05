@@ -41,6 +41,7 @@ export default function ModalInspiration() {
         isOpen={isOpen}
         isCentered
         size="3xl"
+        z-index="auto"
       >
         <ModalOverlay />
         <ModalContent>
