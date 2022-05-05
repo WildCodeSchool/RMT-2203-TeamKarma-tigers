@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ArrowForwardIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import { Flex } from "@chakra-ui/react";
-
+import { Flex, Button, Box } from "@chakra-ui/react";
 import Video from "./Video";
-import "./MovieVideoCarousel.css";
 
 export default function MovieVideoCarousel({ movie }) {
   const [allVideos, setAllVideos] = useState([]);
@@ -57,16 +55,49 @@ export default function MovieVideoCarousel({ movie }) {
   }
 
   return (
-    <Flex>
-      <ArrowBackIcon className="left-arrow" onClick={prevSlide} />
-
-      {allVideos.length &&
-        filterVideos(current, allVideos).map((video) => (
-          <div className="slide active" key={video.key}>
-            <Video videoInfo={video} key={video.key} />
-          </div>
-        ))}
-      <ArrowForwardIcon className="right-arrow" onClick={nextSlide} />
+    <Flex
+      mr={{ "2xl": "18em" }}
+      ml={{ xl: "5em" }}
+      W="70vw"
+      mt={{ lg: "2.5em", xl: "5em", "2xl": "5em" }}
+      justify="center"
+    >
+      {allVideos.length && (
+        <>
+          <Button
+            alignSelf="center"
+            _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
+            variant="solid"
+            borderRadius="100%"
+            minWidth="3.125em"
+            maxWidth="3.125em"
+            minHeight="3.125em"
+            maxHeight="3.125em"
+            mr={{ xl: "1em", "2xl": "1em" }}
+            ml={{ "2xl": "12em" }}
+          >
+            <ArrowBackIcon color="red" fontSize="3rem" onClick={prevSlide} />
+          </Button>
+          {filterVideos(current, allVideos).map((video) => (
+            <Box key={video.key}>
+              <Video videoInfo={video} key={video.key} />
+            </Box>
+          ))}
+          <Button
+            alignSelf="center"
+            _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
+            variant="solid"
+            borderRadius="100%"
+            minWidth="3.125em"
+            maxWidth="3.125em"
+            minHeight="3.125em"
+            maxHeight="3.125em"
+            ml={{ sm: "0.4em", md: "0.4em", lg: "0.4em", xl: "1.5em" }}
+          >
+            <ArrowForwardIcon color="red" fontSize="3rem" onClick={nextSlide} />
+          </Button>
+        </>
+      )}
     </Flex>
   );
 }
