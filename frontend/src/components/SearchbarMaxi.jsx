@@ -8,7 +8,6 @@ import {
   ListItem,
   Flex,
   IconButton,
-  Box,
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -37,56 +36,84 @@ function Searchbar() {
 
   return (
     <Container
-      maxH="8vh"
       maxW="80vw"
       bg="white"
-      zIndex="1"
       borderRadius={15}
       opacity="0.8"
+      position="absolute"
+      top={{ base: "27vh", sm: "27vh", md: "27vh", lg: "27vh" }}
+      left="10%"
+      height={{ base: "4.5em", sm: "5em", md: "5.5em", lg: "6em" }}
     >
       <form onSubmit={handleSubmit}>
-        <Flex marginBottom="6vh">
+        <Flex align="center" marginBottom={20}>
           <Input
             placeholder="Lookin' for a movie ?"
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              fontSize: "3vw",
+              size: "lg",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
-            fontSize="3vw"
+            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
+            top="5"
           />
           {search.length >= 1 && (
             <IconButton
-              fontSize="3vw"
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              icon={<SearchIcon />}
+              top={{ base: "4", sm: "5", md: "5", lg: "6" }}
+              icon={
+                <SearchIcon
+                  fontSize={{
+                    base: "24px",
+                    sm: "26px",
+                    md: "28px",
+                    lg: "30px",
+                  }}
+                />
+              }
               onClick={handleSubmit}
             />
           )}
         </Flex>
-      </form>
-      <List bg="white" overflowX="hidden" maxW="80vw" borderRadius="19px">
-        {moviesData.length !== 0 && search !== "" && (
-          <Box
-            className="scrolling"
-            style={{ overflowY: "scroll", maxHeight: "35vh" }}
-          >
-            <ListItem p="16px">
+        <List
+          bg="white"
+          overflowX="hidden"
+          w="80vw"
+          position="absolute"
+          left="0"
+          borderRadius={50}
+        >
+          {moviesData.length !== 0 && search !== "" && (
+            <ListItem
+              className="scrolling"
+              height={{ base: "50vh", sm: "50vh", md: "50vh", lg: "50vh" }}
+              style={{
+                overflowY: "scroll",
+                display: "flex",
+                position: "relative",
+                borderRadius: "50px",
+              }}
+            >
               <Flex
                 direction="column"
-                align="center"
-                position="relative"
+                position="absolute"
+                align="normal"
+                top="0em"
+                left="35%"
+                gap="10px"
                 w="100%"
-                justify="space-between"
+                bgColor="white"
+                borderRadius="15px"
+                pt="10px"
               >
                 {moviesData.map((movie) => (
-                  <a href={`/movies/${movie.id} `}>
+                  <a w="100%" href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
                         transform: "scale(1.03)",
@@ -109,20 +136,28 @@ function Searchbar() {
                         style={{
                           maxHeight: "12vh",
                           borderRadius: "15px",
-                          zIndex: "9999",
                         }}
                       />
-                      <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="2.5vw">{movie.title}</Text>
+                      <Flex pl="10vw">
+                        <Text
+                          fontSize={{
+                            base: "24px",
+                            sm: "26px",
+                            md: "28px",
+                            lg: "30px",
+                          }}
+                        >
+                          {movie.title}
+                        </Text>
                       </Flex>
                     </Flex>
                   </a>
                 ))}
               </Flex>
             </ListItem>
-          </Box>
-        )}
-      </List>
+          )}
+        </List>
+      </form>
     </Container>
   );
 }
