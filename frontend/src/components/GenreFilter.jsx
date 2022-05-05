@@ -31,7 +31,7 @@ export default function GenreFilter({ movieList, setMovieList }) {
       onChange={filterByGenre}
     >
       {dropDownGenre.map((genre) => (
-        <option value={genre.id}>{genre.id}</option>
+        <option value={genre.id}>{genre.name}</option>
       ))}
     </Select>
   );
