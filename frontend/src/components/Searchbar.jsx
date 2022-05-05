@@ -40,13 +40,13 @@ function Searchbar() {
 
   return (
     <Container
-      maxW="40vw"
+      maxW={{ base: "60vw", sm: "60vw", md: "60vw", lg: "60vw" }}
       bg="white"
       borderRadius={15}
       marginBottom={10}
       zIndex="9999"
       position="relative"
-      height={{ base: "2em", sm: "2em", md: "3em", lg: "4em" }}
+      height={{ base: "4em", sm: "4em", md: "4em", lg: "4em" }}
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={20}>
@@ -68,7 +68,16 @@ function Searchbar() {
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              icon={<SearchIcon />}
+              icon={
+                <SearchIcon
+                  fontSize={{
+                    base: "10px",
+                    sm: "15px",
+                    md: "20px",
+                    lg: "30px",
+                  }}
+                />
+              }
               onClick={handleSubmit}
             />
           )}
@@ -76,17 +85,18 @@ function Searchbar() {
         <List
           bg="white"
           overflowX="hidden"
-          width="40vw"
+          width={{ base: "60vw", sm: "60vw", md: "60vw", lg: "60vw" }}
           position="absolute"
           left="0"
           borderRadius={50}
+          top="20"
         >
           {moviesData.length !== 0 && search !== "" && (
             <ListItem
               className="scrolling"
+              height={{ base: "60vh", sm: "60vh", md: "60vh", lg: "60vh" }}
               style={{
                 overflowY: "scroll",
-                height: "50vh",
                 display: "flex",
                 position: "relative",
                 borderRadius: "50px",
@@ -95,13 +105,14 @@ function Searchbar() {
               <Flex
                 direction="column"
                 position="absolute"
-                align="space-around"
+                align="normal"
                 top="0em"
-                left="0"
+                left="15%"
                 gap="10px"
                 bgColor="white"
                 w="67%"
                 borderRadius="50px"
+                pt="10px"
               >
                 {moviesData.map((movie) => (
                   <a w="100%" href={`/movies/${movie.id} `}>
