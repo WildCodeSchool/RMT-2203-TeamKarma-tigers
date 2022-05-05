@@ -4,9 +4,6 @@ import Navbar from "./Navbar";
 import Searchbar from "./Searchbar";
 import Logo from "./Logo";
 
-const CTA = "Sign in";
-const CTA2 = "Sign up";
-
 export default function Header({ isOnHome }) {
   return (
     <Flex direction="column" bg="#15141f">
@@ -30,14 +27,6 @@ export default function Header({ isOnHome }) {
           <Box ml={{ base: "20px", sm: "45px" }}>
             <Navbar />
           </Box>
-          <Flex mr="10px" direction="column" gap="15px">
-            <Button colorScheme="teal" size="sm">
-              {CTA}
-            </Button>
-            <Button variant="ghost" _hover={{ bgColor: "#2B3543" }} size="sm">
-              {CTA2}
-            </Button>
-          </Flex>
         </Flex>
       </Flex>
       {!isOnHome && <Searchbar />}
