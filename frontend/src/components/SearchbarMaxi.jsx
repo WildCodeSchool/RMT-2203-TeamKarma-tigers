@@ -41,8 +41,9 @@ function Searchbar() {
       bg="white"
       borderRadius={15}
       opacity="0.8"
-      marginBottom={40}
-      position="relative"
+      position="absolute"
+      top="27vh"
+      left="10%"
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={20}>
@@ -126,7 +127,7 @@ function Searchbar() {
                           borderRadius: "15px",
                         }}
                       />
-                      <Flex pl="160px">
+                      <Flex pl="10vw">
                         <Text
                           fontSize={{
                             base: "10px",
