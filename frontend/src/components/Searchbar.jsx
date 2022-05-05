@@ -44,7 +44,7 @@ function Searchbar() {
       h="50px"
       w="50%"
       bg="white"
-      zIndex="9999"
+      // zIndex="9999"
       borderRadius={15}
       opacity="0.8"
     >

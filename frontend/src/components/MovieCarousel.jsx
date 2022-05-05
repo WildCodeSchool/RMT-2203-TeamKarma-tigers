@@ -62,7 +62,15 @@ function MovieCarousel({
 
   return (
     <div width="90%">
-      <Flex direction="row">
+      <Flex
+        direction={{
+          base: "column",
+          sm: "column",
+          md: "column",
+          lg: "column",
+          xl: "row",
+        }}
+      >
         {isFilterable && (
           <GenreFilter setGenreFilter={setGenreFilter} setRating={setRating} />
         )}
