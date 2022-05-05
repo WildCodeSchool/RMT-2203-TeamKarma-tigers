@@ -42,7 +42,7 @@ export default function GenreFilter({ setGenreFilter, setRating }) {
       boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
       w={{ xl: "20vw" }}
       minW="20%"
-      h={{ base: "65vh", md: "20vh", lg: "40vh", xl: "100vh" }}
+      h={{ base: "60vh", sm: "30vh", md: "30vh", lg: "30vh", xl: "100vh" }}
       gap={10}
       bg="white"
       borderRadius="md"
