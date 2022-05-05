@@ -91,13 +91,14 @@ function Searchbar() {
               <Flex
                 direction="column"
                 position="absolute"
-                align="space-around"
+                align="normal"
                 top="0em"
-                left="0"
+                left="35%"
                 gap="10px"
                 w="100%"
                 bgColor="white"
                 borderRadius="15px"
+                pt="10px"
               >
                 {moviesData.map((movie) => (
                   <a w="100%" href={`/movies/${movie.id} `}>
@@ -125,7 +126,7 @@ function Searchbar() {
                           borderRadius: "15px",
                         }}
                       />
-                      <Flex pl="20px">
+                      <Flex pl="160px">
                         <Text
                           fontSize={{
                             base: "10px",
