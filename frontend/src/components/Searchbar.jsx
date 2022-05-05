@@ -40,13 +40,13 @@ function Searchbar() {
 
   return (
     <Container
-      maxH="8vh"
       maxW="40vw"
       bg="white"
       borderRadius={15}
       marginBottom={10}
       zIndex="9999"
       position="relative"
+      height={{ base: "2em", sm: "2em", md: "3em", lg: "4em" }}
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={20}>
