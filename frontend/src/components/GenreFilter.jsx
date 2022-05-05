@@ -31,10 +31,7 @@ export default function GenreFilter({ setGenreFilter, setRating }) {
   const filterByRating = () => {
     setRating(sliderValue);
   };
-  //   const resetFilter = () => {
-  //     filterByRating(sliderValue([0, 10]));
-  //     filterByGenre();
-  //   };
+
   return (
     <Flex
       pos="sticky"
@@ -85,8 +82,7 @@ export default function GenreFilter({ setGenreFilter, setRating }) {
         Rating
       </Heading>
       <RangeSlider
-        // eslint-disable-next-line jsx-a11y/aria-proptypes
-        aria-label={["min", "max"]}
+        aria-label="value"
         mt="50px"
         defaultValue={[0, 10]}
         min={0}
@@ -150,10 +146,6 @@ export default function GenreFilter({ setGenreFilter, setRating }) {
           <Box color="teal.400" />
         </RangeSliderThumb>
       </RangeSlider>
-
-      {/* <Button colorScheme="facebook" onClick={resetFilter}>
-        Reset Filters
-      </Button> */}
     </Flex>
   );
 }
