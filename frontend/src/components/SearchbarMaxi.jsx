@@ -43,7 +43,7 @@ function Searchbar() {
       position="absolute"
       top={{ base: "27vh", sm: "27vh", md: "27vh", lg: "27vh" }}
       left="10%"
-      height={{ base: "4em", sm: "4em", md: "5em", lg: "6em" }}
+      height={{ base: "4.5em", sm: "5em", md: "5.5em", lg: "6em" }}
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={20}>
@@ -58,7 +58,7 @@ function Searchbar() {
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
-            fontSize={{ base: "15px", sm: "15px", md: "20px", lg: "30px" }}
+            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
             top="5"
           />
           {search.length >= 1 && (
@@ -66,13 +66,13 @@ function Searchbar() {
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              top="5"
+              top={{ base: "4", sm: "5", md: "5", lg: "6" }}
               icon={
                 <SearchIcon
                   fontSize={{
-                    base: "10px",
-                    sm: "15px",
-                    md: "20px",
+                    base: "24px",
+                    sm: "26px",
+                    md: "28px",
                     lg: "30px",
                   }}
                 />
@@ -141,9 +141,9 @@ function Searchbar() {
                       <Flex pl="10vw">
                         <Text
                           fontSize={{
-                            base: "10px",
-                            sm: "15px",
-                            md: "20px",
+                            base: "24px",
+                            sm: "26px",
+                            md: "28px",
                             lg: "30px",
                           }}
                         >

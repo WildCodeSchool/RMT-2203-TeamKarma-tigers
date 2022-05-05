@@ -61,19 +61,21 @@ function Searchbar() {
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
-            fontSize={{ base: "15px", sm: "15px", md: "20px", lg: "30px" }}
+            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
+            top="1"
           />
           {search.length >= 1 && (
             <IconButton
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
+              top={{ base: "3", sm: "3", md: "3", lg: "3" }}
               icon={
                 <SearchIcon
                   fontSize={{
-                    base: "10px",
-                    sm: "15px",
-                    md: "20px",
+                    base: "24px",
+                    sm: "26px",
+                    md: "28px",
                     lg: "30px",
                   }}
                 />
