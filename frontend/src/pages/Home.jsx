@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <Box bg="#15141f" w="100vw">
+    <Box bg="#15141f" w="100vw" overflow="hidden">
       <main>
         <Header isOnHome />
         <Flex
@@ -20,7 +20,9 @@ export default function Home() {
           flexDirection="column"
           justifyContent="center"
         >
-          <SearchbarMaxi />
+          <Box w="100%" zIndex={9999}>
+            <SearchbarMaxi />
+          </Box>
           <Arrow />
         </Flex>
         <MovieCarousel
