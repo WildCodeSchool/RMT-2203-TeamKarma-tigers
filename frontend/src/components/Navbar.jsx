@@ -4,7 +4,7 @@ import ModalInspiration from "./ModalInspiration";
 
 export default function Navbar() {
   return (
-    <HStack wrap="nowrap" color="white">
+    <HStack wrap="nowrap" color="white" marginRight="2rem">
       <nav>
         <Button
           variant="ghost"
