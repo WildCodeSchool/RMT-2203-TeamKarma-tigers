@@ -65,7 +65,16 @@ function Searchbar() {
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              icon={<SearchIcon />}
+              icon={
+                <SearchIcon
+                  fontSize={{
+                    base: "10px",
+                    sm: "15px",
+                    md: "20px",
+                    lg: "30px",
+                  }}
+                />
+              }
               onClick={handleSubmit}
             />
           )}
