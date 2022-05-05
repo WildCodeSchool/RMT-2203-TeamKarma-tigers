@@ -8,7 +8,6 @@ import {
   ListItem,
   Flex,
   IconButton,
-  Box,
   Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -41,61 +40,84 @@ function Searchbar() {
 
   return (
     <Container
-      h="50px"
-      w="50%"
+      maxW={{ base: "60vw", sm: "60vw", md: "60vw", lg: "60vw" }}
       bg="white"
-      // zIndex="9999"
       borderRadius={15}
-      opacity="0.8"
+      marginBottom={10}
+      zIndex="9999"
+      position="relative"
+      height={{ base: "4em", sm: "4em", md: "4em", lg: "4em" }}
     >
       <form onSubmit={handleSubmit}>
-        <Flex>
+        <Flex align="center" marginBottom={20}>
           <Input
-            placeholder="Searching a movie ?"
+            placeholder="Try a new search !"
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              h: "100px",
+              size: "lg",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
+            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
+            top="1"
           />
           {search.length >= 1 && (
             <IconButton
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              icon={<SearchIcon />}
+              top={{ base: "3", sm: "3", md: "3", lg: "3" }}
+              icon={
+                <SearchIcon
+                  fontSize={{
+                    base: "24px",
+                    sm: "26px",
+                    md: "28px",
+                    lg: "30px",
+                  }}
+                />
+              }
               onClick={handleSubmit}
             />
           )}
         </Flex>
-      </form>
-      <List
-        bg="white"
-        h="auto"
-        overflowX="hidden"
-        w="100%"
-        borderRadius="19px"
-        marginTop="1rem"
-      >
-        {moviesData.length !== 0 && search !== "" && (
-          <Box
-            className="scrolling"
-            style={{ overflowY: "scroll", height: "35vh" }}
-          >
-            <ListItem p="16px">
+        <List
+          bg="white"
+          overflowX="hidden"
+          width={{ base: "60vw", sm: "60vw", md: "60vw", lg: "60vw" }}
+          position="absolute"
+          left="0"
+          borderRadius={50}
+          top="20"
+        >
+          {moviesData.length !== 0 && search !== "" && (
+            <ListItem
+              className="scrolling"
+              height={{ base: "60vh", sm: "60vh", md: "60vh", lg: "60vh" }}
+              style={{
+                overflowY: "scroll",
+                display: "flex",
+                position: "relative",
+                borderRadius: "50px",
+              }}
+            >
               <Flex
                 direction="column"
-                align="start"
-                position="relative"
-                w="100%"
-                justify="space-between"
+                position="absolute"
+                align="normal"
+                top="0em"
+                left="15%"
+                gap="10px"
+                bgColor="white"
+                w="67%"
+                borderRadius="50px"
+                pt="10px"
               >
                 {moviesData.map((movie) => (
-                  <a href={`/movies/${movie.id} `}>
+                  <a w="100%" href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
                         transform: "scale(1.03)",
@@ -106,7 +128,6 @@ function Searchbar() {
                       w="100%"
                       align="center"
                       mb="10px"
-                      fontSize="1.3rem"
                     >
                       <img
                         className="movie-img-searchbar"
@@ -117,22 +138,30 @@ function Searchbar() {
                         }
                         alt="Movie poster"
                         style={{
-                          maxWidth: "10vw",
+                          maxHeight: "12vh",
                           borderRadius: "15px",
-                          zIndex: "9999",
                         }}
                       />
-                      <Flex pl="20px" zIndex="9999">
-                        <Text fontSize="1.2vw">{movie.title}</Text>
+                      <Flex pl="20px">
+                        <Text
+                          fontSize={{
+                            base: "10px",
+                            sm: "15px",
+                            md: "20px",
+                            lg: "30px",
+                          }}
+                        >
+                          {movie.title}
+                        </Text>
                       </Flex>
                     </Flex>
                   </a>
                 ))}
               </Flex>
             </ListItem>
-          </Box>
-        )}
-      </List>
+          )}
+        </List>
+      </form>
     </Container>
   );
 }
