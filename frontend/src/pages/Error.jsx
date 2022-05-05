@@ -40,7 +40,7 @@ function Error() {
           <Flex
             flexDirection="column"
             justifyContent="space-around"
-            h={{ lg: "60%", xl: "auto" }}
+            h={{ base: "60%", xl: "auto" }}
             alignSelf={{ lg: "center" }}
           >
             <Flex
@@ -51,7 +51,7 @@ function Error() {
               <Heading
                 paddingRight="1.5rem"
                 fontSize={{
-                  base: "6xl",
+                  base: "5xl",
                   sm: "7xl",
                   xl: "9xl",
                 }}
@@ -63,7 +63,7 @@ function Error() {
               <Heading
                 paddingRight="0.5rem"
                 fontSize={{
-                  base: "6xl",
+                  base: "5xl",
                   sm: "7xl",
                   xl: "9xl",
                 }}
@@ -81,7 +81,7 @@ function Error() {
                 startColor="white"
                 endColor="#15141f"
                 size={{
-                  base: "50px",
+                  base: "40px",
                   sm: "60px",
                   xl: "110px",
                 }}
@@ -91,7 +91,7 @@ function Error() {
               <Heading
                 paddingLeft="0.5rem"
                 fontSize={{
-                  base: "6xl",
+                  base: "5xl",
                   sm: "7xl",
                   xl: "9xl",
                 }}
@@ -111,7 +111,7 @@ function Error() {
                 color="white"
                 padding="2rem"
                 fontSize={{
-                  base: "2xl",
+                  base: "xl",
                   sm: "4xl",
                   xl: "5xl",
                 }}
