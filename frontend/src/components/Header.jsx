@@ -9,7 +9,7 @@ const CTA2 = "Sign up";
 
 export default function Header({ isOnHome }) {
   return (
-    <Flex direction="column">
+    <Flex direction="column" bg="#15141f">
       <Flex
         w="100vw"
         align="center"
