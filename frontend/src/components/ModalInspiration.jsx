@@ -33,7 +33,12 @@ export default function ModalInspiration() {
   }, []);
 
   return (
-    <Button onClick={onOpen} variant="ghost" _hover={{ bgColor: "#2B3543" }}>
+    <Button
+      onClick={onOpen}
+      variant="ghost"
+      _hover={{ bgColor: "#2B3543" }}
+      fontSize={{ base: "10px", sm: "15px", md: "20px", lg: "30px" }}
+    >
       I need inspiration
       <Modal
         closeOnOverlayClick={false}
@@ -41,6 +46,7 @@ export default function ModalInspiration() {
         isOpen={isOpen}
         isCentered
         size="3xl"
+        zIndex="auto"
       >
         <ModalOverlay />
         <ModalContent>

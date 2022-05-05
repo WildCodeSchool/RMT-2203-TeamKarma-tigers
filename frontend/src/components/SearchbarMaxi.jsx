@@ -46,7 +46,7 @@ function Searchbar() {
       height={{ base: "4.5em", sm: "5em", md: "5.5em", lg: "6em" }}
     >
       <form onSubmit={handleSubmit}>
-        <Flex align="center" marginBottom={20}>
+        <Flex align="center" marginBottom={20} zIndex="1">
           <Input
             placeholder="Lookin' for a movie ?"
             _placeholder={{
