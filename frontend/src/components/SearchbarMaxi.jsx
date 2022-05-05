@@ -36,14 +36,14 @@ function Searchbar() {
 
   return (
     <Container
-      maxH="8vh"
       maxW="80vw"
       bg="white"
       borderRadius={15}
       opacity="0.8"
       position="absolute"
-      top="27vh"
+      top={{ base: "27vh", sm: "27vh", md: "27vh", lg: "27vh" }}
       left="10%"
+      height={{ base: "4em", sm: "4em", md: "5em", lg: "6em" }}
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={20}>
@@ -52,19 +52,21 @@ function Searchbar() {
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              fontSize: "3vw",
+              size: "lg",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
-            fontSize="3vw"
+            fontSize={{ base: "15px", sm: "15px", md: "20px", lg: "30px" }}
+            top="5"
           />
           {search.length >= 1 && (
             <IconButton
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
+              top="5"
               icon={
                 <SearchIcon
                   fontSize={{
@@ -90,9 +92,9 @@ function Searchbar() {
           {moviesData.length !== 0 && search !== "" && (
             <ListItem
               className="scrolling"
+              height={{ base: "50vh", sm: "50vh", md: "50vh", lg: "50vh" }}
               style={{
                 overflowY: "scroll",
-                height: "40vh",
                 display: "flex",
                 position: "relative",
                 borderRadius: "50px",
