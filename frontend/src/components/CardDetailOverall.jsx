@@ -57,7 +57,7 @@ export default function CardDetailOverall({ movie }) {
           }}
         />
       </GridItem>
-      <GridItem w="100%" m={{ lg: "0 auto" }}>
+      <GridItem w="100%" m={{ lg: "0 auto" }} mt={{ xl: "1rem" }}>
         <Flex
           flexDir="column"
           w={{ lg: "90%", xl: "100%" }}
@@ -70,8 +70,8 @@ export default function CardDetailOverall({ movie }) {
           </Heading>
           <Heading as="h3" size="sm" marginTop="1rem">
             {hour === 0
-              ? `The movie lasts ${minute} minutes`
-              : `The movie lasts ${hour} hours and ${minute} minutes`}
+              ? `The movie lasts ${minute} minute(s)`
+              : `The movie lasts ${hour} hour(s) and ${minute} minute(s)`}
           </Heading>
           <Heading as="h3" size="sm" marginBottom="1rem">
             {moment(Date()).diff(results.release_date, "hours") >= 24
