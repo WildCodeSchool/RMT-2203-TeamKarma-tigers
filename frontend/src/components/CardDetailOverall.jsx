@@ -48,7 +48,9 @@ export default function CardDetailOverall({ movie }) {
               : `url(${emptyImage})`
           }
           alt={results.title}
-          minW={{ xl: "-webkit-fill-available" }}
+          // minW={{ xl: "-webkit-fill-available" }}
+          maxW="60vw"
+          maxH="90vh"
           m={{
             sm: "0 auto",
             md: "0 auto",
