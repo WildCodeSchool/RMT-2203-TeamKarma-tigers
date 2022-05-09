@@ -8,6 +8,7 @@ import {
   ListItem,
   Flex,
   IconButton,
+  Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import "../styles/searchbar.css";
@@ -30,43 +31,93 @@ function Searchbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return navigate(`/results/${search}`);
+    const searchParam = search;
+    setSearch("");
+    setMoviesData([]);
+
+    return navigate(`/results/${searchParam}`);
   };
 
   return (
-    <Container w="50%" bg="white" zIndex="9999" borderRadius={15} color="black">
-      <form onSubmit={handleSubmit} w="100%">
-        <Flex>
+    <Container
+      maxW={{ base: "60vw", sm: "60vw", md: "60vw", lg: "60vw" }}
+      bg="white"
+      borderRadius={15}
+      marginBottom={10}
+      zIndex="9999"
+      position="relative"
+      height={{ base: "4em", sm: "4em", md: "4em", lg: "4em" }}
+    >
+      <form onSubmit={handleSubmit}>
+        <Flex align="center" marginBottom={20}>
           <Input
-            placeholder="Searching a movie ?"
-            _placeholder={{ opacity: 1, color: "gray.500" }}
-            size=""
+            placeholder="Try a new search !"
+            _placeholder={{
+              opacity: 1,
+              color: "gray.500",
+              size: "lg",
+            }}
+            textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
+            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
+            top="1"
           />
           {search.length >= 1 && (
             <IconButton
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              icon={<SearchIcon />}
+              top={{ base: "3", sm: "3", md: "3", lg: "3" }}
+              icon={
+                <SearchIcon
+                  fontSize={{
+                    base: "24px",
+                    sm: "26px",
+                    md: "28px",
+                    lg: "30px",
+                  }}
+                />
+              }
               onClick={handleSubmit}
-              size=""
             />
           )}
         </Flex>
-      </form>
-      <List bg="white" h="auto" overflowX="hidden">
-        {moviesData.length !== 0 && search !== "" && (
-          <div
-            className="scrolling"
-            style={{ overflowY: "scroll", height: "35vh" }}
-          >
-            <ListItem>
-              <Flex direction="column" align="start">
+        <List
+          bg="white"
+          overflowX="hidden"
+          width={{ base: "60vw", sm: "60vw", md: "60vw", lg: "60vw" }}
+          position="absolute"
+          left="0"
+          borderRadius={50}
+          top="20"
+        >
+          {moviesData.length !== 0 && search !== "" && (
+            <ListItem
+              className="scrolling"
+              height={{ base: "60vh", sm: "60vh", md: "60vh", lg: "60vh" }}
+              style={{
+                overflowY: "scroll",
+                display: "flex",
+                position: "relative",
+                borderRadius: "50px",
+              }}
+            >
+              <Flex
+                direction="column"
+                position="absolute"
+                align="normal"
+                top="0em"
+                left="15%"
+                gap="10px"
+                bgColor="white"
+                w="67%"
+                borderRadius="50px"
+                pt="10px"
+              >
                 {moviesData.map((movie) => (
-                  <a className="movie-link" href={`/movies/${movie.id} `}>
+                  <a w="100%" href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
                         transform: "scale(1.03)",
@@ -74,11 +125,9 @@ function Searchbar() {
                         borderRadius: "10px",
                       }}
                       direction="row"
-                      justify="space-between"
-                      w="43vw"
+                      w="100%"
                       align="center"
                       mb="10px"
-                      fontSize="1.3rem"
                     >
                       <img
                         className="movie-img-searchbar"
@@ -88,17 +137,31 @@ function Searchbar() {
                             : `${emptyImage}`
                         }
                         alt="Movie poster"
-                        style={{ width: "100px", borderRadius: "15px" }}
+                        style={{
+                          maxHeight: "12vh",
+                          borderRadius: "15px",
+                        }}
                       />
-                      {movie.title}
+                      <Flex pl="20px">
+                        <Text
+                          fontSize={{
+                            base: "10px",
+                            sm: "15px",
+                            md: "20px",
+                            lg: "30px",
+                          }}
+                        >
+                          {movie.title}
+                        </Text>
+                      </Flex>
                     </Flex>
                   </a>
                 ))}
               </Flex>
             </ListItem>
-          </div>
-        )}
-      </List>
+          )}
+        </List>
+      </form>
     </Container>
   );
 }

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.container {
+  position: absolute;
+    display:flex;
+    align-items: center;    
+    justify-content: center;
+    height: 100px;
+    flex-direction: column;
+    margin-top: 75vh;
+  }
+  
+.container h1 {
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: #b1f80be7;
+  }
+
+.arrows {
+  color: #b1f80be7;
+}

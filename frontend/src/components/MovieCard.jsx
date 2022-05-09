@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Box,
   Flex,
   Badge,
   Text,
@@ -8,20 +7,23 @@ import {
   LinkOverlay,
   Heading,
 } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
 import moment from "moment";
+
+import MovieRating from "./MovieRating";
 import emptyImage from "../assets/emptyImage.svg";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, isInspiration = false }) {
   return (
     <div>
       <LinkBox
         as="article"
-        h="450px"
+        boxShadow="rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+        h={!isInspiration ? "450px" : "70vh"}
         m="20px"
-        maxW="320px"
-        bg="grey"
+        w={!isInspiration ? "300px" : "400px"}
+        bg="gray"
         borderRadius="md"
+        bgPosition="center"
         backgroundImage={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
@@ -63,25 +65,7 @@ function MovieCard({ movie }) {
             <Text mt={2} fontSize="sm" color="grey">
               {moment(movie.release_date).format("MMMM Do YYYY")}
             </Text>
-            <Box display="flex" mt="2" alignItems="center">
-              {Array(5)
-                .fill("")
-                .map((_, i) => (
-                  <StarIcon
-                    w={4}
-                    h={4}
-                    key={`${movie.id}_${movie.release_date}_${movie.original_title}`}
-                    color={
-                      i < Math.round(movie.vote_average / 2)
-                        ? "teal.500"
-                        : "gray.300"
-                    }
-                  />
-                ))}
-              <Box as="span" ml="2" color="gray.600" fontSize="sm">
-                {movie.vote_count} reviews
-              </Box>
-            </Box>
+            <MovieRating movie={movie} />
           </Flex>
         </LinkOverlay>
       </LinkBox>
