@@ -27,7 +27,7 @@ function CardCastingCarousel({ movie }) {
       scrollBehavior="smooth"
       overflowX="scroll"
       w="inherit"
-      maxW="100%"
+      maxW="99%"
       sx={{
         "&::-webkit-scrollbar": {
           width: "16px",

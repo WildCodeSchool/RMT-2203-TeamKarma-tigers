@@ -56,7 +56,7 @@ export default function CardDetailOverall({ movie }) {
           m="auto"
         />
       </GridItem>
-      <GridItem w="100%" m={{ lg: "0 auto" }}>
+      <GridItem w="100%" m={{ lg: "0 auto" }} maxW={{ "2xl": "90%" }}>
         <Flex
           flexDir="column"
           m="1rem"

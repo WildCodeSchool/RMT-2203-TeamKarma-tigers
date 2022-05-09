@@ -47,6 +47,8 @@ export default function Footer() {
           xl: "space-between",
         }}
         width="60%"
+        height={{ base: "90%", sm: "100%" }}
+        alignSelf="center"
         flexDirection={{
           base: "column",
           xl: "row",
