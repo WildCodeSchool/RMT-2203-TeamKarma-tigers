@@ -10,7 +10,7 @@ export default function OneMovie() {
   const { movieid } = useParams();
 
   return (
-    <Box bg="#15141f">
+    <Box bg="#15141f" minH="100vh">
       <Header isOnHome={false} />
       <CardDetailOverall movie={movieid} />
       <Footer />

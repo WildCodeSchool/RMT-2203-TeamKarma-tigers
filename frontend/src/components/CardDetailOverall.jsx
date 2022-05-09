@@ -39,8 +39,13 @@ export default function CardDetailOverall({ movie }) {
   }, []);
 
   return (
-    <Grid templateColumns={{ md: "100%", xl: "40% 50%" }} gap="6" color="white">
-      <GridItem w="100%" mt={{ sm: "1rem", md: "1rem", lg: "1rem" }}>
+    <Grid
+      templateColumns={{ base: "100%", xl: "40% 55%" }}
+      gap={{ base: "6" }}
+      color="white"
+      m={{ base: "0.5rem", xl: "2.8rem" }}
+    >
+      <GridItem w="100%">
         <Image
           src={
             results.poster_path
@@ -48,21 +53,12 @@ export default function CardDetailOverall({ movie }) {
               : `url(${emptyImage})`
           }
           alt={results.title}
-          // minW={{ xl: "-webkit-fill-available" }}
-          maxW="60vw"
-          maxH="90vh"
-          m={{
-            sm: "0 auto",
-            md: "0 auto",
-            lg: "0 auto",
-            xl: "1rem",
-          }}
+          m="auto"
         />
       </GridItem>
       <GridItem w="100%" m={{ lg: "0 auto" }}>
         <Flex
           flexDir="column"
-          w={{ lg: "90%", xl: "100%" }}
           m="1rem"
           alignItems={{ lg: "center", xl: "flex-start" }}
           marginLeft="2rem"
