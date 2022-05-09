@@ -61,7 +61,6 @@ export default function CardDetailOverall({ movie }) {
           flexDir="column"
           m="1rem"
           alignItems={{ lg: "center", xl: "flex-start" }}
-          marginLeft="2rem"
         >
           <Heading as="h2" size="xl">
             {results.title}

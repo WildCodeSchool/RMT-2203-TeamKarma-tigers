@@ -25,10 +25,10 @@ export default function ButtonGroupFilmNavigation({ movie }) {
           borderColor: "teal",
         }}
       >
-        <Tab>Synopsis</Tab>
-        <Tab>Casting</Tab>
-        <Tab>Reviews</Tab>
-        <Tab>Trailers</Tab>
+        <Tab fontSize={{ base: "sm", sm: "md", md: "xl" }}>Synopsis</Tab>
+        <Tab fontSize={{ base: "sm", sm: "md", md: "xl" }}>Casting</Tab>
+        <Tab fontSize={{ base: "sm", sm: "md", md: "xl" }}>Reviews</Tab>
+        <Tab fontSize={{ base: "sm", sm: "md", md: "xl" }}>Trailers</Tab>
       </TabList>
 
       <TabPanels>
