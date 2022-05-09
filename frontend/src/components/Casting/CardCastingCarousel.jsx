@@ -37,7 +37,9 @@ function CardCastingCarousel({ movie }) {
         },
         "&::-webkit-scrollbar-thumb": {
           borderRadius: "8px",
-          backgroundColor: "#282c34",
+          backgroundColor: "#2b3543",
+          border: "1px",
+          color: "red",
         },
       }}
     >

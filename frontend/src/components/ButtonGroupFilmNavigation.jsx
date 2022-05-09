@@ -32,16 +32,16 @@ export default function ButtonGroupFilmNavigation({ movie }) {
       </TabList>
 
       <TabPanels>
-        <TabPanel>
+        <TabPanel mt={{ base: "0.5rem", sm: "1rem", md: "2rem" }}>
           <CardDetailSynopsis movie={movie} />
         </TabPanel>
-        <TabPanel>
+        <TabPanel mt={{ base: "0.5rem", sm: "1rem", md: "2rem" }}>
           <CardCastingCarousel movie={movie} />
         </TabPanel>
-        <TabPanel>
+        <TabPanel mt={{ base: "0.5rem", sm: "1rem", md: "2rem" }}>
           <CardReviewCarousel movie={movie} />
         </TabPanel>
-        <TabPanel>
+        <TabPanel mt={{ base: "0.5rem", sm: "1rem", md: "2rem" }}>
           <MovieVideoCarousel movie={movie} />
         </TabPanel>
       </TabPanels>
