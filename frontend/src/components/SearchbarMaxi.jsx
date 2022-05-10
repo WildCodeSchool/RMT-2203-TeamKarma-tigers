@@ -52,14 +52,13 @@ function Searchbar() {
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              size: "lg",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
-            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
-            top="5"
+            fontSize={{ base: "28px", sm: "40px", md: "50px", lg: "50px" }}
+            top={{ base: "3", sm: "2", md: "1", lg: "2" }}
           />
           {search.length >= 1 && (
             <IconButton
