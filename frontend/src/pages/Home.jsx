@@ -1,5 +1,4 @@
 import { Box, Flex, Heading } from "@chakra-ui/react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import SearchbarMaxi from "../components/SearchbarMaxi";
 import MovieCarousel from "../components/MovieCarousel";
 import Arrow from "../components/Arrow";
@@ -23,11 +22,10 @@ export default function Home() {
           <Box w="100%" zIndex="500">
             <SearchbarMaxi />
           </Box>
-          <AnchorLink href="#stuff">
-            <Arrow />
-          </AnchorLink>
+          <Arrow />
         </Flex>
         <Heading
+          id="stuff"
           as="h2"
           fontSize={{ base: "25px", sm: "30px", md: "40px", lg: "50px" }}
           color="white"
@@ -36,13 +34,10 @@ export default function Home() {
         >
           Trending movies of the week
         </Heading>
-        <AnchorLink href="#stuff">
-          <MovieCarousel
-            id="stuff"
-            type="thisWeekTrendingMovies"
-            url="https://api.themoviedb.org/3/trending/all/week?"
-          />
-        </AnchorLink>
+        <MovieCarousel
+          type="thisWeekTrendingMovies"
+          url="https://api.themoviedb.org/3/trending/all/week?"
+        />
       </main>
       <footer>
         <Footer />
