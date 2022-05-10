@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import SearchbarMaxi from "../components/SearchbarMaxi";
 import MovieCarousel from "../components/MovieCarousel";
 import Arrow from "../components/Arrow";
@@ -24,6 +24,15 @@ export default function Home() {
           </Box>
           <Arrow />
         </Flex>
+        <Heading
+          as="h2"
+          fontSize={{ base: "25px", sm: "30px", md: "40px", lg: "50px" }}
+          color="white"
+          mt="30px"
+          mb="30px"
+        >
+          Trending movies of the week
+        </Heading>
         <MovieCarousel
           type="thisWeekTrendingMovies"
           url="https://api.themoviedb.org/3/trending/all/week?"
