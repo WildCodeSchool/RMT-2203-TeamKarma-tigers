@@ -39,8 +39,8 @@ function Searchbar() {
       maxW="80vw"
       bg="white"
       borderRadius={15}
-      opacity="0.8"
       position="absolute"
+      opacity="0.8"
       top={{ base: "27vh", sm: "27vh", md: "27vh", lg: "27vh" }}
       left="10%"
       height={{ base: "4.5em", sm: "5em", md: "5.5em", lg: "6em" }}
