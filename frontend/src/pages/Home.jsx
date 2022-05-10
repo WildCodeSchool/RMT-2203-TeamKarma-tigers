@@ -16,6 +16,7 @@ export default function Home() {
           alignItems="center"
           bgImage="url('./src/assets/home-background3.jpg')"
           bgSize="cover"
+          bgPosition="center top"
           flexDirection="column"
           justifyContent="center"
         >
@@ -29,6 +30,7 @@ export default function Home() {
           as="h2"
           fontSize={{ base: "25px", sm: "30px", md: "40px", lg: "50px" }}
           color="white"
+          pt="100px"
           mt="30px"
           mb="30px"
         >
