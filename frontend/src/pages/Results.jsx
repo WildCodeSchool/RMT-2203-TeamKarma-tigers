@@ -9,6 +9,7 @@ import {
   Text,
   UnorderedList,
   ListItem,
+  Link,
 } from "@chakra-ui/react";
 import emptyResults from "../assets/emptyResults.jpeg";
 import Footer from "../components/Footer";
@@ -20,7 +21,7 @@ function Results() {
   const [numOfResults, setNumOfResults] = useState(null);
 
   return (
-    <Box bg="#15141f">
+    <Box bg="#15141f" overflowX="hidden">
       <Header isOnHome={false} />
       <VStack gap={30} pt={10}>
         <Heading as="h1" color="white">
@@ -40,37 +41,99 @@ function Results() {
           </Box>
         ) : (
           <Flex
-            justify="center"
+            justify={{ base: "flex-end", sm: "center" }}
             direction="column"
-            p="10vh"
+            p={{ base: "1rem", sm: "3rem" }}
             align="flex-start"
-            h="80vh"
             bgImage={emptyResults}
             w="100vw"
+            overflowX=""
+            h={{ base: "60vh", "2xl": "90vh" }}
             filter="auto"
+            bgRepeat="no-repeat"
+            bgSize={{ base: "cover", "2xl": "110% 100%" }}
+            bgPosition="center"
+            gap={{ base: "2", sm: "10" }}
+            pt={{ base: "0", sm: "20rem", lg: "15rem", xl: "7rem" }}
           >
             <Heading
               as="h2"
-              fontSize="60px"
+              fontSize={{
+                base: "xl",
+                sm: "3xl",
+                lg: "4xl",
+                xl: "5xl",
+                "2xl": "6xl",
+              }}
               color="white"
-              maxW="55%"
+              maxW={{
+                base: "100%",
+                sm: "100%",
+                lg: "55%",
+                xl: "50%",
+                "2xl": "49%",
+              }}
               align="left"
             >
               Oops, it seems we could not find anything for :{search}
             </Heading>
-            <Text fontSize="2xl" color="white" align="left">
+            <Text
+              fontSize={{
+                base: "lg",
+                sm: "2xl",
+                lg: "3xl",
+                xl: "4xl",
+                "2xl": "5xl",
+              }}
+              color="white"
+              align="left"
+            >
               There are no movies that matched your query.
             </Text>
-            <Text fontSize="2xl" color="white" align="left">
+            <Text
+              fontSize={{
+                base: "lg",
+                sm: "2xl",
+                lg: "3xl",
+                xl: "4xl",
+                "2xl": "5xl",
+              }}
+              color="white"
+              align="left"
+            >
               Check for any potential mispellings or tap into :
             </Text>
 
-            <UnorderedList>
-              <ListItem fontSize="2xl" color="white" align="left">
-                All movies
+            <UnorderedList pl={{ base: "0.5rem", sm: "0.8rem" }}>
+              <ListItem
+                fontSize={{
+                  base: "lg",
+                  sm: "2xl",
+                  lg: "3xl",
+                  xl: "4xl",
+                  "2xl": "5xl",
+                }}
+                color="white"
+                align="left"
+              >
+                <Link fontStyle="italic" href="/movies">
+                  All movies
+                </Link>
               </ListItem>
-              <ListItem fontSize="2xl" color="white" align="left">
-                Popular Movies
+              <ListItem
+                fontSize={{
+                  base: "lg",
+                  sm: "2xl",
+                  lg: "3xl",
+                  xl: "4xl",
+                  "2xl": "5xl",
+                }}
+                color="white"
+                align="left"
+              >
+                <Link fontStyle="italic" href="/popular">
+                  Popular movies
+                </Link>
               </ListItem>
             </UnorderedList>
           </Flex>
