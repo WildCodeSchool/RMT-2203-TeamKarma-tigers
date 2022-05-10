@@ -1,4 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "./Navbar";
 import Searchbar from "./Searchbar";
@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 export default function Header({ isOnHome }) {
   return (
-    <Flex direction="column" bg="#15141f">
+    <Flex direction="column" bgColor="transparent" w="-webkit-fill-available">
       <Flex
         w="100%"
         align="center"
@@ -27,14 +27,12 @@ export default function Header({ isOnHome }) {
           justify="space-between"
           paddingX="2%"
         >
-          <a href="/" width="100%">
+          <a href="/" width="50%">
             <Logo />
           </a>
-          <Flex w="100%">
-            {!isOnHome && <Searchbar width="100%" />}
-            <Box>
-              <Navbar width="100%" display="flex" justify="space-evenly" />
-            </Box>
+          <Flex width="60%" justify="flex-end">
+            {!isOnHome && <Searchbar />}
+            <Navbar display="flex" justify="space-evenly" />
           </Flex>
         </Flex>
       </Flex>

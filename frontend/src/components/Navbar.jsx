@@ -4,7 +4,7 @@ import ModalInspiration from "./ModalInspiration";
 
 export default function Navbar() {
   return (
-    <Flex wrap="no-wrap" color="white" W="100%" justify="space-evenly">
+    <Flex wrap="wrap" color="white" W="100%" justify="space-evenly">
       <HStack W="100%" gap="6px" justify="space-evenly">
         <Button variant="ghost" _hover={{ bgColor: "#2B3543" }} size="lg">
           <Link to="/movies">All Movies</Link>

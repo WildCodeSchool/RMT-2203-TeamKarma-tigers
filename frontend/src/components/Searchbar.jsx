@@ -54,8 +54,8 @@ function Searchbar() {
       zIndex="500"
       position="relative"
       height="50px"
-      maxW="30%"
       minW="250px"
+      w="100%"
     >
       <form onSubmit={handleSubmit}>
         <Flex align="center" marginBottom={5}>
