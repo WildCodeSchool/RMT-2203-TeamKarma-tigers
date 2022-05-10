@@ -24,6 +24,8 @@ export default function MovieVideoCarousel({ movie }) {
   };
 
   const filterVideos = (cur, allVid) => {
+    if (allVid.length < 3) return allVid;
+
     const res = [];
     res.push(allVid[cur]);
     if (cur === allVid.length - 1) {
