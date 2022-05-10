@@ -52,28 +52,27 @@ function Searchbar() {
             _placeholder={{
               opacity: 1,
               color: "gray.500",
-              size: "lg",
             }}
             textAlign={["center"]}
             type="text"
             variant="unstyled"
             onChange={(e) => setSearch(e.target.value)}
-            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
-            top="5"
+            fontSize={{ base: "28px", sm: "40px", md: "50px", lg: "50px" }}
+            top={{ base: "3", sm: "2", md: "1", lg: "2" }}
           />
           {search.length >= 1 && (
             <IconButton
               variant="unstyled"
               colorScheme="blue"
               aria-label="Search database"
-              top={{ base: "4", sm: "5", md: "5", lg: "6" }}
+              top={{ base: "3", sm: "2", md: "1", lg: "2" }}
               icon={
                 <SearchIcon
                   fontSize={{
-                    base: "24px",
-                    sm: "26px",
-                    md: "28px",
-                    lg: "30px",
+                    base: "28px",
+                    sm: "40px",
+                    md: "50px",
+                    lg: "50px",
                   }}
                 />
               }
@@ -105,7 +104,12 @@ function Searchbar() {
                 position="absolute"
                 align="normal"
                 top="0em"
-                left="35%"
+                left={{
+                  base: "10%",
+                  sm: "10%",
+                  md: "20%",
+                  lg: "35%",
+                }}
                 gap="10px"
                 w="100%"
                 bgColor="white"
@@ -121,7 +125,6 @@ function Searchbar() {
                         borderRadius: "10px",
                       }}
                       direction="row"
-                      w="100%"
                       align="center"
                       mb="10px"
                     >
@@ -138,10 +141,19 @@ function Searchbar() {
                           borderRadius: "15px",
                         }}
                       />
-                      <Flex pl="10vw">
+                      <Flex
+                        mr="20px"
+                        pl={{
+                          base: "2vh",
+                          sm: "3vh",
+                          md: "4vh",
+                          lg: "5vw",
+                        }}
+                      >
                         <Text
+                          textAlign="left"
                           fontSize={{
-                            base: "24px",
+                            base: "20px",
                             sm: "26px",
                             md: "28px",
                             lg: "30px",
