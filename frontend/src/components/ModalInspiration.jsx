@@ -50,9 +50,10 @@ export default function ModalInspiration() {
   return (
     <Button
       onClick={onOpen}
-      variant="ghost"
+      variant="solid"
       _hover={{ bgColor: "#2B3543" }}
-      fontSize={{ base: "10px", sm: "15px", md: "20px", lg: "30px" }}
+      size="lg"
+      colorScheme="red"
     >
       I need inspiration
       <Modal
