@@ -7,17 +7,23 @@
     justify-content: center;
     height: 100px;
     flex-direction: column;
-    margin-top: 75vh;
+    margin-top: 55vh;
+    width: 80%;
+  }
+  @media screen and (min-width: 480px) {
+    .container {
+      margin-top: 35vh;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .container {
+      margin-top: 55vh;
+    }
   }
   
-.container h1 {
+.container #trend-text {
     font-family: 'Indie Flower', cursive;
     font-weight: bold;
-    font-size: 2vw;
     text-transform: uppercase;
-    color: #b1f80be7;
+    color: #e44343e7;
   }
-
-.arrows {
-  color: #b1f80be7;
-}
