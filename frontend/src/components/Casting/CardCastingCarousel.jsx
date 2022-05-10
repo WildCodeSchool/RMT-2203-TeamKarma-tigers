@@ -22,6 +22,10 @@ function CardCastingCarousel({ movie }) {
     getCastFromMovie();
   }, []);
 
+  if (casting.length === 0) {
+    return <p>No casting member found...</p>;
+  }
+
   return (
     <Flex
       scrollBehavior="smooth"

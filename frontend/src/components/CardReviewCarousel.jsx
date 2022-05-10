@@ -30,6 +30,10 @@ function CardReviewCarousel({ movie }) {
     getReviewFromMovie();
   }, []);
 
+  if (reviews.length === 0) {
+    return <p>No review found...</p>;
+  }
+
   return (
     <div>
       <Flex
@@ -65,6 +69,23 @@ function CardReviewCarousel({ movie }) {
             </Flex>
           ) : null
         )}
+
+        {/* {reviews.total_result === 0 ? (
+          reviews.map((review) =>
+            review ? (
+              <Flex
+                maxWidth="97%"
+                _even={{
+                  alignSelf: { base: "flex-start", sm: "flex-end" },
+                }}
+              >
+                <CardReview review={review} />
+              </Flex>
+            ) : null
+          )
+        ) : (
+          <p>No content</p>
+        )} */}
       </Flex>
     </div>
   );
