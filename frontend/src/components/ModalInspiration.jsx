@@ -27,10 +27,25 @@ export default function ModalInspiration() {
   const [currentMovie, setCurrentMovie] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [genreList, setGenreList] = useState([]);
+  const [genreFilter, setGenreFilter] = useState("");
+  const [genreFilterName, setGenreFilterName] = useState("");
 
   useEffect(() => {
     getGenreList().then((result) => setGenreList(result));
   }, []);
+
+  const filterByGenre = (e) => {
+    if (parseInt(e.target.value, 10)) {
+      setGenreFilter(parseInt(e.target.value, 10));
+      setGenreFilterName(
+        genreList.find((genre) => genre.id === parseInt(e.target.value, 10))
+          .name
+      );
+    } else {
+      setGenreFilter("");
+      setGenreFilterName("");
+    }
+  };
 
   return (
     <Button
@@ -51,7 +66,13 @@ export default function ModalInspiration() {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Get Inspired</ModalHeader>
-          <ModalCloseButton onClick={() => setCurrentMovie("")} />
+          <ModalCloseButton
+            onClick={() => {
+              setCurrentMovie("");
+              setGenreFilter("");
+              setGenreFilterName("");
+            }}
+          />
           {!currentMovie ? (
             <>
               <ModalBody>
@@ -73,9 +94,13 @@ export default function ModalInspiration() {
                     blur="3px"
                   />
 
-                  <form>
+                  <form onSubmit={(e) => e.preventDefault()}>
                     <Flex
-                      position="absolute"
+                      position={{
+                        sm: "absolute",
+                        md: "absolute",
+                        base: "absolute",
+                      }}
                       top="50%"
                       left="50%"
                       gap={6}
@@ -97,9 +122,12 @@ export default function ModalInspiration() {
                             id="genre"
                             placeholder="Select option"
                             isRequired
+                            onChange={filterByGenre}
                           >
                             {genreList.map((genre) => (
-                              <option value={genre.id}>{genre.name}</option>
+                              <option value={genre.id} name={genre.name}>
+                                {genre.name}
+                              </option>
                             ))}
                           </Select>
                         </FormControl>
@@ -110,12 +138,18 @@ export default function ModalInspiration() {
                       <VStack>
                         <Button
                           size="lg"
-                          onClick={onOpen}
+                          onClick={() => {
+                            getTotalPageResult().then((nb) => {
+                              getRandomMovie(nb, genreFilter).then((movie) => {
+                                setCurrentMovie(movie);
+                              });
+                            });
+                          }}
                           variant="solid"
                           type="submit"
                           colorScheme="twitter"
                         >
-                          Show me what you got{" "}
+                          Show me what you got
                         </Button>
 
                         <Text color="white">OR</Text>
@@ -123,7 +157,7 @@ export default function ModalInspiration() {
                           align="center"
                           onClick={() => {
                             getTotalPageResult().then((nb) => {
-                              getRandomMovie(nb).then((movie) =>
+                              getRandomMovie(nb, genreFilter).then((movie) =>
                                 setCurrentMovie(movie)
                               );
                             });
@@ -164,7 +198,7 @@ export default function ModalInspiration() {
                   align="center"
                   onClick={() => {
                     getTotalPageResult().then((nb) => {
-                      getRandomMovie(nb).then((movie) =>
+                      getRandomMovie(nb, genreFilter).then((movie) =>
                         setCurrentMovie(movie)
                       );
                     });
@@ -173,7 +207,9 @@ export default function ModalInspiration() {
                   variant="solid"
                   colorScheme="facebook"
                 >
-                  Show another movie{" "}
+                  {genreFilterName
+                    ? `Show another ${genreFilterName} movie`
+                    : `Show another random movie`}
                 </Button>
               </ModalFooter>
             </>
