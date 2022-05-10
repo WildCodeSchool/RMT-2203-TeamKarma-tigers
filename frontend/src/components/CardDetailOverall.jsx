@@ -39,8 +39,13 @@ export default function CardDetailOverall({ movie }) {
   }, []);
 
   return (
-    <Grid templateColumns={{ md: "100%", xl: "40% 50%" }} gap="6" color="white">
-      <GridItem w="100%" mt={{ sm: "1rem", md: "1rem", lg: "1rem" }}>
+    <Grid
+      templateColumns={{ base: "100%", xl: "40% 55%" }}
+      gap={{ base: "6" }}
+      color="white"
+      m={{ base: "0.5rem", xl: "2.8rem" }}
+    >
+      <GridItem w="100%">
         <Image
           src={
             results.poster_path
@@ -48,30 +53,22 @@ export default function CardDetailOverall({ movie }) {
               : `url(${emptyImage})`
           }
           alt={results.title}
-          minW={{ xl: "-webkit-fill-available" }}
-          m={{
-            sm: "0 auto",
-            md: "0 auto",
-            lg: "0 auto",
-            xl: "1rem",
-          }}
+          m="auto"
         />
       </GridItem>
-      <GridItem w="100%" m={{ lg: "0 auto" }}>
+      <GridItem w="100%" m={{ lg: "0 auto" }} maxW={{ "2xl": "90%" }}>
         <Flex
           flexDir="column"
-          w={{ lg: "90%", xl: "100%" }}
           m="1rem"
           alignItems={{ lg: "center", xl: "flex-start" }}
-          marginLeft="2rem"
         >
           <Heading as="h2" size="xl">
             {results.title}
           </Heading>
           <Heading as="h3" size="sm" marginTop="1rem">
             {hour === 0
-              ? `The movie lasts ${minute} minutes`
-              : `The movie lasts ${hour} hours and ${minute} minutes`}
+              ? `The movie lasts ${minute} minute(s)`
+              : `The movie lasts ${hour} hour(s) and ${minute} minute(s)`}
           </Heading>
           <Heading as="h3" size="sm" marginBottom="1rem">
             {moment(Date()).diff(results.release_date, "hours") >= 24

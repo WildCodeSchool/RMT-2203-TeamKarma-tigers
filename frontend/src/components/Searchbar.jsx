@@ -44,7 +44,7 @@ function Searchbar() {
       bg="white"
       borderRadius={15}
       marginBottom={10}
-      zIndex="9999"
+      zIndex="500"
       position="relative"
       height={{ base: "4em", sm: "4em", md: "4em", lg: "4em" }}
     >
