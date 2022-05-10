@@ -4,7 +4,7 @@ import emptyImage from "../../assets/emptyImage.svg";
 
 function CardCasting({ cast }) {
   return (
-    <Container minW="250px">
+    <Container minW="250px" mb="0.5rem">
       <Flex
         border="1px"
         borderRadius="30px"
@@ -18,10 +18,10 @@ function CardCasting({ cast }) {
               ? `https://image.tmdb.org/t/p/w200/${cast.profile_path}`
               : `${emptyImage}`
           }
-          alt=""
+          alt={cast.profile_path}
           borderTopRadius="28px"
-          w="250px"
-          h="324px"
+          minW="100%"
+          h="18em"
         />
         <Box mt="12px">
           <Text fontSize="lg" fontWeight="bold">

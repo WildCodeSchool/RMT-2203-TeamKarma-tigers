@@ -25,7 +25,7 @@ function CardCastingCarousel({ movie }) {
   return (
     <Flex
       scrollBehavior="smooth"
-      overflowX="scroll"
+      overflowX="auto"
       w="inherit"
       maxW="99%"
       sx={{
