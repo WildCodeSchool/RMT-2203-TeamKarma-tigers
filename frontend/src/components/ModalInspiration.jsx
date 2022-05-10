@@ -12,7 +12,6 @@ import {
   Button,
   Select,
   Box,
-  Image,
   Text,
   Flex,
   VStack,
@@ -62,6 +61,7 @@ export default function ModalInspiration() {
         isOpen={isOpen}
         isCentered
         size="3xl"
+        height="30vh"
         z-index="auto"
       >
         <ModalOverlay />
@@ -75,43 +75,35 @@ export default function ModalInspiration() {
             }}
           />
           {!currentMovie ? (
-            <>
-              <ModalBody>
-                <Flex
-                  direction="column"
-                  gap={6}
-                  justify="center"
-                  align="center"
-                  width="100%"
-                >
-                  <Image
-                    src={discover}
-                    alt="discover-gif"
-                    objectFit="cover"
-                    width="100%"
-                    height="90%"
-                    filter="auto"
-                    borderRadius="md"
-                    blur="3px"
-                  />
-
-                  <form onSubmit={(e) => e.preventDefault()}>
+            <ModalBody
+              bgImage={discover}
+              bgSize="cover"
+              bgRepeat="no-repeat"
+              bgPosition="center"
+            >
+              <Flex
+                direction="column"
+                justify="center"
+                align="center"
+                width="100%"
+              >
+                <form onSubmit={(e) => e.preventDefault()}>
+                  <Flex direction="column">
                     <Flex
-                      position={{
-                        sm: "absolute",
-                        md: "absolute",
-                        base: "absolute",
-                      }}
-                      top="50%"
-                      left="50%"
+                      direction="row"
                       gap={6}
-                      transform="translate(-50%, -50%)"
-                      width="90%"
+                      width="100%"
                       align="center"
                       justify="center"
                       wrap="wrap"
+                      paddingY="50px"
                     >
-                      <Text fontSize="5xl" color="white" fontWeight="600">
+                      <Text
+                        fontSize="5xl"
+                        color="white"
+                        fontWeight="600"
+                        textAlign="center"
+                      >
                         Show me any
                       </Text>
 
@@ -133,49 +125,53 @@ export default function ModalInspiration() {
                           </Select>
                         </FormControl>
                       </Flex>
-                      <Text fontSize="5xl" color="white" fontWeight="600">
+                      <Text
+                        fontSize="5xl"
+                        color="white"
+                        fontWeight="600"
+                        textAlign="center"
+                      >
                         movie
                       </Text>
-                      <VStack>
-                        <Button
-                          size="lg"
-                          onClick={() => {
-                            getTotalPageResult().then((nb) => {
-                              getRandomMovie(nb, genreFilter).then((movie) => {
-                                setCurrentMovie(movie);
-                              });
-                            });
-                          }}
-                          variant="solid"
-                          type="submit"
-                          colorScheme="twitter"
-                        >
-                          Show me what you got
-                        </Button>
-
-                        <Text color="white">OR</Text>
-                        <Button
-                          align="center"
-                          onClick={() => {
-                            getTotalPageResult().then((nb) => {
-                              getRandomMovie(nb, genreFilter).then((movie) =>
-                                setCurrentMovie(movie)
-                              );
-                            });
-                          }}
-                          size="lg"
-                          variant="solid"
-                          colorScheme="facebook"
-                        >
-                          Get Random Movie
-                        </Button>
-                      </VStack>
                     </Flex>
-                  </form>
-                </Flex>
-              </ModalBody>
-              <ModalFooter />
-            </>
+                    <VStack paddingBottom={50}>
+                      <Button
+                        size="lg"
+                        onClick={() => {
+                          getTotalPageResult().then((nb) => {
+                            getRandomMovie(nb, genreFilter).then((movie) => {
+                              setCurrentMovie(movie);
+                            });
+                          });
+                        }}
+                        variant="solid"
+                        type="submit"
+                        colorScheme="twitter"
+                      >
+                        Show me what you got
+                      </Button>
+
+                      <Text color="white">OR</Text>
+                      <Button
+                        align="center"
+                        onClick={() => {
+                          getTotalPageResult().then((nb) => {
+                            getRandomMovie(nb, genreFilter).then((movie) =>
+                              setCurrentMovie(movie)
+                            );
+                          });
+                        }}
+                        size="lg"
+                        variant="solid"
+                        colorScheme="facebook"
+                      >
+                        Get Random Movie
+                      </Button>
+                    </VStack>
+                  </Flex>
+                </form>
+              </Flex>
+            </ModalBody>
           ) : (
             <>
               <ModalBody

@@ -20,16 +20,24 @@ export default function Header({ isOnHome }) {
         }
         position={isOnHome ? "fixed" : "relative"}
       >
-        <Flex gap={10} w="100%" align="center" justify="space-between">
-          <a href="/">
+        <Flex
+          gap={10}
+          w="100%"
+          align="center"
+          justify="space-between"
+          paddingX="2%"
+        >
+          <a href="/" width="100%">
             <Logo />
           </a>
-          <Box ml={{ base: "20px", sm: "45px" }}>
-            <Navbar />
-          </Box>
+          <Flex w="100%">
+            {!isOnHome && <Searchbar width="100%" />}
+            <Box>
+              <Navbar width="100%" display="flex" justify="space-evenly" />
+            </Box>
+          </Flex>
         </Flex>
       </Flex>
-      {!isOnHome && <Searchbar />}
     </Flex>
   );
 }

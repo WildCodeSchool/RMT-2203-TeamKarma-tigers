@@ -7,7 +7,7 @@ export default function Logo() {
     <Flex align="center">
       <Image src={LogoImg} alt="logo" w="70px" />
       <Text
-        fontSize={{ base: "15px", sm: "20px", md: "35px", lg: "45px" }}
+        fontSize={{ base: "2xl", sm: "2xl", md: "2xl", lg: "3xl" }}
         fontWeight="semibold"
         color="white"
       >
