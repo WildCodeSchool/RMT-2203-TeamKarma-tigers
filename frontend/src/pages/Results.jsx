@@ -44,8 +44,10 @@ function Results() {
             direction="column"
             p="10vh"
             align="flex-start"
-            h="80vh"
+            h="70vh"
             bgImage={emptyResults}
+            backgroundRepeat="no-repeat"
+            bgSize="cover"
             w="100vw"
             filter="auto"
           >

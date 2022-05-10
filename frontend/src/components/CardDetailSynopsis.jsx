@@ -44,22 +44,27 @@ export default function CardDetailSynopsis({ movie }) {
               })}
           </HStack>
           <Heading size="md" marginTop="1rem">
-            POPULARITY
+            AVERAGE VOTE
           </Heading>
-          <Text marginBottom="1rem">{synopsis.popularity}</Text>
+          <Text marginBottom="1rem">{synopsis.vote_average}</Text>
         </Flex>
         <Flex flexDir="column">
           <Heading size="md" paddingBottom="0.5rem">
-            REVENUE
+            Budget
           </Heading>
+          <Text marginBottom="1rem">
+            {new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(synopsis.budget)}
+          </Text>
+          <Heading size="md">REVENUE</Heading>
           <Text marginBottom="1rem">
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
             }).format(synopsis.revenue)}
           </Text>
-          <Heading size="md">AVERAGE VOTE</Heading>
-          <Text marginBottom="1rem">{synopsis.vote_average}</Text>
         </Flex>
       </Flex>
     </Box>
