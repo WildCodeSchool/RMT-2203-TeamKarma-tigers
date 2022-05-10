@@ -14,7 +14,7 @@ export default function Home() {
           w="100vw"
           h="100vh"
           alignItems="center"
-          bgImage="url('./src/assets/home-background2.jpg')"
+          bgImage="url('./src/assets/home-background3.jpg')"
           bgSize="cover"
           flexDirection="column"
           justifyContent="center"
