@@ -25,7 +25,10 @@ export default function MovieVideoCarousel({ movie }) {
 
   const filterVideos = (cur, allVid) => {
     const res = [];
+
+    if (allVid.length < 3) return allVid;
     res.push(allVid[cur]);
+
     if (cur === allVid.length - 1) {
       res.push(allVid[0]);
       res.push(allVid[1]);
@@ -56,6 +59,7 @@ export default function MovieVideoCarousel({ movie }) {
 
   return (
     <Flex
+      color="#15141f;"
       mr={{ "2xl": "18em" }}
       ml={{ xl: "5em" }}
       W="70vw"
