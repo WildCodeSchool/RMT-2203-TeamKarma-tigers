@@ -47,6 +47,8 @@ export default function Footer() {
           xl: "space-between",
         }}
         width="60%"
+        height={{ base: "90%", sm: "100%" }}
+        alignSelf="center"
         flexDirection={{
           base: "column",
           xl: "row",
@@ -84,7 +86,7 @@ export default function Footer() {
             flexWrap={{ base: "wrap", md: "nowrap" }}
           >
             <LinkBox>
-              <LinkOverlay href="https://github.com/JulieCombeau">
+              <LinkOverlay href="https://github.com/Pyramate">
                 <Text
                   width="95%"
                   color="white"
@@ -101,7 +103,7 @@ export default function Footer() {
               </LinkOverlay>
             </LinkBox>
             <LinkBox justifyContent="space-between">
-              <LinkOverlay href="https://github.com/Pyramate">
+              <LinkOverlay href="https://github.com/JulieCombeau">
                 <Text
                   width="95%"
                   color="white"

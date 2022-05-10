@@ -27,7 +27,7 @@ function CardCastingCarousel({ movie }) {
       scrollBehavior="smooth"
       overflowX="scroll"
       w="inherit"
-      maxW="100%"
+      maxW="99%"
       sx={{
         "&::-webkit-scrollbar": {
           width: "16px",
@@ -37,7 +37,9 @@ function CardCastingCarousel({ movie }) {
         },
         "&::-webkit-scrollbar-thumb": {
           borderRadius: "8px",
-          backgroundColor: "#282c34",
+          backgroundColor: "#2b3543",
+          border: "1px",
+          color: "red",
         },
       }}
     >
