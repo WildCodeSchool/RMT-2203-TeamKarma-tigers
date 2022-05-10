@@ -25,7 +25,7 @@ export default function MovieVideoCarousel({ movie }) {
 
   const filterVideos = (cur, allVid) => {
     const res = [];
-
+    if (!allVid.length) return null;
     if (allVid.length < 3) return allVid;
     res.push(allVid[cur]);
 
@@ -53,21 +53,34 @@ export default function MovieVideoCarousel({ movie }) {
   const prevSlide = () => {
     setCurrent(current === 0 ? allVideos.length - 1 : current - 1);
   };
-  if (allVideos.length === 1) {
-    return current + 1;
-  }
+
+  if (allVideos.length === 0)
+    return (
+      <Flex
+        h={{ base: "50vh", md: "40vh", xl: "30vh" }}
+        justify="center"
+        flexDirection={{ base: "column", md: "row" }}
+        mt={{ lg: "2.5em", xl: "5em", "2xl": "5em" }}
+        mr={{ "2xl": "18em" }}
+        ml={{ xl: "5em" }}
+        W="70vw"
+      >
+        No trailer found...
+      </Flex>
+    );
 
   return (
     <Flex
-      color="#15141f;"
+      h={{ base: "50vh", md: "40vh", xl: "30vh" }}
       mr={{ "2xl": "18em" }}
       ml={{ xl: "5em" }}
       W="70vw"
       mt={{ lg: "2.5em", xl: "5em", "2xl": "5em" }}
       justify="center"
+      flexDirection={{ base: "column", md: "row" }}
     >
-      {allVideos.length && (
-        <>
+      <>
+        {allVideos.length > 3 && (
           <Button
             alignSelf="center"
             _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
@@ -82,11 +95,13 @@ export default function MovieVideoCarousel({ movie }) {
           >
             <ArrowBackIcon color="red" fontSize="3rem" onClick={prevSlide} />
           </Button>
-          {filterVideos(current, allVideos).map((video) => (
-            <Box key={video.key}>
-              <Video videoInfo={video} key={video.key} />
-            </Box>
-          ))}
+        )}
+        {filterVideos(current, allVideos).map((video) => (
+          <Box key={video.key} alignSelf="center">
+            <Video videoInfo={video} key={video.key} />
+          </Box>
+        ))}
+        {allVideos.length > 3 && (
           <Button
             alignSelf="center"
             _hover={{ transform: "scale(1.2)", cursor: "pointer" }}
@@ -100,8 +115,8 @@ export default function MovieVideoCarousel({ movie }) {
           >
             <ArrowForwardIcon color="red" fontSize="3rem" onClick={nextSlide} />
           </Button>
-        </>
-      )}
+        )}
+      </>
     </Flex>
   );
 }
