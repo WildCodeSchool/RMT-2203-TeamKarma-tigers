@@ -8,14 +8,29 @@ export default function Video({ videoInfo }) {
       <Box
         p="0"
         ml={{
+          base: "0.4em",
           sm: "0.4em",
           md: "0.4em",
           lg: "0.4em",
           xl: "0.4em",
-          "2xl": "0.4em",
+          "2xl": "0.6em",
         }}
-        w={{ xl: "15vw", "2xl": "15vw" }}
-        h={{ lg: "16vh", xl: "13vh", "2xl": "15vh" }}
+        w={{
+          base: "80vw",
+          sm: "70vw",
+          md: "42vw",
+          lg: "30vh",
+          xl: "25vw",
+          "2xl": "25vw",
+        }}
+        h={{
+          base: "17vh",
+          sm: "20vh",
+          md: "18vh",
+          lg: "22vh",
+          xl: "20vh",
+          "2xl": "25vh",
+        }}
       >
         <iframe
           width="100%"
