@@ -12,7 +12,7 @@ export default function Header({ isOnHome }) {
         align="center"
         justify="space-between"
         h="100px"
-        zIndex="8000"
+        zIndex="500"
         bgGradient={
           isOnHome
             ? "linear-gradient(to bottom, rgba(0,2,10,0.8),transparent)"

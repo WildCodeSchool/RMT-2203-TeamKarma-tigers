@@ -76,7 +76,7 @@ export default function Footer() {
             fontStyle="italic"
             alignSelf="center"
           >
-            Directed by :
+            Directed by:
           </Text>
           <Flex
             alignSelf="center"
@@ -197,7 +197,7 @@ export default function Footer() {
             fontStyle="italic"
             alignSelf="center"
           >
-            Partners medias :
+            Partners media:
           </Text>
           <Flex justifyContent="space-between">
             <LinkBox>
