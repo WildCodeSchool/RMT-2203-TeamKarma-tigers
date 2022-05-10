@@ -8,7 +8,7 @@ export default function Header({ isOnHome }) {
   return (
     <Flex direction="column" bg="#15141f">
       <Flex
-        w="100vw"
+        w="100%"
         align="center"
         justify="space-between"
         h="100px"
