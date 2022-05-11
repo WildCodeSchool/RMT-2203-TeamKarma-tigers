@@ -22,10 +22,14 @@ function CardCastingCarousel({ movie }) {
     getCastFromMovie();
   }, []);
 
+  if (casting.length === 0) {
+    return <p>No casting member found...</p>;
+  }
+
   return (
     <Flex
       scrollBehavior="smooth"
-      overflowX="scroll"
+      overflowX="auto"
       w="inherit"
       maxW="99%"
       sx={{

@@ -46,6 +46,7 @@ function Results() {
             p={{ base: "1rem", sm: "3rem" }}
             align="flex-start"
             bgImage={emptyResults}
+            backgroundRepeat="no-repeat"
             w="100vw"
             overflowX=""
             h={{ base: "60vh", "2xl": "90vh" }}
