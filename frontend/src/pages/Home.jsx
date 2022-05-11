@@ -34,7 +34,7 @@ export default function Home() {
           mt="30px"
           mb="30px"
         >
-          Trending movies of the week
+          Trending this week
         </Heading>
         <MovieCarousel
           type="thisWeekTrendingMovies"
