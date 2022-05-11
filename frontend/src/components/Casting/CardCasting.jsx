@@ -4,7 +4,7 @@ import emptyImage from "../../assets/emptyImage.svg";
 
 function CardCasting({ cast }) {
   return (
-    <Container minW="250px" mb="0.5rem">
+    <Container minW="250px" maxW="250px" mb="0.5rem">
       <Flex
         border="1px"
         borderRadius="30px"
