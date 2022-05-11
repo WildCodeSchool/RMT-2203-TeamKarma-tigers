@@ -57,13 +57,12 @@ export default function MovieVideoCarousel({ movie }) {
 
   return (
     <Flex
-      h={{ base: "50vh", md: "40vh", xl: "30vh" }}
-      mr={{ xl: "3em", "2xl": "18em" }}
-      ml={{ xl: "5em" }}
-      W="70vw"
+      h={{ base: "50vh", lg: "40vh", xl: "30vh" }}
+      m={{ xl: "0" }}
+      w={{ base: "90vw", xl: "53vw", "2xl": "50vw" }}
       mt={{ base: "1.5em", lg: "2.5em", xl: "5em", "2xl": "5em" }}
       justify="center"
-      flexDirection={{ base: "column", md: "row" }}
+      flexDirection={{ base: "column", lg: "row" }}
     >
       <>
         {allVideos.length > 3 && (
@@ -73,22 +72,19 @@ export default function MovieVideoCarousel({ movie }) {
             variant="solid"
             transform={{
               base: "rotate(90deg)",
-              sm: "rotate(90deg)",
-              md: "rotate(0deg)",
               lg: "rotate(0deg)",
-              xl: "rotate(0deg)",
-              "2xl": "rotate(0deg)",
             }}
             mb={{ base: "10px" }}
             borderRadius="100%"
-            minWidth="3.125em"
-            maxWidth="3.125em"
-            minHeight="3.125em"
-            maxHeight="3.125em"
-            mr={{ lg: "10px", xl: "1em", "2xl": "1em" }}
-            ml={{ "2xl": "12em" }}
+            w={{ base: "40px", sm: "3rem" }}
+            h={{ base: "60px", sm: "3rem" }}
+            mr={{ lg: "10px", xl: "1em" }}
           >
-            <ArrowBackIcon color="red" fontSize="3rem" onClick={prevSlide} />
+            <ArrowBackIcon
+              color="red"
+              fontSize={{ base: "40px", sm: "3rem" }}
+              onClick={prevSlide}
+            />
           </Button>
         )}
         {filterVideos(current, allVideos).map((video) => (
@@ -103,21 +99,19 @@ export default function MovieVideoCarousel({ movie }) {
             variant="solid"
             transform={{
               base: "rotate(90deg)",
-              sm: "rotate(90deg)",
-              md: "rotate(0deg)",
               lg: "rotate(0deg)",
-              xl: "rotate(0deg)",
-              "2xl": "rotate(0deg)",
             }}
             mt={{ base: "10px" }}
             borderRadius="100%"
-            minWidth="3.125em"
-            maxWidth="3.125em"
-            minHeight="3.125em"
-            maxHeight="3.125em"
+            w={{ base: "40px", sm: "3rem" }}
+            h={{ base: "60px", sm: "3rem" }}
             ml={{ sm: "0.4em", md: "0.4em", lg: "10px", xl: "1.5em" }}
           >
-            <ArrowForwardIcon color="red" fontSize="3rem" onClick={nextSlide} />
+            <ArrowForwardIcon
+              color="red"
+              fontSize={{ base: "40px", sm: "3rem" }}
+              onClick={nextSlide}
+            />
           </Button>
         )}
       </>

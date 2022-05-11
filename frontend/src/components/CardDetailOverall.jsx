@@ -40,6 +40,8 @@ export default function CardDetailOverall({ movie }) {
 
   return (
     <Grid
+      alignContent="center"
+      minH="68vh"
       templateColumns={{ base: "100%", xl: "40% 60%" }}
       gap={{ base: "6" }}
       color="white"
