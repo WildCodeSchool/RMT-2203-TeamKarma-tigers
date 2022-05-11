@@ -40,7 +40,7 @@ export default function CardDetailOverall({ movie }) {
 
   return (
     <Grid
-      templateColumns={{ base: "100%", xl: "40% 55%" }}
+      templateColumns={{ base: "100%", xl: "40% 60%" }}
       gap={{ base: "6" }}
       color="white"
       m={{ base: "0.5rem", xl: "2.8rem" }}
@@ -50,7 +50,7 @@ export default function CardDetailOverall({ movie }) {
           src={
             results.poster_path
               ? `https://image.tmdb.org/t/p/w500/${results.poster_path}`
-              : `url(${emptyImage})`
+              : `${emptyImage}`
           }
           alt={results.title}
           m="auto"
@@ -62,15 +62,19 @@ export default function CardDetailOverall({ movie }) {
           m="1rem"
           alignItems={{ lg: "center", xl: "flex-start" }}
         >
-          <Heading as="h2" size="xl">
+          <Heading
+            as="h2"
+            fontSize={{ base: "4xl", xl: "5xl" }}
+            textAlign={{ base: "center", xl: "left" }}
+          >
             {results.title}
           </Heading>
-          <Heading as="h3" size="sm" marginTop="1rem">
+          <Heading as="h3" size="md" marginTop="1rem">
             {hour === 0
               ? `The movie lasts ${minute} minute(s)`
               : `The movie lasts ${hour} hour(s) and ${minute} minute(s)`}
           </Heading>
-          <Heading as="h3" size="sm" marginBottom="1rem">
+          <Heading as="h3" size="md" marginBottom="1rem">
             {moment(Date()).diff(results.release_date, "hours") >= 24
               ? `The movie was released on ${moment(
                   results.release_date
