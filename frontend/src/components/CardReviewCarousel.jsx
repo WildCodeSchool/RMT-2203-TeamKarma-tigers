@@ -69,23 +69,6 @@ function CardReviewCarousel({ movie }) {
             </Flex>
           ) : null
         )}
-
-        {/* {reviews.total_result === 0 ? (
-          reviews.map((review) =>
-            review ? (
-              <Flex
-                maxWidth="97%"
-                _even={{
-                  alignSelf: { base: "flex-start", sm: "flex-end" },
-                }}
-              >
-                <CardReview review={review} />
-              </Flex>
-            ) : null
-          )
-        ) : (
-          <p>No content</p>
-        )} */}
       </Flex>
     </div>
   );
