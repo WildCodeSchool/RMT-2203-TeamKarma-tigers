@@ -5,13 +5,9 @@ import LogoImg from "../assets/movieflix-logo.png";
 export default function Logo() {
   return (
     <Flex align="center">
-      <Image
-        src={LogoImg}
-        alt="logo"
-        w={{ base: "60px", sm: "70px", md: "100px", lg: "150px" }}
-      />
+      <Image src={LogoImg} alt="logo" w="70px" />
       <Text
-        fontSize={{ base: "15px", sm: "20px", md: "35px", lg: "45px" }}
+        fontSize={{ base: "2xl", sm: "2xl", md: "2xl", lg: "3xl" }}
         fontWeight="semibold"
         color="white"
       >
