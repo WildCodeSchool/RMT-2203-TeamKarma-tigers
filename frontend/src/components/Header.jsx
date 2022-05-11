@@ -11,7 +11,7 @@ export default function Header({ isOnHome }) {
         w="100%"
         align="center"
         justify="space-between"
-        h="100px"
+        h={{ base: "", lg: "100px" }}
         zIndex="500"
         bgGradient={
           isOnHome
@@ -21,16 +21,22 @@ export default function Header({ isOnHome }) {
         position={isOnHome ? "fixed" : "relative"}
       >
         <Flex
-          gap={10}
+          gap={{ base: "0", lg: "6" }}
           w="100%"
           align="center"
           justify="space-between"
           paddingX="2%"
+          direction={{ base: "column", lg: "row" }}
         >
           <a href="/" width="50%">
             <Logo />
           </a>
-          <Flex width="60%" justify="flex-end">
+          <Flex
+            width={!isOnHome ? "60%" : "auto"}
+            gap={{ base: "10", lg: "6" }}
+            align={{ base: "center", lg: "flex-end" }}
+            direction={{ base: "column", lg: "row" }}
+          >
             {!isOnHome && <Searchbar />}
             <Navbar display="flex" justify="space-evenly" />
           </Flex>

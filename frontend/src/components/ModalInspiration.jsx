@@ -51,7 +51,8 @@ export default function ModalInspiration() {
       onClick={onOpen}
       variant="solid"
       _hover={{ bgColor: "#2B3543" }}
-      size="lg"
+      size={{ base: "sm", lg: "lg" }}
+      p={{ base: "10px", lg: "15px" }}
       colorScheme="red"
     >
       I need inspiration

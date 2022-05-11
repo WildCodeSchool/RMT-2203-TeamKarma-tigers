@@ -89,6 +89,7 @@ function MovieCarousel({
               size="lg"
               onClick={handleMoreMovies}
               maxW="10%"
+              minW="min-content"
               marginBottom="1em"
             >
               Load More
