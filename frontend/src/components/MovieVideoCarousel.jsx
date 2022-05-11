@@ -58,8 +58,6 @@ export default function MovieVideoCarousel({ movie }) {
   return (
     <Flex
       h={{ base: "50vh", lg: "40vh", xl: "30vh" }}
-      // mr={{ xl: "3em", "2xl": "18em" }}
-      // ml={{ xl: "5em" }}
       m={{ xl: "0" }}
       w={{ base: "90vw", xl: "53vw", "2xl": "50vw" }}
       mt={{ base: "1.5em", lg: "2.5em", xl: "5em", "2xl": "5em" }}
