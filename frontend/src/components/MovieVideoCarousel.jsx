@@ -78,13 +78,13 @@ export default function MovieVideoCarousel({ movie }) {
             }}
             mb={{ base: "10px" }}
             borderRadius="100%"
-            w={{ base: "2rem", sm: "3rem" }}
-            h={{ base: "3rem", sm: "3rem" }}
+            w={{ base: "40px", sm: "3rem" }}
+            h={{ base: "60px", sm: "3rem" }}
             mr={{ lg: "10px", xl: "1em" }}
           >
             <ArrowBackIcon
               color="red"
-              fontSize={{ base: "2rem", sm: "3rem" }}
+              fontSize={{ base: "40px", sm: "3rem" }}
               onClick={prevSlide}
             />
           </Button>
@@ -105,13 +105,13 @@ export default function MovieVideoCarousel({ movie }) {
             }}
             mt={{ base: "10px" }}
             borderRadius="100%"
-            w={{ base: "2rem", sm: "3rem" }}
-            h={{ base: "3rem", sm: "3rem" }}
+            w={{ base: "40px", sm: "3rem" }}
+            h={{ base: "60px", sm: "3rem" }}
             ml={{ sm: "0.4em", md: "0.4em", lg: "10px", xl: "1.5em" }}
           >
             <ArrowForwardIcon
               color="red"
-              fontSize={{ base: "2rem", sm: "3rem" }}
+              fontSize={{ base: "40px", sm: "3rem" }}
               onClick={nextSlide}
             />
           </Button>
