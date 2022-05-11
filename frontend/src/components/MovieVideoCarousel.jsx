@@ -53,20 +53,9 @@ export default function MovieVideoCarousel({ movie }) {
     setCurrent(current === 0 ? allVideos.length - 1 : current - 1);
   };
 
-  if (allVideos.length === 0)
-    return (
-      <Flex
-        h={{ base: "50vh", md: "40vh", xl: "30vh" }}
-        justify="center"
-        flexDirection={{ base: "column", md: "row" }}
-        mt={{ lg: "2.5em", xl: "5em", "2xl": "5em" }}
-        mr={{ "2xl": "18em" }}
-        ml={{ xl: "5em" }}
-        W="70vw"
-      >
-        No trailer found...
-      </Flex>
-    );
+  if (allVideos.length === 0) {
+    return <p>No trailer found...</p>;
+  }
 
   return (
     <Flex

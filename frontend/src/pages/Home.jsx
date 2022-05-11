@@ -4,17 +4,19 @@ import MovieCarousel from "../components/MovieCarousel";
 import Arrow from "../components/Arrow";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import headerImgUrl from "../assets/home-background3.jpg";
 
 export default function Home() {
+  const headerStyle = `url(${headerImgUrl})`;
   return (
-    <Box bg="#15141f" w="100vw" overflow="hidden">
+    <Box bg="#15141f" w="100vw">
       <main>
         <Header isOnHome />
         <Flex
           w="100vw"
           h="100vh"
           alignItems="center"
-          bgImage="url('./src/assets/home-background3.jpg')"
+          bgImage={headerStyle}
           bgSize="cover"
           bgPosition="center top"
           flexDirection="column"
@@ -34,7 +36,7 @@ export default function Home() {
           mt="30px"
           mb="30px"
         >
-          Trending movies of the week
+          Trending this week
         </Heading>
         <MovieCarousel
           type="thisWeekTrendingMovies"

@@ -30,6 +30,10 @@ function CardReviewCarousel({ movie }) {
     getReviewFromMovie();
   }, []);
 
+  if (reviews.length === 0) {
+    return <p>No review found...</p>;
+  }
+
   return (
     <div>
       <Flex
