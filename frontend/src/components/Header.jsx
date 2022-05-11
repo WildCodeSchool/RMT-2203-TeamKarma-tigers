@@ -15,7 +15,7 @@ export default function Header({ isOnHome }) {
         zIndex="500"
         bgGradient={
           isOnHome
-            ? "linear-gradient(to bottom, rgba(0,2,10,0.8),transparent)"
+            ? "linear-gradient(to bottom, rgba(0,2,10,0.5),rgba(0,2,10,0.5))"
             : null
         }
         position={isOnHome ? "fixed" : "relative"}

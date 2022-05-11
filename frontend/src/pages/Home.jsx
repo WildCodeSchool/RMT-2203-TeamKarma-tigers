@@ -9,11 +9,11 @@ import headerImgUrl from "../assets/home-background3.jpg";
 export default function Home() {
   const headerStyle = `url(${headerImgUrl})`;
   return (
-    <Box bg="#15141f" w="100vw">
+    <Box bg="#15141f" w="100%">
       <main>
         <Header isOnHome />
         <Flex
-          w="100vw"
+          w="100%"
           h="100vh"
           alignItems="center"
           bgImage={headerStyle}

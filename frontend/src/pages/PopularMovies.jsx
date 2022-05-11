@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import MovieCarousel from "../components/MovieCarousel";
 import popularImg from "../assets/popular.jpg";
+import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
@@ -44,6 +45,7 @@ function PopularMovies({ sortType }) {
           url={`https://api.themoviedb.org/3/discover/movie?sort_by=${sortType}&include_adult=false`}
         />
       </Box>
+      <Footer />
     </Box>
   );
 }
