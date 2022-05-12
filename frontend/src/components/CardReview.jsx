@@ -18,16 +18,16 @@ function CardReview({ review }) {
 
   return (
     <Container
-      h={{ sm: "22vh", md: "22vh", lg: "22vh", xl: "18vh" }}
+      h={{ base: "22vh", sm: "17vh", lg: "16vh", xl: "17vh" }}
       color="white"
       margin="0.5rem"
       padding="0.5rem"
       mb="2rem"
     >
       <Flex justifyContent="space-between">
-        <HStack spacing="30px">
+        <HStack spacing={{ base: "4px", sm: "30px" }} width="80%">
           <Avatar
-            marginLeft="1rem"
+            marginLeft={{ base: "0.5rem", sm: "1remx" }}
             alignSelf="center"
             size="md"
             src={
@@ -39,8 +39,8 @@ function CardReview({ review }) {
             alt=""
           />
           <Flex flexDirection="column">
-            <Text fontSize="xl">{review.author}</Text>
-            <Text mb={2} fontSize="md" fontStyle="italic">
+            <Text fontSize={{ base: "md", sm: "2xl" }}>{review.author}</Text>
+            <Text mb={2} fontSize={{ base: "sm", sm: "xl" }} fontStyle="italic">
               {moment(review.updated_at).format("MMMM Do YYYY")}
             </Text>
           </Flex>
@@ -52,8 +52,8 @@ function CardReview({ review }) {
                 .fill("")
                 .map((_, i) => (
                   <StarIcon
-                    w={5}
-                    h={5}
+                    w={{ base: "4", sm: "6", lg: "7" }}
+                    h={{ base: "4", sm: "6", lg: "7" }}
                     key={review.id}
                     color={
                       i < Math.round(review.author_details.rating / 2)
@@ -66,13 +66,18 @@ function CardReview({ review }) {
       </Flex>
       <Flex
         bg="#2b3543"
-        h={{ sm: "16vh", md: "16vh", lg: "16vh", xl: "11vh" }}
+        h={{ base: "13vh", sm: "11vh" }}
         borderRadius="8px"
         justifyContent="center"
         mt="0.5rem"
       >
         {isOpen ? null : (
-          <Text fontSize="sm" margin="0.9rem" lineHeight="1.7" noOfLines="auto">
+          <Text
+            fontSize={{ base: "sm", sm: "md" }}
+            margin={{ base: "0.5rem", sm: "0.9rem" }}
+            lineHeight="1.7"
+            noOfLines="auto"
+          >
             {review.content}
           </Text>
         )}
@@ -82,19 +87,19 @@ function CardReview({ review }) {
             onClick={onToggle}
             alignSelf="flex-end"
             justifySelf="flex-end"
-            color="#15141f"
-            h={7}
-            mb="0.5rem"
-            mr="0.5rem"
+            _hover="none"
+            color="white"
+            mr="0.8rem"
+            bg="none"
           >
-            More
+            ... More
           </Button>
         )}
 
         <Collapse in={isOpen}>
           <Box
             margin=".5rem"
-            h={{ sm: "14vh", md: "14vh", lg: "14vh", xl: "9vh" }}
+            h={{ base: "11vh", sm: "9vh" }}
             scrollBehavior="smooth"
             overflowY="auto"
             sx={{
@@ -110,7 +115,7 @@ function CardReview({ review }) {
             }}
           >
             <Text
-              fontSize="sm"
+              fontSize={{ base: "sm", sm: "md" }}
               marginLeft="1rem"
               marginRight="1rem"
               marginBottom="1rem"
@@ -118,8 +123,15 @@ function CardReview({ review }) {
             >
               {review.content}
             </Text>
-            <Button onClick={onToggle} color="#15141f" h={7} mb="0.5rem">
-              Less
+            <Button
+              onClick={onToggle}
+              color="white"
+              _hover="none"
+              bg="none"
+              h={7}
+              mb="0.5rem"
+            >
+              Less ...
             </Button>
           </Box>
         </Collapse>

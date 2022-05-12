@@ -1,16 +1,24 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
+
 import axios from "axios";
 import {
   Input,
   Container,
   List,
   ListItem,
+  InputGroup,
+  InputLeftElement,
+  CircularProgress,
+  CircularProgressLabel,
+  InputRightElement,
+  Button,
   Flex,
   IconButton,
   Text,
 } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import { Search2Icon } from "@chakra-ui/icons";
 import "../styles/searchbar.css";
 import emptyImage from "../assets/emptyImage.svg";
 
@@ -36,91 +44,91 @@ function Searchbar() {
 
   return (
     <Container
-      maxW="80vw"
       bg="white"
-      borderRadius={15}
-      opacity="0.8"
-      position="absolute"
-      top={{ base: "27vh", sm: "27vh", md: "27vh", lg: "27vh" }}
-      left="10%"
-      height={{ base: "4.5em", sm: "5em", md: "5.5em", lg: "6em" }}
+      borderRadius="200px"
+      padding={0}
+      zIndex="500"
+      position="relative"
+      height="100px"
+      width="100%"
+      minW="30%"
+      maxW="80%"
     >
       <form onSubmit={handleSubmit}>
-        <Flex align="center" marginBottom={20} zIndex="1">
-          <Input
-            placeholder="Lookin' for a movie ?"
-            _placeholder={{
-              opacity: 1,
-              color: "gray.500",
-              size: "lg",
-            }}
-            textAlign={["center"]}
-            type="text"
-            variant="unstyled"
-            onChange={(e) => setSearch(e.target.value)}
-            fontSize={{ base: "24px", sm: "26px", md: "28px", lg: "30px" }}
-            top="5"
-          />
-          {search.length >= 1 && (
-            <IconButton
-              variant="unstyled"
-              colorScheme="blue"
-              aria-label="Search database"
-              top={{ base: "4", sm: "5", md: "5", lg: "6" }}
-              icon={
-                <SearchIcon
-                  fontSize={{
-                    base: "24px",
-                    sm: "26px",
-                    md: "28px",
-                    lg: "30px",
-                  }}
-                />
-              }
-              onClick={handleSubmit}
+        <Flex align="center" marginBottom={5}>
+          <InputGroup>
+            <InputLeftElement
+              height="-webkit-fill-available"
+              paddingX="10px"
+              pointerEvents="none"
+            >
+              <IconButton
+                variant="unstyled"
+                color="gray.500"
+                aria-label="Search database"
+                icon={<Search2Icon />}
+              />
+            </InputLeftElement>
+            <InputRightElement
+              height="-webkit-fill-available"
+              paddingRight="10px"
+              width="150px"
+            >
+              <Button
+                colorScheme={search.length >= 1 ? "teal" : "gray.400"}
+                size="lg"
+                height="70%"
+                width="100%"
+                type="submit"
+                onClick={handleSubmit}
+                borderRadius="200px"
+                isDisabled={!search.length >= 1}
+              >
+                Search
+              </Button>
+            </InputRightElement>
+            <Input
+              placeholder="Search for millions of films instantly... "
+              fontSize="2xl"
+              textAlign={["left"]}
+              type="search"
+              onChange={(e) => setSearch(e.target.value)}
+              borderRadius="200px"
+              height="100px"
+              pr="10rem"
             />
-          )}
+          </InputGroup>
         </Flex>
-        <List
-          bg="white"
-          overflowX="hidden"
-          w="80vw"
-          position="absolute"
-          left="0"
-          borderRadius={50}
-        >
-          {moviesData.length !== 0 && search !== "" && (
+
+        {moviesData.length !== 0 && search !== "" && (
+          <List
+            bg="white"
+            width="100%"
+            boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 200px 20px, rgba(0, 0, 0, 0.3) 0px 100px 60px 20px;"
+            borderRadius="35px"
+            overflow="hidden"
+            minW="250px"
+          >
             <ListItem
               className="scrolling"
-              height={{ base: "50vh", sm: "50vh", md: "50vh", lg: "50vh" }}
+              height="40vh"
+              w="-webkit-fill-available"
               style={{
                 overflowY: "scroll",
                 display: "flex",
                 position: "relative",
-                borderRadius: "50px",
               }}
             >
-              <Flex
-                direction="column"
-                position="absolute"
-                align="normal"
-                top="0em"
-                left="35%"
-                gap="10px"
-                w="100%"
-                bgColor="white"
-                borderRadius="15px"
-                pt="10px"
-              >
+              <Flex direction="column" gap="10px" w="-webkit-fill-available">
                 {moviesData.map((movie) => (
                   <a w="100%" href={`/movies/${movie.id} `}>
                     <Flex
                       _hover={{
-                        transform: "scale(1.03)",
                         color: "teal.500",
-                        borderRadius: "10px",
+                        bgColor: "gray.100",
                       }}
                       direction="row"
+                      p={5}
                       w="100%"
                       align="center"
                       mb="10px"
@@ -134,29 +142,63 @@ function Searchbar() {
                         }
                         alt="Movie poster"
                         style={{
-                          maxHeight: "12vh",
-                          borderRadius: "15px",
+                          maxHeight: "8vh",
+                          borderRadius: "8px",
                         }}
                       />
-                      <Flex pl="10vw">
-                        <Text
-                          fontSize={{
-                            base: "24px",
-                            sm: "26px",
-                            md: "28px",
-                            lg: "30px",
-                          }}
+                      <Flex
+                        pl="20px"
+                        justifyContent="space-between"
+                        width="100%"
+                        alignItems="center"
+                      >
+                        <Flex direction="column" alignItems="flex-start">
+                          <Text
+                            fontSize={{ sm: "xl", md: "'xl", base: "2xl" }}
+                            align="left"
+                          >
+                            {movie.title}
+                          </Text>
+                          <Text fontSize="lg" color="gray.400">
+                            {moment(movie.release_date).format("YYYY")}
+                          </Text>
+                        </Flex>
+                        <CircularProgress
+                          capIsRound
+                          trackColor="gray.200"
+                          boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px;"
+                          thickness="17px"
+                          size="50px"
+                          value={movie.vote_average * 10}
+                          color={
+                            movie.vote_average * 10 > 70
+                              ? "green"
+                              : "orange.500"
+                          }
+                          bg="white"
+                          borderRadius="200px"
+                          border="1px solid white"
                         >
-                          {movie.title}
-                        </Text>
+                          <CircularProgressLabel
+                            color={
+                              movie.vote_average * 10 > 70
+                                ? "green.700"
+                                : "orange.500"
+                            }
+                            fontWeight="bold"
+                            fontSize="12px"
+                          >
+                            {movie.vote_average * 10}%
+                          </CircularProgressLabel>
+                        </CircularProgress>
                       </Flex>
                     </Flex>
                   </a>
                 ))}
               </Flex>
             </ListItem>
-          )}
-        </List>
+          </List>
+        )}
       </form>
     </Container>
   );

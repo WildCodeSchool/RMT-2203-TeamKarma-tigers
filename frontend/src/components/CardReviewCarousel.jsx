@@ -30,11 +30,17 @@ function CardReviewCarousel({ movie }) {
     getReviewFromMovie();
   }, []);
 
+  if (reviews.length === 0) {
+    return <p>No review found...</p>;
+  }
+
   return (
     <div>
       <Flex
+        width={{ base: "100%", xl: "98%" }}
+        justifyContent="flex-start"
         flexDirection="column"
-        h={{ sm: "500px", md: "500px", lg: "500px", xl: "400px" }}
+        h="40vh"
         scrollBehavior="smooth"
         overflowY="auto"
         sx={{
@@ -54,11 +60,12 @@ function CardReviewCarousel({ movie }) {
         {reviews.map((review) =>
           review ? (
             <Flex
+              maxWidth="97%"
               _even={{
-                alignSelf: "flex-end",
+                alignSelf: { base: "flex-start", sm: "flex-end" },
               }}
             >
-              <CardReview review={review} />{" "}
+              <CardReview review={review} />
             </Flex>
           ) : null
         )}

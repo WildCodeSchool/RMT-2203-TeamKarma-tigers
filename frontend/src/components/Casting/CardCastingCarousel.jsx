@@ -22,12 +22,16 @@ function CardCastingCarousel({ movie }) {
     getCastFromMovie();
   }, []);
 
+  if (casting.length === 0) {
+    return <p>No casting member found...</p>;
+  }
+
   return (
     <Flex
       scrollBehavior="smooth"
-      overflowX="scroll"
+      overflowX="auto"
       w="inherit"
-      maxW="100%"
+      maxW="99%"
       sx={{
         "&::-webkit-scrollbar": {
           width: "16px",
@@ -37,7 +41,9 @@ function CardCastingCarousel({ movie }) {
         },
         "&::-webkit-scrollbar-thumb": {
           borderRadius: "8px",
-          backgroundColor: "#282c34",
+          backgroundColor: "#2b3543",
+          border: "1px",
+          color: "red",
         },
       }}
     >

@@ -20,8 +20,13 @@ export default function CardDetailSynopsis({ movie }) {
 
   return (
     <Box>
-      <Text borderBottom="1px solid white" padding="1.5rem" textAlign="left">
-        <Heading size="lg" paddingBottom="1rem">
+      <Text
+        borderBottom="1px solid white"
+        padding="1.5rem"
+        fontSize="lg"
+        textAlign={{ base: "center", xl: "left" }}
+      >
+        <Heading size="xl" paddingBottom="1rem">
           SYNOPSIS
         </Heading>
         {synopsis.overview}
@@ -31,35 +36,44 @@ export default function CardDetailSynopsis({ movie }) {
         marginTop="2rem"
         justifyContent="space-around"
         w="100%"
-        flexDir={{ md: "" }}
+        wrap="wrap"
       >
         <Flex flexDir="column">
-          <Heading size="md" paddingBottom="0.5rem">
+          <Heading size="lg" paddingBottom="0.5rem">
             GENRES
           </Heading>
-          <HStack>
+          <HStack justifyContent="center">
             {synopsis.genres &&
               synopsis.genres.map((genre) => {
-                return <Text>{genre.name}</Text>;
+                return <Text fontSize="lg">{genre.name}</Text>;
               })}
           </HStack>
-          <Heading size="md" marginTop="1rem">
-            POPULARITY
+          <Heading size="lg" marginTop="1rem">
+            AVERAGE VOTE
           </Heading>
-          <Text marginBottom="1rem">{synopsis.popularity}</Text>
+          <Text marginBottom="1rem" fontSize="lg">
+            {synopsis.vote_average} / 10
+          </Text>
         </Flex>
         <Flex flexDir="column">
-          <Heading size="md" paddingBottom="0.5rem">
+          <Heading size="lg" paddingBottom="0.5rem">
+            BUDGET
+          </Heading>
+          <Text marginBottom="1rem" fontSize="lg">
+            {new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(synopsis.budget)}
+          </Text>
+          <Heading size="lg" paddingBottom="0.5rem">
             REVENUE
           </Heading>
-          <Text marginBottom="1rem">
+          <Text marginBottom="1rem" fontSize="lg">
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
             }).format(synopsis.revenue)}
           </Text>
-          <Heading size="md">AVERAGE VOTE</Heading>
-          <Text marginBottom="1rem">{synopsis.vote_average}</Text>
         </Flex>
       </Flex>
     </Box>

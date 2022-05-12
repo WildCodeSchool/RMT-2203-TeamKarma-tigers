@@ -12,7 +12,6 @@ import {
   Button,
   Select,
   Box,
-  Image,
   Text,
   Flex,
   VStack,
@@ -27,17 +26,34 @@ export default function ModalInspiration() {
   const [currentMovie, setCurrentMovie] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [genreList, setGenreList] = useState([]);
+  const [genreFilter, setGenreFilter] = useState("");
+  const [genreFilterName, setGenreFilterName] = useState("");
 
   useEffect(() => {
     getGenreList().then((result) => setGenreList(result));
   }, []);
 
+  const filterByGenre = (e) => {
+    if (parseInt(e.target.value, 10)) {
+      setGenreFilter(parseInt(e.target.value, 10));
+      setGenreFilterName(
+        genreList.find((genre) => genre.id === parseInt(e.target.value, 10))
+          .name
+      );
+    } else {
+      setGenreFilter("");
+      setGenreFilterName("");
+    }
+  };
+
   return (
     <Button
       onClick={onOpen}
-      variant="ghost"
+      variant="solid"
       _hover={{ bgColor: "#2B3543" }}
-      fontSize={{ base: "10px", sm: "15px", md: "20px", lg: "30px" }}
+      size={{ base: "sm", lg: "lg" }}
+      p={{ base: "10px", lg: "15px" }}
+      colorScheme="red"
     >
       I need inspiration
       <Modal
@@ -46,46 +62,49 @@ export default function ModalInspiration() {
         isOpen={isOpen}
         isCentered
         size="3xl"
-        zIndex="auto"
+        height="30vh"
+        z-index="auto"
       >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Get Inspired</ModalHeader>
-          <ModalCloseButton onClick={() => setCurrentMovie("")} />
+          <ModalCloseButton
+            onClick={() => {
+              setCurrentMovie("");
+              setGenreFilter("");
+              setGenreFilterName("");
+            }}
+          />
           {!currentMovie ? (
-            <>
-              <ModalBody>
-                <Flex
-                  direction="column"
-                  gap={6}
-                  justify="center"
-                  align="center"
-                  width="100%"
-                >
-                  <Image
-                    src={discover}
-                    alt="discover-gif"
-                    objectFit="cover"
-                    width="100%"
-                    height="90%"
-                    filter="auto"
-                    borderRadius="md"
-                    blur="3px"
-                  />
-
-                  <form>
+            <ModalBody
+              bgImage={discover}
+              bgSize="cover"
+              bgRepeat="no-repeat"
+              bgPosition="center"
+            >
+              <Flex
+                direction="column"
+                justify="center"
+                align="center"
+                width="100%"
+              >
+                <form onSubmit={(e) => e.preventDefault()}>
+                  <Flex direction="column">
                     <Flex
-                      position="absolute"
-                      top="50%"
-                      left="50%"
+                      direction="row"
                       gap={6}
-                      transform="translate(-50%, -50%)"
-                      width="90%"
+                      width="100%"
                       align="center"
                       justify="center"
                       wrap="wrap"
+                      paddingY="50px"
                     >
-                      <Text fontSize="5xl" color="white" fontWeight="600">
+                      <Text
+                        fontSize="5xl"
+                        color="white"
+                        fontWeight="600"
+                        textAlign="center"
+                      >
                         Show me any
                       </Text>
 
@@ -97,50 +116,63 @@ export default function ModalInspiration() {
                             id="genre"
                             placeholder="Select option"
                             isRequired
+                            onChange={filterByGenre}
                           >
                             {genreList.map((genre) => (
-                              <option value={genre.id}>{genre.name}</option>
+                              <option value={genre.id} name={genre.name}>
+                                {genre.name}
+                              </option>
                             ))}
                           </Select>
                         </FormControl>
                       </Flex>
-                      <Text fontSize="5xl" color="white" fontWeight="600">
+                      <Text
+                        fontSize="5xl"
+                        color="white"
+                        fontWeight="600"
+                        textAlign="center"
+                      >
                         movie
                       </Text>
-                      <VStack>
-                        <Button
-                          size="lg"
-                          onClick={onOpen}
-                          variant="solid"
-                          type="submit"
-                          colorScheme="twitter"
-                        >
-                          Show me what you got{" "}
-                        </Button>
-
-                        <Text color="white">OR</Text>
-                        <Button
-                          align="center"
-                          onClick={() => {
-                            getTotalPageResult().then((nb) => {
-                              getRandomMovie(nb).then((movie) =>
-                                setCurrentMovie(movie)
-                              );
-                            });
-                          }}
-                          size="lg"
-                          variant="solid"
-                          colorScheme="facebook"
-                        >
-                          Get Random Movie
-                        </Button>
-                      </VStack>
                     </Flex>
-                  </form>
-                </Flex>
-              </ModalBody>
-              <ModalFooter />
-            </>
+                    <VStack paddingBottom={50}>
+                      <Button
+                        size="lg"
+                        onClick={() => {
+                          getTotalPageResult().then((nb) => {
+                            getRandomMovie(nb, genreFilter).then((movie) => {
+                              setCurrentMovie(movie);
+                            });
+                          });
+                        }}
+                        variant="solid"
+                        type="submit"
+                        colorScheme="twitter"
+                      >
+                        Show me what you got
+                      </Button>
+
+                      <Text color="white">OR</Text>
+                      <Button
+                        align="center"
+                        onClick={() => {
+                          getTotalPageResult().then((nb) => {
+                            getRandomMovie(nb, genreFilter).then((movie) =>
+                              setCurrentMovie(movie)
+                            );
+                          });
+                        }}
+                        size="lg"
+                        variant="solid"
+                        colorScheme="facebook"
+                      >
+                        Get Random Movie
+                      </Button>
+                    </VStack>
+                  </Flex>
+                </form>
+              </Flex>
+            </ModalBody>
           ) : (
             <>
               <ModalBody
@@ -164,7 +196,7 @@ export default function ModalInspiration() {
                   align="center"
                   onClick={() => {
                     getTotalPageResult().then((nb) => {
-                      getRandomMovie(nb).then((movie) =>
+                      getRandomMovie(nb, genreFilter).then((movie) =>
                         setCurrentMovie(movie)
                       );
                     });
@@ -173,7 +205,9 @@ export default function ModalInspiration() {
                   variant="solid"
                   colorScheme="facebook"
                 >
-                  Show another movie{" "}
+                  {genreFilterName
+                    ? `Show another ${genreFilterName} movie`
+                    : `Show another random movie`}
                 </Button>
               </ModalFooter>
             </>
